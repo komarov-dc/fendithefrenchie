@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FENDI — Thailand's Most Unexpected Startup Founder</title>
+  <meta name="description" content="Food reviewer. Scooter rider. Vibe coder. A French bulldog exploring Thailand one adventure at a time." />
+
+  <!-- Favicon / home-screen icon (Fendi's face) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png" />
+  <meta name="theme-color" content="#f15a29" />
+
+  <!-- Social share preview (Open Graph + Twitter/iMessage/WhatsApp) -->
+  <!-- ⚠ Once the domain is live, change og:image + add <meta property="og:url"> to the FULL https://yourdomain.com/... URL for richest previews -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="FENDI — Thailand's Most Unexpected Startup Founder" />
+  <meta property="og:description" content="Food reviewer. Scooter rider. Vibe coder. A French bulldog exploring Thailand one adventure at a time." />
+  <meta property="og:image" content="images/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="FENDI — Thailand's Most Unexpected Startup Founder" />
+  <meta name="twitter:description" content="Food reviewer. Scooter rider. Vibe coder. A French bulldog exploring Thailand one adventure at a time." />
+  <meta name="twitter:image" content="images/og.jpg" />
+
+  <!-- Tailwind Play CDN (zero-install, instant) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Distinctive type: Fredoka (bold rounded display) + Nunito (friendly body) + Caveat (hand note) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#f15a29',
+            'brand-dark': '#d8431a',
+            cream: '#fdf8f2',
+            peach: '#fbe6d8',
+            panel: '#ece4d8',
+            ink: '#22130c',
+          },
+          fontFamily: {
+            display: ['Fredoka', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            body: ['Nunito', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            hand: ['Caveat', 'cursive'],
+          },
+          boxShadow: {
+            card: '0 18px 40px -18px rgba(34,19,12,0.22)',
+            soft: '0 10px 30px -12px rgba(34,19,12,0.18)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Nunito', sans-serif; }
+    .font-display { font-family: 'Fredoka', sans-serif; }
+    .font-hand { font-family: 'Caveat', cursive; }
+
+    /* Neutral placeholder so dropping real images in later won't shift layout */
+    .img-slot {
+      background-color: #e7ddcf;
+      background-image:
+        linear-gradient(135deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0) 55%),
+        repeating-linear-gradient(45deg, rgba(255,255,255,0.10) 0 14px, rgba(0,0,0,0.02) 14px 28px);
+    }
+    .img-slot::after {
+      content: "🐾 image";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .4rem;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-size: .72rem;
+      color: #a99b86;
+    }
+    /* When a real <img> with a src loads, it covers the placeholder label */
+    .img-slot > img { position: relative; z-index: 1; }
+    .img-slot > img:not([src]),
+    .img-slot > img[src=""] { opacity: 0; }
+
+    @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    .floaty { animation: floaty 5s ease-in-out infinite; }
+
+    @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    .rise { opacity: 0; animation: rise .7s cubic-bezier(.2,.7,.2,1) forwards; }
+
+    /* Keyboard accessibility: visible focus ring on interactive elements */
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid #f15a29;
+      outline-offset: 3px;
+      border-radius: 9999px;
+    }
+
+    /* Respect users who prefer less motion */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .rise, .floaty { animation: none !important; opacity: 1 !important; }
+      * { transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+
+<body class="bg-cream text-ink font-body antialiased selection:bg-brand/20">
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="sticky top-0 z-50 bg-cream/85 backdrop-blur-md border-b border-black/5">
+    <div class="mx-auto max-w-7xl px-5 sm:px-8">
+      <div class="flex h-[68px] items-center justify-between">
+        <!-- Logo -->
+        <a href="#top" class="flex items-center gap-3 group">
+          <span class="img-slot relative grid h-10 w-10 place-items-center overflow-hidden rounded-full ring-2 ring-brand/30">
+            <img src="images/hero.jpg" alt="Fendi avatar" class="h-full w-full object-cover object-top" />
+          </span>
+          <span class="font-display text-2xl font-700 tracking-tight">FENDI</span>
+        </a>
+
+        <!-- Desktop nav -->
+        <nav class="hidden md:flex items-center gap-9 font-display text-[15px] font-500">
+          <a href="#about" class="relative text-ink/80 hover:text-ink transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-brand after:transition-all hover:after:w-full">About</a>
+          <a href="#gallery" class="relative text-ink/80 hover:text-ink transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-brand after:transition-all hover:after:w-full">Gallery</a>
+          <a href="#adventures" class="relative text-ink/80 hover:text-ink transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-brand after:transition-all hover:after:w-full">Adventures</a>
+          <a href="#contact" class="relative text-ink/80 hover:text-ink transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-brand after:transition-all hover:after:w-full">Contact</a>
+        </nav>
+
+        <div class="flex items-center gap-2">
+          <a href="#adventures" class="hidden sm:inline-flex items-center rounded-full bg-brand px-6 py-2.5 font-display font-500 text-white shadow-soft transition-all hover:bg-brand-dark hover:-translate-y-0.5 active:translate-y-0">
+            Follow the Journey
+          </a>
+          <!-- Mobile menu toggle -->
+          <button id="menuBtn" aria-label="Open menu" class="md:hidden grid h-11 w-11 place-items-center rounded-xl border border-black/10 bg-white/60">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobileMenu" class="md:hidden hidden pb-4">
+        <nav class="flex flex-col gap-1 font-display text-base">
+          <a href="#about" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">About</a>
+          <a href="#gallery" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">Gallery</a>
+          <a href="#adventures" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">Adventures</a>
+          <a href="#contact" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">Contact</a>
+          <a href="#adventures" class="mt-1 rounded-full bg-brand px-5 py-3 text-center font-500 text-white">Follow the Journey</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ===================== HERO ===================== -->
+    <section class="relative overflow-hidden">
+      <!-- warm atmosphere -->
+      <div class="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-[#fbeede] via-[#fdf3e8] to-cream"></div>
+      <!-- faint palm silhouette, left -->
+      <svg class="pointer-events-none absolute -left-10 top-10 -z-10 h-[460px] w-[460px] text-[#e7c9a8] opacity-40" viewBox="0 0 200 200" fill="currentColor" aria-hidden="true">
+        <path d="M98 190c-2-40-2-78 4-104-14 6-26 16-34 30 6-22 20-38 38-46-12-8-28-10-44-4 16-12 36-14 52-6-4-14-14-26-28-32 18-2 34 8 42 24 4-14 2-28-6-40 16 8 24 26 22 44 18-8 30 0 36 14-14-6-26-4-34 6 16 2 28 12 32 28-12-12-26-16-40-12 8 28 8 66 6 104z"/>
+      </svg>
+
+      <div class="mx-auto max-w-7xl px-5 sm:px-8 pt-12 pb-44 sm:pb-52 lg:pt-16">
+        <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-8">
+          <!-- Copy -->
+          <div>
+            <p class="rise flex items-center gap-2 font-display text-sm font-600 uppercase tracking-[0.14em] text-brand" style="animation-delay:.05s">
+              <span class="text-base">🐾</span> Thailand based. Dog approved.
+            </p>
+
+            <h1 class="rise mt-5 font-display text-5xl font-700 leading-[1.02] tracking-tight sm:text-6xl lg:text-[68px]" style="animation-delay:.12s">
+              Thailand's Most<br class="hidden sm:block" />
+              Unexpected<br class="hidden sm:block" />
+              <span class="text-brand">Startup</span> Founder
+            </h1>
+
+            <p class="rise mt-6 max-w-md text-lg leading-relaxed text-ink/70" style="animation-delay:.2s">
+              Food reviewer. Scooter rider. Vibe coder.
+              French bulldog exploring Thailand one adventure at a time.
+            </p>
+
+            <div class="rise mt-8 flex flex-wrap items-center gap-3" style="animation-delay:.28s">
+              <a href="#adventures" class="group inline-flex items-center gap-2.5 rounded-full bg-brand px-6 py-3.5 font-display font-500 text-white shadow-soft transition-all hover:bg-brand-dark hover:-translate-y-0.5">
+                <span class="grid h-6 w-6 place-items-center rounded-full bg-white/95">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="#f15a29" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </span>
+                Watch Adventures
+              </a>
+              <a href="#about" class="inline-flex items-center gap-2 rounded-full border border-black/12 bg-white px-6 py-3.5 font-display font-500 text-ink shadow-soft transition-all hover:-translate-y-0.5 hover:border-brand/40">
+                <span>🐾</span> Meet Fendi
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero image panel -->
+          <div class="relative">
+            <div class="img-slot relative ml-auto aspect-[5/5.2] w-full max-w-[560px] overflow-hidden rounded-[2.5rem] rounded-tr-[5rem] shadow-card">
+              <img src="images/hero.jpg" alt="Fendi the French bulldog" class="h-full w-full object-cover object-[center_30%]" />
+            </div>
+
+            <!-- hand-drawn note + arrow (desktop only) — sticker style so it reads cleanly over the photo -->
+            <div class="floaty absolute -left-4 bottom-6 z-20 hidden lg:block">
+              <div class="-rotate-6 rounded-2xl bg-cream/95 px-4 py-2 shadow-card ring-1 ring-black/5 backdrop-blur-sm">
+                <p class="font-hand text-[24px] leading-tight text-ink/85">Fuelled by treats<br />&amp; good vibes</p>
+              </div>
+              <svg class="ml-16 mt-1 h-12 w-20 text-ink/60" viewBox="0 0 80 50" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <path d="M10 44 C 18 20, 44 8, 72 6" />
+                <path d="M72 6 l -16 0 M72 6 l 0 16" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================== FEATURE CARDS (overlap) ===================== -->
+      <div id="about" class="mx-auto -mt-28 max-w-7xl px-5 sm:px-8 sm:-mt-32 relative z-10">
+        <div class="grid gap-5 md:grid-cols-3">
+          <!-- Travel -->
+          <article class="group flex items-start gap-4 rounded-3xl bg-white p-6 shadow-card transition-all hover:-translate-y-1.5">
+            <span class="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-peach text-2xl transition-transform group-hover:scale-110">🛵</span>
+            <div>
+              <h3 class="font-display text-xl font-600">Travel</h3>
+              <p class="mt-1.5 text-[15px] leading-snug text-ink/65">Exploring Thailand from Pattaya to Chiang Mai.</p>
+            </div>
+          </article>
+          <!-- Food Reviews -->
+          <article class="group flex items-start gap-4 rounded-3xl bg-white p-6 shadow-card transition-all hover:-translate-y-1.5">
+            <span class="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-peach text-2xl transition-transform group-hover:scale-110">🍲</span>
+            <div>
+              <h3 class="font-display text-xl font-600">Food Reviews</h3>
+              <p class="mt-1.5 text-[15px] leading-snug text-ink/65">Finding the best local dishes and hidden gems.</p>
+            </div>
+          </article>
+          <!-- Vibe Coding -->
+          <article class="group flex items-start gap-4 rounded-3xl bg-white p-6 shadow-card transition-all hover:-translate-y-1.5">
+            <span class="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-peach text-2xl transition-transform group-hover:scale-110">💻</span>
+            <div>
+              <h3 class="font-display text-xl font-600">Vibe Coding</h3>
+              <p class="mt-1.5 text-[15px] leading-snug text-ink/65">Building ridiculous startup ideas from cafés around Asia.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== LATEST ADVENTURES ===================== -->
+    <section id="adventures" class="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-24">
+      <div class="text-center">
+        <p class="text-2xl">🐾</p>
+        <h2 class="mt-1 font-display text-4xl font-700 tracking-tight sm:text-5xl">Latest Adventures</h2>
+        <p class="mt-3 text-lg text-ink/60">Come along for the ride.</p>
+      </div>
+
+      <div id="gallery" class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Card 1 -->
+        <article class="group relative aspect-[3/4] overflow-hidden rounded-3xl shadow-card">
+          <span class="img-slot absolute inset-0">
+            <img src="images/coding.jpg" alt="Coding a dating app for dogs" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          </span>
+          <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/15 to-transparent"></div>
+          <div class="absolute inset-x-0 bottom-0 z-20 p-6">
+            <h3 class="font-display text-xl font-600 leading-tight text-white">Coding a dating app for dogs</h3>
+            <a href="#" class="mt-3 inline-flex items-center gap-1.5 rounded-full bg-brand px-4 py-2 text-sm font-display font-500 text-white transition-all hover:bg-brand-dark hover:gap-2.5">
+              Read More <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="group relative aspect-[3/4] overflow-hidden rounded-3xl shadow-card">
+          <span class="img-slot absolute inset-0">
+            <img src="images/food.jpg" alt="Reviewing street food in Bangkok" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          </span>
+          <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/15 to-transparent"></div>
+          <div class="absolute inset-x-0 bottom-0 z-20 p-6">
+            <h3 class="font-display text-xl font-600 leading-tight text-white">Reviewing street food in Bangkok</h3>
+            <a href="#" class="mt-3 inline-flex items-center gap-1.5 rounded-full bg-brand px-4 py-2 text-sm font-display font-500 text-white transition-all hover:bg-brand-dark hover:gap-2.5">
+              Read More <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="group relative aspect-[3/4] overflow-hidden rounded-3xl shadow-card">
+          <span class="img-slot absolute inset-0">
+            <img src="images/scooter.jpg" alt="Riding the Fendi scooter through Phuket" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          </span>
+          <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/15 to-transparent"></div>
+          <div class="absolute inset-x-0 bottom-0 z-20 p-6">
+            <h3 class="font-display text-xl font-600 leading-tight text-white">Riding the Fendi scooter through Phuket</h3>
+            <a href="#" class="mt-3 inline-flex items-center gap-1.5 rounded-full bg-brand px-4 py-2 text-sm font-display font-500 text-white transition-all hover:bg-brand-dark hover:gap-2.5">
+              Read More <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer id="contact" class="border-t border-black/5 bg-cream">
+    <div class="mx-auto max-w-7xl px-5 sm:px-8 py-12">
+      <div class="flex flex-col items-center gap-6">
+        <a href="#top" class="flex items-center gap-2.5">
+          <span class="img-slot relative grid h-9 w-9 place-items-center overflow-hidden rounded-full ring-2 ring-brand/30">
+            <img src="images/hero.jpg" alt="Fendi avatar" class="h-full w-full object-cover object-top" />
+          </span>
+          <span class="font-display text-xl font-700 tracking-tight">FENDI</span>
+        </a>
+
+        <div class="flex items-center gap-3">
+          <!-- Instagram -->
+          <a href="#" aria-label="Instagram" class="grid h-11 w-11 place-items-center rounded-full bg-white text-ink/70 shadow-soft transition-all hover:-translate-y-1 hover:bg-brand hover:text-white">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <!-- TikTok -->
+          <a href="#" aria-label="TikTok" class="grid h-11 w-11 place-items-center rounded-full bg-white text-ink/70 shadow-soft transition-all hover:-translate-y-1 hover:bg-brand hover:text-white">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 2c.3 2.4 1.7 4.1 4 4.4v2.7c-1.4.1-2.7-.3-4-1v6.3c0 3.4-2.6 5.9-5.9 5.9A5.7 5.7 0 0 1 5 14.6c.2-3 2.6-5.2 5.9-5v2.9c-.4-.1-.9-.2-1.3-.2-1.5 0-2.6 1.2-2.6 2.6 0 1.5 1.2 2.6 2.7 2.6 1.5 0 2.7-1.1 2.7-2.7V2h2.1z"/></svg>
+          </a>
+          <!-- YouTube -->
+          <a href="#" aria-label="YouTube" class="grid h-11 w-11 place-items-center rounded-full bg-white text-ink/70 shadow-soft transition-all hover:-translate-y-1 hover:bg-brand hover:text-white">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.1 5 12 5 12 5s-6.1 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.9 19 12 19 12 19s6.1 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3-5.2 3z"/></svg>
+          </a>
+        </div>
+
+        <p class="text-sm text-ink/50">© 2026 Fendi. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mobileMenu');
+    btn?.addEventListener('click', () => menu.classList.toggle('hidden'));
+    menu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.add('hidden')));
+  </script>
+</body>
+</html>
