@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FENDI — Chicky Chic · Hotdogs & Fried Chicken in Pattaya</title>
-  <meta name="description" content="Fendi the Frenchie explores Thailand and serves up crispy fried chicken & juicy hotdogs at the Chicky Chic food booth in Pattaya. Open 24 hours. All dogs, all people, one love." />
+  <title>Chicky Chic — Hotdogs & Fried Chicken in Pattaya · Fendi</title>
+  <meta name="description" content="Chicky Chic — crispy fried chicken, juicy hotdogs and breakfast sandwiches from our street-food booth in Pattaya. Open 24 hours. Fendi the Frenchie brings the good vibes. All dogs, all people, one love." />
 
   <!-- Favicon / home-screen icon (Fendi's face) -->
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png" />
-  <meta name="theme-color" content="#f15a29" />
+  <meta name="theme-color" content="#d4202a" />
 
   <!-- Social share preview -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="FENDI — Chicky Chic · Hotdogs & Fried Chicken in Pattaya" />
-  <meta property="og:description" content="Fendi the Frenchie explores Thailand & serves crispy chicken and hotdogs at Chicky Chic, Pattaya. Open 24 hours. All dogs, all people, one love." />
+  <meta property="og:title" content="Chicky Chic — Hotdogs & Fried Chicken in Pattaya · Fendi" />
+  <meta property="og:description" content="Crispy chicken, juicy hotdogs & good vibes from our booth in Pattaya. Open 24 hours. All dogs, all people, one love." />
   <meta property="og:image" content="images/og.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="FENDI — Chicky Chic · Hotdogs & Fried Chicken in Pattaya" />
-  <meta name="twitter:description" content="Fendi the Frenchie explores Thailand & serves crispy chicken and hotdogs at Chicky Chic, Pattaya." />
+  <meta name="twitter:title" content="Chicky Chic — Hotdogs & Fried Chicken in Pattaya · Fendi" />
+  <meta name="twitter:description" content="Crispy chicken, juicy hotdogs & good vibes from our booth in Pattaya. Open 24 hours." />
   <meta name="twitter:image" content="images/og.jpg" />
 
   <!-- Tailwind Play CDN (zero-install, instant) -->
@@ -40,6 +40,8 @@
             'brand-dark': '#d8431a',
             chicky: '#d4202a',
             'chicky-dark': '#b01a20',
+            gold: '#f5a623',
+            'gold-dark': '#e08e00',
             cream: '#fdf8f2',
             peach: '#fbe6d8',
             panel: '#ece4d8',
@@ -82,13 +84,18 @@
     .img-slot > img { position: relative; z-index: 1; }
     .img-slot > img:not([src]), .img-slot > img[src=""] { opacity: 0; }
 
+    /* Striped awning accent for the food-booth energy */
+    .awning {
+      background-image: repeating-linear-gradient(90deg, #d4202a 0 22px, #fdf8f2 22px 44px);
+    }
+
     @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
     .floaty { animation: floaty 5s ease-in-out infinite; }
 
     @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
     .rise { opacity: 0; animation: rise .7s cubic-bezier(.2,.7,.2,1) forwards; }
 
-    a:focus-visible, button:focus-visible { outline: 3px solid #f15a29; outline-offset: 3px; border-radius: 9999px; }
+    a:focus-visible, button:focus-visible { outline: 3px solid #d4202a; outline-offset: 3px; border-radius: 9999px; }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -98,54 +105,60 @@
   </style>
 </head>
 
-<body class="bg-cream text-ink font-body antialiased selection:bg-brand/20">
+<body class="bg-cream text-ink font-body antialiased selection:bg-chicky/20">
 
   <!-- ===================== HEADER ===================== -->
-  <header class="sticky top-0 z-50 bg-cream/85 backdrop-blur-md border-b border-black/5">
+  <header class="sticky top-0 z-50 bg-cream/90 backdrop-blur-md border-b border-black/5">
     <div class="mx-auto max-w-7xl px-5 sm:px-8">
-      <div class="flex h-[68px] items-center justify-between">
-        <a href="#top" class="flex items-center gap-3 group">
-          <span class="img-slot relative grid h-10 w-10 place-items-center overflow-hidden rounded-full ring-2 ring-brand/30">
+      <div class="flex h-[72px] items-center justify-between gap-3">
+        <!-- Logo + wordmark -->
+        <a href="#top" class="flex items-center gap-3 group shrink-0">
+          <span class="img-slot relative grid h-11 w-11 place-items-center overflow-hidden rounded-full ring-2 ring-chicky/40">
             <img src="images/hero.jpg" alt="Fendi avatar" class="h-full w-full object-cover object-top" />
           </span>
-          <span class="font-display text-2xl font-700 tracking-tight">FENDI</span>
+          <span class="leading-none">
+            <span class="block font-display text-2xl font-700 tracking-tight text-chicky">CHICKY CHIC</span>
+            <span class="block font-display text-[9px] font-600 uppercase tracking-[0.18em] text-ink/55">Hotdogs &amp; Fried Chicken</span>
+          </span>
         </a>
 
-        <nav class="hidden md:flex items-center gap-8 font-display text-[15px] font-500">
-          <a href="#about" class="relative text-ink/80 hover:text-ink transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-brand after:transition-all hover:after:w-full">About</a>
-          <a href="#gallery" class="relative text-ink/80 hover:text-ink transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-brand after:transition-all hover:after:w-full">Gallery</a>
-          <a href="#adventures" class="relative text-ink/80 hover:text-ink transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-brand after:transition-all hover:after:w-full">Adventures</a>
-          <a href="menu.html" class="relative text-ink/80 hover:text-ink transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-brand after:transition-all hover:after:w-full">Menu</a>
-          <a href="breakfast.html" class="relative text-ink/80 hover:text-ink transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-brand after:transition-all hover:after:w-full">Breakfast</a>
-          <a href="#franchise" class="relative text-ink/80 hover:text-ink transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-brand after:transition-all hover:after:w-full">Franchise</a>
-          <a href="#contact" class="relative text-ink/80 hover:text-ink transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-brand after:transition-all hover:after:w-full">Contact</a>
+        <!-- Center nav -->
+        <nav class="hidden lg:flex items-center gap-7 font-display text-[15px] font-500">
+          <a href="#top" class="relative text-ink/80 hover:text-chicky transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-chicky after:transition-all hover:after:w-full">Home</a>
+          <a href="menu.html" class="relative text-ink/80 hover:text-chicky transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-chicky after:transition-all hover:after:w-full">Menu</a>
+          <a href="#food-booth" class="relative text-ink/80 hover:text-chicky transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-chicky after:transition-all hover:after:w-full">Food Booth</a>
+          <a href="#meet-fendi" class="relative text-ink/80 hover:text-chicky transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-chicky after:transition-all hover:after:w-full">Fendi</a>
+          <a href="#journey" class="relative text-ink/80 hover:text-chicky transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-chicky after:transition-all hover:after:w-full">Gallery</a>
+          <a href="#contact" class="relative text-ink/80 hover:text-chicky transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-chicky after:transition-all hover:after:w-full">Contact</a>
         </nav>
 
-        <div class="flex items-center gap-2">
+        <!-- Right side -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          <div class="hidden xl:flex items-center gap-2.5">
+            <span class="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-chicky text-center font-display text-[11px] font-700 leading-[1.05] text-white shadow-soft">24<br />HRS</span>
+            <span class="font-display text-[11px] font-600 uppercase leading-tight tracking-[0.08em] text-ink/60">Open Every Day<br />in Pattaya</span>
+          </div>
           <select id="langSel" aria-label="Language" title="Language" class="cursor-pointer rounded-full border border-black/10 bg-white/70 px-2.5 py-1.5 font-display text-sm font-500 text-ink/80 shadow-soft focus:outline-none">
             <option value="en">EN</option>
             <option value="th">ไทย</option>
             <option value="ru">RU</option>
           </select>
-          <a href="menu.html" class="hidden sm:inline-flex items-center rounded-full bg-brand px-6 py-2.5 font-display font-500 text-white shadow-soft transition-all hover:bg-brand-dark hover:-translate-y-0.5 active:translate-y-0">
-            Follow the Journey
-          </a>
-          <button id="menuBtn" aria-label="Open menu" class="md:hidden grid h-11 w-11 place-items-center rounded-xl border border-black/10 bg-white/60">
+          <button id="menuBtn" aria-label="Open menu" class="lg:hidden grid h-11 w-11 place-items-center rounded-xl border border-black/10 bg-white/60">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
           </button>
         </div>
       </div>
 
-      <div id="mobileMenu" class="md:hidden hidden pb-4">
+      <!-- Mobile menu -->
+      <div id="mobileMenu" class="lg:hidden hidden pb-4">
         <nav class="flex flex-col gap-1 font-display text-base">
-          <a href="#about" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">About</a>
-          <a href="#gallery" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">Gallery</a>
-          <a href="#adventures" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">Adventures</a>
+          <a href="#top" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">Home</a>
           <a href="menu.html" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">Menu</a>
-          <a href="breakfast.html" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">Breakfast</a>
-          <a href="#franchise" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">Franchise</a>
+          <a href="#food-booth" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">Food Booth</a>
+          <a href="#meet-fendi" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">Fendi</a>
+          <a href="#journey" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">Gallery</a>
           <a href="#contact" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">Contact</a>
-          <a href="menu.html" class="mt-1 rounded-full bg-brand px-5 py-3 text-center font-500 text-white">See the Menu</a>
+          <a href="menu.html" class="mt-1 rounded-full bg-chicky px-5 py-3 text-center font-500 text-white">See Our Menu</a>
         </nav>
       </div>
     </div>
@@ -155,301 +168,333 @@
     <!-- ===================== HERO ===================== -->
     <section class="relative overflow-hidden">
       <div class="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-[#fbeede] via-[#fdf3e8] to-cream"></div>
-      <svg class="pointer-events-none absolute -left-10 top-10 -z-10 h-[460px] w-[460px] text-[#e7c9a8] opacity-40" viewBox="0 0 200 200" fill="currentColor" aria-hidden="true">
+      <!-- faint palm backdrop -->
+      <svg class="pointer-events-none absolute -right-16 top-6 -z-10 h-[520px] w-[520px] text-[#e7c9a8] opacity-40" viewBox="0 0 200 200" fill="currentColor" aria-hidden="true">
         <path d="M98 190c-2-40-2-78 4-104-14 6-26 16-34 30 6-22 20-38 38-46-12-8-28-10-44-4 16-12 36-14 52-6-4-14-14-26-28-32 18-2 34 8 42 24 4-14 2-28-6-40 16 8 24 26 22 44 18-8 30 0 36 14-14-6-26-4-34 6 16 2 28 12 32 28-12-12-26-16-40-12 8 28 8 66 6 104z"/>
       </svg>
 
-      <div class="mx-auto max-w-7xl px-5 sm:px-8 pt-12 pb-44 sm:pb-52 lg:pt-16">
-        <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-8">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8 pt-12 pb-16 sm:pb-20 lg:pt-16">
+        <div class="grid items-center gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-10">
+          <!-- Copy -->
           <div>
-            <p class="rise flex items-center gap-2 font-display text-sm font-600 uppercase tracking-[0.14em] text-brand" style="animation-delay:.05s">
-              <span class="text-base">🐾</span> Thailand based. Dog approved.
+            <p class="rise inline-flex items-center gap-2 rounded-full bg-gold px-4 py-1.5 font-display text-xs font-700 uppercase tracking-[0.12em] text-ink shadow-soft" style="animation-delay:.05s">
+              <span class="text-sm">🍗</span> Pattaya's Favorite Street Food
             </p>
 
             <h1 class="rise mt-5 font-display text-5xl font-700 leading-[1.02] tracking-tight sm:text-6xl lg:text-[64px]" style="animation-delay:.12s">
-              Exploring Thailand.<br />
-              Spreading Love.<br />
-              <span class="text-brand">Serving Happiness.</span>
+              <span class="text-ink">CRISPY CHICKEN.</span><br />
+              <span class="text-chicky">JUICY HOTDOGS.</span><br />
+              <span class="text-gold-dark">GOOD VIBES.</span>
             </h1>
 
             <p class="rise mt-6 max-w-md text-lg leading-relaxed text-ink/70" style="animation-delay:.2s">
-              Fendi the Frenchie travels, discovers, and shares love everywhere she goes — and now she's serving up crispy fried chicken &amp; juicy hotdogs at <span class="font-700 text-chicky">Chicky Chic</span> in Pattaya!
+              From our booth in Pattaya to adventures across Thailand — Fendi brings you food, fun and happiness 24 hours a day!
             </p>
 
             <div class="rise mt-8 flex flex-wrap items-center gap-3" style="animation-delay:.28s">
-              <a href="menu.html" class="group inline-flex items-center gap-2.5 rounded-full bg-chicky px-6 py-3.5 font-display font-500 text-white shadow-soft transition-all hover:bg-chicky-dark hover:-translate-y-0.5">
-                <span class="text-lg">🍗</span> Our Food Booth
+              <a href="menu.html" class="group inline-flex items-center gap-2.5 rounded-full bg-chicky px-7 py-3.5 font-display font-600 text-white shadow-soft transition-all hover:bg-chicky-dark hover:-translate-y-0.5 active:translate-y-0">
+                <span class="text-lg">🍗</span> See Our Menu
               </a>
-              <a href="#adventures" class="inline-flex items-center gap-2 rounded-full border border-black/12 bg-white px-6 py-3.5 font-display font-500 text-ink shadow-soft transition-all hover:-translate-y-0.5 hover:border-brand/40">
-                <span class="grid h-6 w-6 place-items-center rounded-full bg-brand">
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                </span>
-                Watch Adventures
+              <a href="#food-booth" class="inline-flex items-center gap-2 rounded-full border-2 border-chicky/25 bg-white px-7 py-3.5 font-display font-600 text-ink shadow-soft transition-all hover:-translate-y-0.5 hover:border-chicky/60">
+                <span class="text-lg">📍</span> Visit Our Booth
               </a>
             </div>
           </div>
 
+          <!-- Visual: sharp Fendi hero + booth/food-spread placeholder -->
           <div class="relative">
-            <div class="img-slot relative ml-auto aspect-[5/5.2] w-full max-w-[560px] overflow-hidden rounded-[2.5rem] rounded-tr-[5rem] shadow-card">
-              <!-- Swap src to the Chicky Chic booth render when ready -->
-              <img src="images/hero.jpg" alt="Fendi at the Chicky Chic food booth" class="h-full w-full object-cover object-[center_30%]" />
+            <div class="relative aspect-[5/5.3] w-full max-w-[540px] ml-auto overflow-hidden rounded-[2.5rem] rounded-tr-[5rem] shadow-card">
+              <img src="images/hero.jpg" alt="Fendi the Frenchie, face of Chicky Chic in Pattaya" class="h-full w-full object-cover object-[center_28%]" />
+              <div class="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/35 to-transparent"></div>
             </div>
 
-            <div class="floaty absolute -left-4 bottom-6 z-20 hidden lg:block">
-              <div class="-rotate-6 rounded-2xl bg-cream/95 px-4 py-2 shadow-card ring-1 ring-black/5 backdrop-blur-sm">
-                <p class="font-hand text-[24px] leading-tight text-ink/85">The boss of<br />the booth 🐾</p>
-              </div>
-              <svg class="ml-16 mt-1 h-12 w-20 text-ink/60" viewBox="0 0 80 50" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-                <path d="M10 44 C 18 20, 44 8, 72 6" />
-                <path d="M72 6 l -16 0 M72 6 l 0 16" />
-              </svg>
+            <!-- Booth + food-spread placeholder (we don't have the render yet) -->
+            <div class="img-slot absolute -bottom-6 -left-3 z-20 hidden h-36 w-52 overflow-hidden rounded-2xl shadow-card ring-4 ring-cream sm:block">
+              <img alt="Chicky Chic booth & food spread" class="h-full w-full object-cover" />
+            </div>
+
+            <!-- 24h badge -->
+            <div class="floaty absolute -right-2 -top-2 z-20 grid h-20 w-20 place-items-center rounded-full bg-gold text-center font-display text-sm font-700 leading-[1.05] text-ink shadow-card ring-4 ring-cream">
+              OPEN<br />24<br />HRS
             </div>
           </div>
-        </div>
-      </div>
-
-      <!-- FEATURE CARDS (overlap) -->
-      <div id="about" class="mx-auto -mt-28 max-w-7xl px-5 sm:px-8 sm:-mt-32 relative z-10">
-        <div class="grid gap-5 md:grid-cols-3">
-          <article class="group flex items-start gap-4 rounded-3xl bg-white p-6 shadow-card transition-all hover:-translate-y-1.5">
-            <span class="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-peach text-2xl transition-transform group-hover:scale-110">🏪</span>
-            <div>
-              <h3 class="font-display text-xl font-600">Our Food Booth</h3>
-              <p class="mt-1.5 text-[15px] leading-snug text-ink/65"><span class="font-700 text-chicky">24/7</span> in Pattaya. Hotdogs, fried chicken &amp; good vibes — open all day, every day.</p>
-            </div>
-          </article>
-          <article class="group flex items-start gap-4 rounded-3xl bg-white p-6 shadow-card transition-all hover:-translate-y-1.5">
-            <span class="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-peach text-2xl transition-transform group-hover:scale-110">🍲</span>
-            <div>
-              <h3 class="font-display text-xl font-600">Made With Love</h3>
-              <p class="mt-1.5 text-[15px] leading-snug text-ink/65">Crispy, juicy &amp; made fresh daily with quality ingredients and our secret recipes.</p>
-            </div>
-          </article>
-          <article class="group flex items-start gap-4 rounded-3xl bg-white p-6 shadow-card transition-all hover:-translate-y-1.5">
-            <span class="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-peach text-2xl transition-transform group-hover:scale-110">🐾</span>
-            <div>
-              <h3 class="font-display text-xl font-600">All Dogs, All People, One Love</h3>
-              <p class="mt-1.5 text-[15px] leading-snug text-ink/65">We believe in kindness, inclusion, and putting a smile on every face.</p>
-            </div>
-          </article>
         </div>
       </div>
     </section>
 
-    <!-- ===================== MENU TEASER ===================== -->
-    <section class="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-24">
-      <div class="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
-        <div>
-          <p class="flex items-center gap-2 font-display text-sm font-600 uppercase tracking-[0.14em] text-chicky"><span>🍗</span> Chicky Chic Menu</p>
-          <h2 class="mt-3 font-display text-4xl font-700 tracking-tight sm:text-5xl">Crispy chicken,<br class="hidden sm:block" /> juicy hotdogs &amp; more</h2>
-          <p class="mt-3 max-w-md text-lg text-ink/60">Made fresh, served with love at our booth in Pattaya.</p>
+    <!-- ===================== FEATURE STRIP ===================== -->
+    <section class="mx-auto max-w-7xl px-5 sm:px-8 -mt-2">
+      <div class="grid grid-cols-2 gap-px overflow-hidden rounded-3xl bg-black/5 shadow-card lg:grid-cols-4">
+        <div class="flex flex-col items-center gap-2 bg-white px-5 py-7 text-center">
+          <span class="text-3xl">🕐</span>
+          <h3 class="font-display text-base font-700 uppercase tracking-wide text-chicky">24 Hours</h3>
+          <p class="text-sm leading-snug text-ink/60">Open all day, every day</p>
         </div>
-        <a href="menu.html" class="group inline-flex items-center gap-2 rounded-full bg-chicky px-6 py-3.5 font-display font-500 text-white shadow-soft transition-all hover:bg-chicky-dark hover:-translate-y-0.5">
+        <div class="flex flex-col items-center gap-2 bg-white px-5 py-7 text-center">
+          <span class="text-3xl">♨️</span>
+          <h3 class="font-display text-base font-700 uppercase tracking-wide text-chicky">Freshly Cooked</h3>
+          <p class="text-sm leading-snug text-ink/60">Made to order, always hot</p>
+        </div>
+        <div class="flex flex-col items-center gap-2 bg-white px-5 py-7 text-center">
+          <span class="text-3xl">🐔</span>
+          <h3 class="font-display text-base font-700 uppercase tracking-wide text-chicky">Quality Ingredients</h3>
+          <p class="text-sm leading-snug text-ink/60">Premium chicken &amp; real ingredients</p>
+        </div>
+        <div class="flex flex-col items-center gap-2 bg-white px-5 py-7 text-center">
+          <span class="text-3xl">❤️</span>
+          <h3 class="font-display text-base font-700 uppercase tracking-wide text-chicky">All Dogs, All People, One Love</h3>
+          <p class="text-sm leading-snug text-ink/60">Good food brings us together</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== BEST SELLERS ===================== -->
+    <section class="mx-auto max-w-7xl px-5 sm:px-8 py-16 sm:py-20">
+      <h2 class="text-center font-display text-4xl font-700 tracking-tight sm:text-5xl">
+        <span class="text-gold-dark">♥</span> Best Sellers <span class="text-gold-dark">♥</span>
+      </h2>
+      <p class="mt-3 text-center text-lg text-ink/60">The crispy, juicy favorites people line up for.</p>
+
+      <div class="mx-auto mt-10 grid max-w-5xl grid-cols-2 gap-5 lg:grid-cols-4">
+        <!-- Crispy Chicken Box (landscape shot) -->
+        <article class="group flex flex-col rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5">
+          <span class="img-slot relative block aspect-[4/3] overflow-hidden rounded-2xl">
+            <img src="images/m/bs-chicken.jpg" alt="Crispy Chicken Box" class="h-full w-full object-cover" />
+          </span>
+          <div class="flex grow flex-col px-1 pt-3">
+            <h3 class="font-display text-lg font-600 leading-tight">Crispy Chicken Box</h3>
+            <p class="mt-auto pt-2 font-display text-xl font-700 text-chicky">70 <span class="text-xs font-500 text-ink/45">THB</span></p>
+          </div>
+        </article>
+        <!-- Signature Hot Dog (landscape shot) -->
+        <article class="group flex flex-col rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5">
+          <span class="img-slot relative block aspect-[16/9] overflow-hidden rounded-2xl">
+            <img src="images/m/bs-hotdog.jpg" alt="Signature Hot Dog" class="h-full w-full object-cover" />
+          </span>
+          <div class="flex grow flex-col px-1 pt-3">
+            <h3 class="font-display text-lg font-600 leading-tight">Signature Hot Dog</h3>
+            <p class="mt-auto pt-2 font-display text-xl font-700 text-chicky">60 <span class="text-xs font-500 text-ink/45">THB</span></p>
+          </div>
+        </article>
+        <!-- Combo Box (landscape shot) -->
+        <article class="group flex flex-col rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5">
+          <span class="img-slot relative block aspect-[4/3] overflow-hidden rounded-2xl">
+            <img src="images/m/bs-combo.jpg" alt="Combo Box" class="h-full w-full object-cover" />
+          </span>
+          <div class="flex grow flex-col px-1 pt-3">
+            <h3 class="font-display text-lg font-600 leading-tight">Combo Box</h3>
+            <p class="mt-auto pt-2 font-display text-xl font-700 text-chicky">129 <span class="text-xs font-500 text-ink/45">THB</span></p>
+          </div>
+        </article>
+        <!-- Family Bucket (landscape shot) -->
+        <article class="group flex flex-col rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5">
+          <span class="img-slot relative block aspect-[4/3] overflow-hidden rounded-2xl">
+            <img src="images/m/bs-bucket.jpg" alt="Family Bucket" class="h-full w-full object-cover" />
+          </span>
+          <div class="flex grow flex-col px-1 pt-3">
+            <h3 class="font-display text-lg font-600 leading-tight">Family Bucket</h3>
+            <p class="mt-auto pt-2 font-display text-xl font-700 text-chicky">299 <span class="text-xs font-500 text-ink/45">THB</span></p>
+          </div>
+        </article>
+      </div>
+
+      <div class="mt-10 text-center">
+        <a href="menu.html" class="group inline-flex items-center gap-2 rounded-full bg-chicky px-8 py-3.5 font-display font-600 text-white shadow-soft transition-all hover:bg-chicky-dark hover:-translate-y-0.5">
           View Full Menu
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
-
-      <!-- Best sellers -->
-      <div class="mt-10 grid grid-cols-2 gap-5 lg:grid-cols-4">
-        <a href="menu.html" class="group rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5">
-          <span class="img-slot relative block aspect-[4/3] overflow-hidden rounded-2xl">
-            <img src="images/m/bs-chicken.jpg" alt="Crispy Chicken Box" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-          </span>
-          <div class="flex items-center justify-between px-1 pt-3">
-            <h3 class="font-display text-lg font-600">Crispy Chicken Box</h3>
-          </div>
-          <p class="px-1 pb-1 font-display text-lg font-700 text-chicky">70 <span class="text-xs font-500 text-ink/45">THB</span></p>
-        </a>
-        <a href="menu.html" class="group rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5">
-          <span class="img-slot relative block aspect-[4/3] overflow-hidden rounded-2xl">
-            <img src="images/m/bs-hotdog.jpg" alt="Signature Hot Dog" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-          </span>
-          <div class="flex items-center justify-between px-1 pt-3">
-            <h3 class="font-display text-lg font-600">Signature Hot Dog</h3>
-          </div>
-          <p class="px-1 pb-1 font-display text-lg font-700 text-chicky">60 <span class="text-xs font-500 text-ink/45">THB</span></p>
-        </a>
-        <a href="menu.html" class="group rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5">
-          <span class="img-slot relative block aspect-[4/3] overflow-hidden rounded-2xl">
-            <img src="images/m/bs-combo.jpg" alt="Combo Box" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-          </span>
-          <div class="flex items-center justify-between px-1 pt-3">
-            <h3 class="font-display text-lg font-600">Combo Box</h3>
-          </div>
-          <p class="px-1 pb-1 font-display text-lg font-700 text-chicky">129 <span class="text-xs font-500 text-ink/45">THB</span></p>
-        </a>
-        <a href="menu.html" class="group rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5">
-          <span class="img-slot relative block aspect-[4/3] overflow-hidden rounded-2xl">
-            <img src="images/m/bs-bucket.jpg" alt="Family Bucket" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-          </span>
-          <div class="flex items-center justify-between px-1 pt-3">
-            <h3 class="font-display text-lg font-600">Family Bucket</h3>
-          </div>
-          <p class="px-1 pb-1 font-display text-lg font-700 text-chicky">299 <span class="text-xs font-500 text-ink/45">THB</span></p>
-        </a>
-      </div>
     </section>
 
-    <!-- ===================== LATEST ADVENTURES ===================== -->
-    <section id="adventures" class="bg-[#fbf1e6]">
-      <div class="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-24">
-        <div class="text-center">
-          <p class="text-2xl">🐾</p>
-          <h2 class="mt-1 font-display text-4xl font-700 tracking-tight sm:text-5xl">Fendi's Latest Adventures</h2>
-          <p class="mt-3 text-lg text-ink/60">Come along for the ride.</p>
-        </div>
-
-        <div id="gallery" class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <article class="group relative aspect-[3/4] overflow-hidden rounded-3xl shadow-card">
-            <span class="img-slot absolute inset-0">
-              <img src="images/coding.jpg" alt="Coding a dating app for dogs" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-            </span>
-            <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/15 to-transparent"></div>
-            <div class="absolute inset-x-0 bottom-0 z-20 p-6">
-              <h3 class="font-display text-xl font-600 leading-tight text-white">Coding a dating app for dogs</h3>
-              <a href="#" class="mt-3 inline-flex items-center gap-1.5 rounded-full bg-brand px-4 py-2 text-sm font-display font-500 text-white transition-all hover:bg-brand-dark hover:gap-2.5">
-                Read More <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </a>
-            </div>
-          </article>
-
-          <article class="group relative aspect-[3/4] overflow-hidden rounded-3xl shadow-card">
-            <span class="img-slot absolute inset-0">
-              <img src="images/food.jpg" alt="Reviewing street food in Bangkok" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-            </span>
-            <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/15 to-transparent"></div>
-            <div class="absolute inset-x-0 bottom-0 z-20 p-6">
-              <h3 class="font-display text-xl font-600 leading-tight text-white">Reviewing street food in Bangkok</h3>
-              <a href="#" class="mt-3 inline-flex items-center gap-1.5 rounded-full bg-brand px-4 py-2 text-sm font-display font-500 text-white transition-all hover:bg-brand-dark hover:gap-2.5">
-                Read More <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </a>
-            </div>
-          </article>
-
-          <article class="group relative aspect-[3/4] overflow-hidden rounded-3xl shadow-card">
-            <span class="img-slot absolute inset-0">
-              <img src="images/scooter.jpg" alt="Riding the Fendi scooter through Phuket" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-            </span>
-            <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/15 to-transparent"></div>
-            <div class="absolute inset-x-0 bottom-0 z-20 p-6">
-              <h3 class="font-display text-xl font-600 leading-tight text-white">Riding the Fendi scooter through Phuket</h3>
-              <a href="#" class="mt-3 inline-flex items-center gap-1.5 rounded-full bg-brand px-4 py-2 text-sm font-display font-500 text-white transition-all hover:bg-brand-dark hover:gap-2.5">
-                Read More <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== FRANCHISE ===================== -->
-    <section id="franchise" class="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-24">
-      <div class="overflow-hidden rounded-[2.5rem] bg-ink text-white shadow-card">
-        <div class="grid gap-0 lg:grid-cols-2">
-          <!-- Copy -->
-          <div class="p-8 sm:p-12">
-            <p class="flex items-center gap-2 font-display text-sm font-600 uppercase tracking-[0.16em] text-brand"><span>🐾</span> Franchise</p>
-            <h2 class="mt-4 font-display text-4xl font-700 leading-tight tracking-tight sm:text-5xl">
-              Open a New<br /><span class="text-brand">Chicky Chic</span> Location
-            </h2>
-            <p class="mt-5 max-w-md text-lg leading-relaxed text-white/70">
-              Be one of the first to bring Chicky Chic to your community. Proven recipes, full support and a simple 24/7 model — we'll help you set it up.
+    <!-- ===================== SPLIT: MEET FENDI + FOOD BOOTH ===================== -->
+    <section class="mx-auto max-w-7xl px-5 sm:px-8 pb-16 sm:pb-20">
+      <div class="grid gap-6 lg:grid-cols-2">
+        <!-- MEET FENDI (red) -->
+        <div id="meet-fendi" class="overflow-hidden rounded-[2rem] bg-chicky text-white shadow-card">
+          <div class="img-slot relative aspect-[16/9] w-full overflow-hidden">
+            <img src="images/scooter.jpg" alt="Fendi the Frenchie out on an adventure" class="h-full w-full object-cover object-center" />
+          </div>
+          <div class="p-7 sm:p-9">
+            <h2 class="font-display text-3xl font-700 tracking-tight sm:text-4xl"><span class="text-gold">♥</span> Meet Fendi <span class="text-gold">♥</span></h2>
+            <p class="mt-1 font-display text-base font-600 text-white/80">Official Happiness Officer</p>
+            <p class="mt-4 text-[15px] leading-relaxed text-white/85">
+              Fendi the Frenchie travels Thailand reviewing food, meeting friends and spreading joy everywhere! Follow Fendi's adventures on TikTok &amp; Instagram!
             </p>
-            <div class="mt-7 flex flex-wrap items-center gap-3">
-              <a href="#contact" class="inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3.5 font-display font-500 text-white shadow-soft transition-all hover:bg-brand-dark hover:-translate-y-0.5">Apply Now</a>
-              <a href="#contact" class="inline-flex items-center gap-2 font-display font-500 text-white/80 transition-colors hover:text-white">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-                Get the details
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a href="#" class="inline-flex items-center gap-2 rounded-full bg-white/15 px-5 py-2.5 font-display text-sm font-600 text-white ring-1 ring-white/25 transition-all hover:bg-white/25">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.5 2c.3 2.4 1.7 4.1 4 4.4v2.7c-1.4.1-2.7-.3-4-1v6.3c0 3.4-2.6 5.9-5.9 5.9A5.7 5.7 0 0 1 5 14.6c.2-3 2.6-5.2 5.9-5v2.9c-.4-.1-.9-.2-1.3-.2-1.5 0-2.6 1.2-2.6 2.6 0 1.5 1.2 2.6 2.7 2.6 1.5 0 2.7-1.1 2.7-2.7V2h2.1z"/></svg>
+                @fendi.frenchie
+              </a>
+              <a href="#" class="inline-flex items-center gap-2 rounded-full bg-white/15 px-5 py-2.5 font-display text-sm font-600 text-white ring-1 ring-white/25 transition-all hover:bg-white/25">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg>
+                @fendi.frenchie
               </a>
             </div>
-
-            <div class="mt-9 grid grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-4">
-              <div><p class="font-display text-3xl font-700 text-brand">1st</p><p class="text-sm text-white/60">Flagship in Pattaya</p></div>
-              <div><p class="font-display text-3xl font-700 text-brand">24/7</p><p class="text-sm text-white/60">Proven model</p></div>
-              <div><p class="font-display text-3xl font-700 text-brand">100%</p><p class="text-sm text-white/60">Recipes &amp; support</p></div>
-              <div><p class="font-display text-3xl font-700 text-brand">❤</p><p class="text-sm text-white/60">All dogs, all people</p></div>
-            </div>
           </div>
+        </div>
 
-          <!-- Booth image -->
-          <div class="img-slot relative min-h-[280px] lg:min-h-full">
-            <img alt="Chicky Chic franchise booth at night" class="h-full w-full object-cover" />
-            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/40 to-transparent lg:bg-gradient-to-l"></div>
+        <!-- OUR FOOD BOOTH (gold) -->
+        <div id="food-booth" class="overflow-hidden rounded-[2rem] bg-gold text-ink shadow-card">
+          <div class="img-slot relative aspect-[16/9] w-full overflow-hidden">
+            <img alt="The Chicky Chic booth at night in Pattaya" class="h-full w-full object-cover object-center" />
+          </div>
+          <div class="p-7 sm:p-9">
+            <h2 class="font-display text-3xl font-700 tracking-tight sm:text-4xl"><span class="text-chicky-dark">♥</span> Our Food Booth <span class="text-chicky-dark">♥</span></h2>
+            <p class="mt-1 font-display text-base font-700 text-chicky-dark">📍 Pattaya, Thailand</p>
+            <p class="mt-4 text-[15px] leading-relaxed text-ink/80">
+              You'll find us in the heart of Pattaya! Crispy chicken, juicy hotdogs and good vibes — 24 hours a day.
+            </p>
+            <div class="mt-6">
+              <a href="#contact" class="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 font-display text-sm font-600 text-white shadow-soft transition-all hover:-translate-y-0.5 hover:bg-black">
+                <span>🧭</span> Get Directions
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- ===================== FIND US / CONTACT ===================== -->
-    <section id="contact" class="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-24">
-      <div class="grid gap-8 lg:grid-cols-2 lg:items-stretch">
-        <div>
-          <p class="flex items-center gap-2 font-display text-sm font-600 uppercase tracking-[0.14em] text-chicky"><span>📍</span> Find Us</p>
-          <h2 class="mt-3 font-display text-4xl font-700 tracking-tight sm:text-5xl">Come say hi in Pattaya</h2>
-          <p class="mt-3 max-w-md text-lg text-ink/60">Wrapped &amp; ready, all day every day. Pull up to the Chicky Chic booth.</p>
 
-          <div class="mt-8 space-y-4">
-            <div class="flex items-start gap-4 rounded-2xl bg-white p-5 shadow-soft">
-              <span class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-peach text-xl">🕐</span>
-              <div><p class="font-display font-600">Open 24 Hours</p><p class="text-[15px] text-ink/60">Every single day — breakfast, lunch &amp; late-night.</p></div>
-            </div>
-            <div class="flex items-start gap-4 rounded-2xl bg-white p-5 shadow-soft">
-              <span class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-peach text-xl">📍</span>
-              <div><p class="font-display font-600">Pattaya, Thailand</p><p class="text-[15px] text-ink/60">Follow us on social for our exact spot &amp; daily specials.</p></div>
-            </div>
-          </div>
+    <!-- ===================== MENU HIGHLIGHTS ===================== -->
+    <section class="bg-[#fbf1e6]">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8 py-16 sm:py-20">
+        <h2 class="text-center font-display text-4xl font-700 tracking-tight sm:text-5xl">
+          <span class="text-gold-dark">♥</span> Menu Highlights <span class="text-gold-dark">♥</span>
+        </h2>
+        <p class="mt-3 text-center text-lg text-ink/60">Everything from chicken boxes to ice-cold drinks.</p>
 
-          <div class="mt-6 flex items-center gap-3">
-            <a href="#" aria-label="Instagram" class="grid h-11 w-11 place-items-center rounded-full bg-white text-ink/70 shadow-soft transition-all hover:-translate-y-1 hover:bg-chicky hover:text-white">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg>
-            </a>
-            <a href="#" aria-label="TikTok" class="grid h-11 w-11 place-items-center rounded-full bg-white text-ink/70 shadow-soft transition-all hover:-translate-y-1 hover:bg-chicky hover:text-white">
-              <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 2c.3 2.4 1.7 4.1 4 4.4v2.7c-1.4.1-2.7-.3-4-1v6.3c0 3.4-2.6 5.9-5.9 5.9A5.7 5.7 0 0 1 5 14.6c.2-3 2.6-5.2 5.9-5v2.9c-.4-.1-.9-.2-1.3-.2-1.5 0-2.6 1.2-2.6 2.6 0 1.5 1.2 2.6 2.7 2.6 1.5 0 2.7-1.1 2.7-2.7V2h2.1z"/></svg>
-            </a>
-            <a href="#" aria-label="YouTube" class="grid h-11 w-11 place-items-center rounded-full bg-white text-ink/70 shadow-soft transition-all hover:-translate-y-1 hover:bg-chicky hover:text-white">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.1 5 12 5 12 5s-6.1 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.9 19 12 19 12 19s6.1 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3-5.2 3z"/></svg>
-            </a>
-          </div>
+        <div class="mx-auto mt-10 grid max-w-5xl grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+          <!-- Chicken boxes (landscape) -->
+          <a href="menu.html" class="group flex flex-col items-center rounded-2xl bg-white p-3 shadow-soft transition-all hover:-translate-y-1.5">
+            <span class="img-slot relative block aspect-[4/3] w-full overflow-hidden rounded-xl">
+              <img src="images/m/bs-chicken.jpg" alt="Chicken boxes" class="h-full w-full object-cover" />
+            </span>
+            <h3 class="mt-3 font-display text-sm font-700 uppercase tracking-wide text-ink/80">Chicken Boxes</h3>
+          </a>
+          <!-- Hot dogs (landscape) -->
+          <a href="menu.html" class="group flex flex-col items-center rounded-2xl bg-white p-3 shadow-soft transition-all hover:-translate-y-1.5">
+            <span class="img-slot relative block aspect-[4/3] w-full overflow-hidden rounded-xl">
+              <img src="images/m/bs-hotdog.jpg" alt="Hot dogs" class="h-full w-full object-cover" />
+            </span>
+            <h3 class="mt-3 font-display text-sm font-700 uppercase tracking-wide text-ink/80">Hot Dogs</h3>
+          </a>
+          <!-- Breakfast (tiny landscape shot — keep small) -->
+          <a href="breakfast.html" class="group flex flex-col items-center rounded-2xl bg-white p-3 shadow-soft transition-all hover:-translate-y-1.5">
+            <span class="img-slot relative block aspect-[16/9] w-full overflow-hidden rounded-xl">
+              <img src="images/m/bk-original.jpg" alt="Breakfast sandwiches" class="h-full w-full object-cover" />
+            </span>
+            <h3 class="mt-3 font-display text-sm font-700 uppercase tracking-wide text-ink/80">Breakfast</h3>
+          </a>
+          <!-- Sauces (small ~3/2 shot) -->
+          <a href="menu.html" class="group flex flex-col items-center rounded-2xl bg-white p-3 shadow-soft transition-all hover:-translate-y-1.5">
+            <span class="img-slot relative block aspect-[3/2] w-full overflow-hidden rounded-xl">
+              <img src="images/m/sc-cheddar.jpg" alt="Sauces" class="h-full w-full object-cover" />
+            </span>
+            <h3 class="mt-3 font-display text-sm font-700 uppercase tracking-wide text-ink/80">Sauces</h3>
+          </a>
+          <!-- Drinks (portrait shot) -->
+          <a href="menu.html" class="group flex flex-col items-center rounded-2xl bg-white p-3 shadow-soft transition-all hover:-translate-y-1.5">
+            <span class="img-slot relative block aspect-[3/4] w-full overflow-hidden rounded-xl">
+              <img src="images/m/dr-coke.jpg" alt="Drinks" class="h-full w-full object-cover" />
+            </span>
+            <h3 class="mt-3 font-display text-sm font-700 uppercase tracking-wide text-ink/80">Drinks</h3>
+          </a>
         </div>
 
-        <!-- Map (swap the query to the exact booth pin when known) -->
-        <div class="min-h-[320px] overflow-hidden rounded-3xl shadow-card">
-          <iframe title="Chicky Chic — Pattaya" class="h-full min-h-[320px] w-full" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Pattaya%2C%20Thailand&z=12&output=embed"></iframe>
+        <div class="mt-10 text-center">
+          <a href="menu.html" class="group inline-flex items-center gap-2 rounded-full bg-chicky px-8 py-3.5 font-display font-600 text-white shadow-soft transition-all hover:bg-chicky-dark hover:-translate-y-0.5">
+            Explore the Menu
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
         </div>
+      </div>
+    </section>
+
+    <!-- ===================== FOLLOW OUR JOURNEY ===================== -->
+    <section id="journey" class="mx-auto max-w-7xl px-5 sm:px-8 py-16 sm:py-20">
+      <h2 class="text-center font-display text-4xl font-700 tracking-tight sm:text-5xl">
+        <span class="text-gold-dark">♥</span> Follow Our Journey <span class="text-gold-dark">♥</span>
+      </h2>
+      <p class="mt-3 text-center text-lg text-ink/60">Food, friends and fun from Pattaya to all around Thailand!</p>
+
+      <div class="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+        <span class="img-slot relative block aspect-square overflow-hidden rounded-2xl shadow-soft">
+          <img src="images/scooter.jpg" alt="Fendi on the scooter" class="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
+        </span>
+        <span class="img-slot relative block aspect-square overflow-hidden rounded-2xl shadow-soft">
+          <img src="images/food.jpg" alt="Reviewing street food" class="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
+        </span>
+        <span class="img-slot relative block aspect-square overflow-hidden rounded-2xl shadow-soft">
+          <img src="images/coding.jpg" alt="Fendi at work" class="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
+        </span>
+        <span class="img-slot relative block aspect-square overflow-hidden rounded-2xl shadow-soft">
+          <img src="images/hero.jpg" alt="Fendi portrait" class="h-full w-full object-cover object-top transition-transform duration-500 hover:scale-105" />
+        </span>
+        <span class="img-slot relative block aspect-square overflow-hidden rounded-2xl shadow-soft">
+          <img alt="Fendi adventure photo" class="h-full w-full object-cover" />
+        </span>
+        <span class="img-slot relative block aspect-square overflow-hidden rounded-2xl shadow-soft">
+          <img alt="Fendi adventure photo" class="h-full w-full object-cover" />
+        </span>
+      </div>
+
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+        <a href="#" class="inline-flex items-center gap-2.5 rounded-full bg-ink px-7 py-3.5 font-display font-600 text-white shadow-soft transition-all hover:-translate-y-0.5 hover:bg-black">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.5 2c.3 2.4 1.7 4.1 4 4.4v2.7c-1.4.1-2.7-.3-4-1v6.3c0 3.4-2.6 5.9-5.9 5.9A5.7 5.7 0 0 1 5 14.6c.2-3 2.6-5.2 5.9-5v2.9c-.4-.1-.9-.2-1.3-.2-1.5 0-2.6 1.2-2.6 2.6 0 1.5 1.2 2.6 2.7 2.6 1.5 0 2.7-1.1 2.7-2.7V2h2.1z"/></svg>
+          Follow on TikTok @fendi.frenchie
+        </a>
+        <a href="#" class="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-brand via-chicky to-gold-dark px-7 py-3.5 font-display font-600 text-white shadow-soft transition-all hover:-translate-y-0.5">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg>
+          Follow on Instagram @fendi.frenchie
+        </a>
       </div>
     </section>
   </main>
 
   <!-- ===================== FOOTER ===================== -->
-  <footer class="border-t border-black/5 bg-cream">
-    <div class="mx-auto max-w-7xl px-5 sm:px-8 py-12">
-      <div class="flex flex-col items-center gap-6">
-        <a href="#top" class="flex items-center gap-2.5">
-          <span class="img-slot relative grid h-9 w-9 place-items-center overflow-hidden rounded-full ring-2 ring-brand/30">
+  <footer id="contact" class="bg-chicky text-white">
+    <div class="awning h-3 w-full"></div>
+    <div class="mx-auto max-w-7xl px-5 sm:px-8 py-14">
+      <div class="flex flex-col items-center gap-6 text-center">
+        <a href="#top" class="flex items-center gap-3">
+          <span class="img-slot relative grid h-11 w-11 place-items-center overflow-hidden rounded-full ring-2 ring-white/50">
             <img src="images/hero.jpg" alt="Fendi avatar" class="h-full w-full object-cover object-top" />
           </span>
-          <span class="font-display text-xl font-700 tracking-tight">FENDI</span>
+          <span class="leading-none text-left">
+            <span class="block font-display text-2xl font-700 tracking-tight text-white">CHICKY CHIC</span>
+            <span class="block font-display text-[9px] font-600 uppercase tracking-[0.18em] text-white/70">Hotdogs &amp; Fried Chicken</span>
+          </span>
         </a>
 
-        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center font-display text-sm font-500 text-ink/70">
-          <span>📍 Pattaya, Thailand</span><span class="text-ink/20">·</span>
-          <span>🕐 Open 24 Hours</span><span class="text-ink/20">·</span>
-          <span>🐾 All dogs, all people, one love</span>
+        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 font-display text-sm font-600 text-white/90">
+          <span>🕐 24 Hours</span><span class="text-white/40">·</span>
+          <span>📍 Pattaya · Thailand</span><span class="text-white/40">·</span>
+          <span>🐾 All Dogs, All People, One Love</span>
         </p>
 
         <div class="flex items-center gap-3">
-          <a href="#" aria-label="Instagram" class="grid h-11 w-11 place-items-center rounded-full bg-white text-ink/70 shadow-soft transition-all hover:-translate-y-1 hover:bg-brand hover:text-white">
+          <a href="#" aria-label="Instagram" class="grid h-11 w-11 place-items-center rounded-full bg-white/15 text-white shadow-soft transition-all hover:-translate-y-1 hover:bg-white hover:text-chicky">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg>
           </a>
-          <a href="#" aria-label="TikTok" class="grid h-11 w-11 place-items-center rounded-full bg-white text-ink/70 shadow-soft transition-all hover:-translate-y-1 hover:bg-brand hover:text-white">
+          <a href="#" aria-label="TikTok" class="grid h-11 w-11 place-items-center rounded-full bg-white/15 text-white shadow-soft transition-all hover:-translate-y-1 hover:bg-white hover:text-chicky">
             <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 2c.3 2.4 1.7 4.1 4 4.4v2.7c-1.4.1-2.7-.3-4-1v6.3c0 3.4-2.6 5.9-5.9 5.9A5.7 5.7 0 0 1 5 14.6c.2-3 2.6-5.2 5.9-5v2.9c-.4-.1-.9-.2-1.3-.2-1.5 0-2.6 1.2-2.6 2.6 0 1.5 1.2 2.6 2.7 2.6 1.5 0 2.7-1.1 2.7-2.7V2h2.1z"/></svg>
           </a>
-          <a href="#" aria-label="YouTube" class="grid h-11 w-11 place-items-center rounded-full bg-white text-ink/70 shadow-soft transition-all hover:-translate-y-1 hover:bg-brand hover:text-white">
+          <a href="#" aria-label="YouTube" class="grid h-11 w-11 place-items-center rounded-full bg-white/15 text-white shadow-soft transition-all hover:-translate-y-1 hover:bg-white hover:text-chicky">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.1 5 12 5 12 5s-6.1 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.9 19 12 19 12 19s6.1 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3-5.2 3z"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook" class="grid h-11 w-11 place-items-center rounded-full bg-white/15 text-white shadow-soft transition-all hover:-translate-y-1 hover:bg-white hover:text-chicky">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg>
           </a>
         </div>
 
-        <p class="text-sm text-ink/50">© 2026 Fendi · Chicky Chic. All rights reserved.</p>
+        <nav class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 font-display text-sm font-500 text-white/80">
+          <a href="#top" class="transition-colors hover:text-white">Home</a>
+          <a href="menu.html" class="transition-colors hover:text-white">Menu</a>
+          <a href="#food-booth" class="transition-colors hover:text-white">Food Booth</a>
+          <a href="#meet-fendi" class="transition-colors hover:text-white">Fendi</a>
+          <a href="#journey" class="transition-colors hover:text-white">Gallery</a>
+        </nav>
+
+        <p class="text-sm text-white/70">© 2026 Chicky Chic · Fendi. All rights reserved.</p>
       </div>
     </div>
   </footer>

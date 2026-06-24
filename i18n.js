@@ -16,6 +16,44 @@
       "Build Yours": "Собрать свой", "See the Menu": "Смотреть меню", "View Full Menu": "Всё меню",
       "Full Menu →": "Всё меню →", "Read More": "Подробнее", "Apply Now": "Оставить заявку",
       "Get the details": "Узнать детали", "Start Building": "Начать сборку", "See Favorites": "Хиты",
+      // ---- Homepage 2026 redesign: header / nav ----
+      "Home": "Главная", "Food Booth": "Будка с едой", "Fendi": "Fendi",
+      "Hotdogs & Fried Chicken": "Хот-доги и жареная курица",
+      "Open Every Day": "Открыто каждый день", "in Pattaya": "в Паттайе",
+      "See Our Menu": "Смотреть меню",
+      // ---- Homepage 2026 redesign: hero ----
+      "Pattaya's Favorite Street Food": "Любимая уличная еда Паттайи",
+      "CRISPY CHICKEN.": "ХРУСТЯЩАЯ КУРИЦА.", "JUICY HOTDOGS.": "СОЧНЫЕ ХОТ-ДОГИ.",
+      "GOOD VIBES.": "ХОРОШЕЕ НАСТРОЕНИЕ.",
+      "From our booth in Pattaya to adventures across Thailand — Fendi brings you food, fun and happiness 24 hours a day!": "От нашей будки в Паттайе до приключений по всему Таиланду — Fendi дарит вам еду, веселье и счастье 24 часа в сутки!",
+      "Visit Our Booth": "Зайти в будку",
+      // ---- Homepage 2026 redesign: feature strip ----
+      "24 Hours": "24 часа", "Open all day, every day": "Открыто весь день, каждый день",
+      "Freshly Cooked": "Готовим свежим", "Made to order, always hot": "Готовим на заказ, всегда горячее",
+      "Quality Ingredients": "Качественные продукты", "Premium chicken & real ingredients": "Премиальная курица и натуральные продукты",
+      "Good food brings us together": "Хорошая еда объединяет нас",
+      // ---- Homepage 2026 redesign: best sellers ----
+      "Best Sellers": "Хиты продаж",
+      "The crispy, juicy favorites people line up for.": "Хрустящие и сочные любимцы, за которыми выстраиваются очереди.",
+      "Crispy Chicken Box": "Бокс с хрустящей курицей", "Signature Hot Dog": "Фирменный хот-дог",
+      "Family Bucket": "Семейное ведёрко",
+      // ---- Homepage 2026 redesign: split (Meet Fendi / Food Booth) ----
+      "Meet Fendi": "Знакомьтесь — Fendi", "Official Happiness Officer": "Главный по счастью",
+      "Fendi the Frenchie travels Thailand reviewing food, meeting friends and spreading joy everywhere! Follow Fendi's adventures on TikTok & Instagram!": "Френч-бульдог Fendi путешествует по Таиланду, пробует еду, заводит друзей и дарит радость повсюду! Следите за приключениями Fendi в TikTok и Instagram!",
+      "You'll find us in the heart of Pattaya! Crispy chicken, juicy hotdogs and good vibes — 24 hours a day.": "Вы найдёте нас в самом сердце Паттайи! Хрустящая курица, сочные хот-доги и хорошее настроение — 24 часа в сутки.",
+      "Get Directions": "Проложить маршрут",
+      // ---- Homepage 2026 redesign: menu highlights ----
+      "Menu Highlights": "Что в меню",
+      "Everything from chicken boxes to ice-cold drinks.": "Всё — от куриных боксов до ледяных напитков.",
+      "Explore the Menu": "Открыть меню",
+      // ---- Homepage 2026 redesign: journey ----
+      "Follow Our Journey": "Следите за нашими приключениями",
+      "Food, friends and fun from Pattaya to all around Thailand!": "Еда, друзья и веселье — от Паттайи до всего Таиланда!",
+      "Follow on TikTok @fendi.frenchie": "Подписаться в TikTok @fendi.frenchie",
+      "Follow on Instagram @fendi.frenchie": "Подписаться в Instagram @fendi.frenchie",
+      // ---- Homepage 2026 redesign: footer ----
+      "Pattaya · Thailand": "Паттайя · Таиланд",
+      "© 2026 Chicky Chic · Fendi. All rights reserved.": "© 2026 Chicky Chic · Fendi. Все права защищены.",
       // ---- Homepage hero ----
       "Thailand based. Dog approved.": "Из Таиланда. Одобрено собакой.",
       "Exploring Thailand.": "Исследуем Таиланд.", "Spreading Love.": "Дарим любовь.",
@@ -113,6 +151,44 @@
       "Build Yours": "สร้างของคุณ", "See the Menu": "ดูเมนู", "View Full Menu": "ดูเมนูทั้งหมด",
       "Full Menu →": "เมนูทั้งหมด →", "Read More": "อ่านเพิ่มเติม", "Apply Now": "สมัครเลย",
       "Get the details": "ดูรายละเอียด", "Start Building": "เริ่มสร้าง", "See Favorites": "เมนูยอดนิยม",
+      // ---- Homepage 2026 redesign: header / nav ----
+      "Home": "หน้าแรก", "Food Booth": "ร้านอาหาร", "Fendi": "เฟนดิ",
+      "Hotdogs & Fried Chicken": "ฮอทดอก & ไก่ทอด",
+      "Open Every Day": "เปิดทุกวัน", "in Pattaya": "ในพัทยา",
+      "See Our Menu": "ดูเมนูของเรา",
+      // ---- Homepage 2026 redesign: hero ----
+      "Pattaya's Favorite Street Food": "สตรีทฟู้ดยอดนิยมของพัทยา",
+      "CRISPY CHICKEN.": "ไก่ทอดกรอบ", "JUICY HOTDOGS.": "ฮอทดอกฉ่ำ",
+      "GOOD VIBES.": "บรรยากาศดี",
+      "From our booth in Pattaya to adventures across Thailand — Fendi brings you food, fun and happiness 24 hours a day!": "จากร้านของเราในพัทยาสู่การผจญภัยทั่วเมืองไทย — เฟนดิมอบอาหาร ความสนุก และความสุขให้คุณ 24 ชั่วโมงทุกวัน!",
+      "Visit Our Booth": "แวะมาที่ร้าน",
+      // ---- Homepage 2026 redesign: feature strip ----
+      "24 Hours": "24 ชั่วโมง", "Open all day, every day": "เปิดทั้งวัน ทุกวัน",
+      "Freshly Cooked": "ปรุงสดใหม่", "Made to order, always hot": "ทำตามสั่ง ร้อนเสมอ",
+      "Quality Ingredients": "วัตถุดิบคุณภาพ", "Premium chicken & real ingredients": "ไก่พรีเมียมและวัตถุดิบแท้",
+      "Good food brings us together": "อาหารดี ๆ ทำให้เราอยู่ด้วยกัน",
+      // ---- Homepage 2026 redesign: best sellers ----
+      "Best Sellers": "เมนูขายดี",
+      "The crispy, juicy favorites people line up for.": "เมนูกรอบฉ่ำสุดโปรดที่คนต่อแถวรอ",
+      "Crispy Chicken Box": "กล่องไก่ทอดกรอบ", "Signature Hot Dog": "ฮอทดอกซิกเนเจอร์",
+      "Family Bucket": "ถังครอบครัว",
+      // ---- Homepage 2026 redesign: split (Meet Fendi / Food Booth) ----
+      "Meet Fendi": "มารู้จักเฟนดิ", "Official Happiness Officer": "หัวหน้าฝ่ายความสุข",
+      "Fendi the Frenchie travels Thailand reviewing food, meeting friends and spreading joy everywhere! Follow Fendi's adventures on TikTok & Instagram!": "เฟนดิเฟรนช์บูลด็อกเที่ยวทั่วไทย รีวิวอาหาร พบเพื่อนใหม่ และแบ่งปันความสุขทุกที่! ติดตามการผจญภัยของเฟนดิทาง TikTok และ Instagram!",
+      "You'll find us in the heart of Pattaya! Crispy chicken, juicy hotdogs and good vibes — 24 hours a day.": "เจอเราได้ใจกลางพัทยา! ไก่กรอบ ฮอทดอกฉ่ำ และบรรยากาศดี ๆ — 24 ชั่วโมงทุกวัน",
+      "Get Directions": "ดูเส้นทาง",
+      // ---- Homepage 2026 redesign: menu highlights ----
+      "Menu Highlights": "เมนูเด่น",
+      "Everything from chicken boxes to ice-cold drinks.": "ครบทุกอย่างตั้งแต่กล่องไก่จนถึงเครื่องดื่มเย็น ๆ",
+      "Explore the Menu": "สำรวจเมนู",
+      // ---- Homepage 2026 redesign: journey ----
+      "Follow Our Journey": "ติดตามการเดินทางของเรา",
+      "Food, friends and fun from Pattaya to all around Thailand!": "อาหาร เพื่อน และความสนุก จากพัทยาสู่ทั่วเมืองไทย!",
+      "Follow on TikTok @fendi.frenchie": "ติดตามใน TikTok @fendi.frenchie",
+      "Follow on Instagram @fendi.frenchie": "ติดตามใน Instagram @fendi.frenchie",
+      // ---- Homepage 2026 redesign: footer ----
+      "Pattaya · Thailand": "พัทยา · ประเทศไทย",
+      "© 2026 Chicky Chic · Fendi. All rights reserved.": "© 2026 Chicky Chic · Fendi. สงวนลิขสิทธิ์",
       // ---- Homepage hero ----
       "Thailand based. Dog approved.": "อยู่เมืองไทย หมาการันตี",
       "Exploring Thailand.": "สำรวจเมืองไทย", "Spreading Love.": "แบ่งปันความรัก",
