@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Build Your Own Breakfast Sandwich — Chicky Chic | FENDI</title>
+  <meta name="description" content="Build your own breakfast sandwich at Chicky Chic, Pattaya — pick your base, add your meat, choose your cheese. Egg & cheese to double-meat. Wrapped & ready. Open 24 hours." />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png" />
+  <meta name="theme-color" content="#d4202a" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Build Your Own Breakfast Sandwich — Chicky Chic" />
+  <meta property="og:description" content="Pick your base, add your meat, choose your cheese. Wrapped & ready. Open 24 hours in Pattaya." />
+  <meta property="og:image" content="images/og.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#f15a29', 'brand-dark': '#d8431a',
+            chicky: '#d4202a', 'chicky-dark': '#b01a20',
+            cream: '#fdf8f2', peach: '#fbe6d8', panel: '#ece4d8', ink: '#22130c',
+          },
+          fontFamily: {
+            display: ['Fredoka', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            body: ['Nunito', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            hand: ['Caveat', 'cursive'],
+          },
+          boxShadow: { card: '0 18px 40px -18px rgba(34,19,12,0.22)', soft: '0 10px 30px -12px rgba(34,19,12,0.18)' },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Nunito', sans-serif; }
+    .font-display { font-family: 'Fredoka', sans-serif; }
+    .font-hand { font-family: 'Caveat', cursive; }
+
+    .img-slot { background-color: #e7ddcf; background-image: linear-gradient(135deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0) 55%), repeating-linear-gradient(45deg, rgba(255,255,255,0.10) 0 14px, rgba(0,0,0,0.02) 14px 28px); }
+    .img-slot::after { content: "🍳 photo"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: .4rem; font-family: 'Nunito', sans-serif; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-size: .68rem; color: #a99b86; }
+    .img-slot > img { position: relative; z-index: 1; }
+    .img-slot > img:not([src]), .img-slot > img[src=""] { opacity: 0; }
+
+    .awning { height: 26px; background-image: radial-gradient(circle at 16px 0, #d4202a 14px, transparent 15px); background-size: 32px 28px; background-repeat: repeat-x; background-position: 0 -14px; }
+
+    @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .rise { opacity: 0; animation: rise .6s cubic-bezier(.2,.7,.2,1) forwards; }
+
+    a:focus-visible, button:focus-visible { outline: 3px solid #d4202a; outline-offset: 3px; border-radius: 9999px; }
+
+    /* Builder option chips */
+    .opt { transition: all .15s ease; }
+    .opt[aria-pressed="true"] { background-color: #d4202a; border-color: #d4202a; color: #fff; box-shadow: 0 10px 24px -10px rgba(212,32,42,.5); }
+    .opt[aria-pressed="true"] .opt-price { color: rgba(255,255,255,.85); }
+    .opt[aria-pressed="true"] .opt-check { opacity: 1; }
+    .opt-check { opacity: 0; transition: opacity .15s ease; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .rise { animation: none !important; opacity: 1 !important; }
+      * { transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+
+<body class="bg-cream text-ink font-body antialiased selection:bg-chicky/20">
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="sticky top-0 z-50 bg-cream/85 backdrop-blur-md border-b border-black/5">
+    <div class="mx-auto max-w-7xl px-5 sm:px-8">
+      <div class="flex h-[68px] items-center justify-between">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <span class="img-slot relative grid h-10 w-10 place-items-center overflow-hidden rounded-full ring-2 ring-brand/30">
+            <img src="images/hero.jpg" alt="Fendi avatar" class="h-full w-full object-cover object-top" />
+          </span>
+          <span class="font-display text-2xl font-700 tracking-tight">FENDI</span>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-7 font-display text-[15px] font-500">
+          <a href="index.html#about" class="text-ink/80 hover:text-ink transition-colors">About</a>
+          <a href="index.html#gallery" class="text-ink/80 hover:text-ink transition-colors">Gallery</a>
+          <a href="menu.html" class="text-ink/80 hover:text-ink transition-colors">Menu</a>
+          <a href="breakfast.html" class="text-chicky font-600">Breakfast</a>
+          <a href="index.html#franchise" class="text-ink/80 hover:text-ink transition-colors">Franchise</a>
+          <a href="index.html#contact" class="text-ink/80 hover:text-ink transition-colors">Contact</a>
+        </nav>
+
+        <div class="flex items-center gap-2">
+          <a href="#builder" class="hidden sm:inline-flex items-center rounded-full bg-chicky px-6 py-2.5 font-display font-500 text-white shadow-soft transition-all hover:bg-chicky-dark hover:-translate-y-0.5">
+            Build Yours
+          </a>
+          <button id="menuBtn" aria-label="Open menu" class="md:hidden grid h-11 w-11 place-items-center rounded-xl border border-black/10 bg-white/60">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobileMenu" class="md:hidden hidden pb-4">
+        <nav class="flex flex-col gap-1 font-display text-base">
+          <a href="index.html#about" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">About</a>
+          <a href="index.html#gallery" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">Gallery</a>
+          <a href="menu.html" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">Menu</a>
+          <a href="breakfast.html" class="rounded-lg px-3 py-2.5 bg-peach/60 text-chicky font-600">Breakfast</a>
+          <a href="index.html#franchise" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">Franchise</a>
+          <a href="index.html#contact" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================== HERO ===================== -->
+    <section class="relative overflow-hidden">
+      <div class="awning"></div>
+      <div class="bg-gradient-to-b from-[#fbeede] to-cream">
+        <div class="mx-auto grid max-w-7xl items-center gap-8 px-5 sm:px-8 py-10 lg:grid-cols-2 lg:py-12">
+          <div class="rise">
+            <p class="flex items-center gap-2 font-display text-sm font-600 uppercase tracking-[0.14em] text-chicky"><span>🍳</span> Breakfast · Wrapped &amp; Ready</p>
+            <h1 class="mt-4 font-display text-5xl font-700 leading-[0.98] tracking-tight sm:text-6xl">
+              Build Your Own<br /><span class="text-chicky">Breakfast Sandwich</span>
+            </h1>
+            <p class="mt-5 max-w-md text-lg leading-relaxed text-ink/70">
+              Keep it simple: <span class="font-700">carbs + protein.</span> Pick your base, stack your meat, choose your cheese — egg &amp; cheese to full double-meat. Made fresh, wrapped to go.
+            </p>
+            <div class="mt-6 flex flex-wrap items-center gap-3">
+              <a href="#builder" class="inline-flex items-center gap-2 rounded-full bg-chicky px-6 py-3.5 font-display font-500 text-white shadow-soft transition-all hover:bg-chicky-dark hover:-translate-y-0.5"><span>🥪</span> Start Building</a>
+              <a href="#favorites" class="inline-flex items-center gap-2 rounded-full border border-black/12 bg-white px-6 py-3.5 font-display font-500 text-ink shadow-soft transition-all hover:-translate-y-0.5 hover:border-chicky/40">See Favorites</a>
+            </div>
+          </div>
+          <div class="relative rise" style="animation-delay:.1s">
+            <div class="img-slot relative ml-auto aspect-[4/3] w-full max-w-[520px] overflow-hidden rounded-[2rem] shadow-card">
+              <img alt="Chicky Chic breakfast sandwich" class="h-full w-full object-cover" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== BUILDER ===================== -->
+    <section id="builder" class="mx-auto max-w-7xl px-5 sm:px-8 py-12 sm:py-16">
+      <div class="grid gap-8 lg:grid-cols-3">
+        <!-- Options -->
+        <div class="lg:col-span-2">
+          <h2 class="font-display text-3xl font-700">Build it your way</h2>
+          <div class="mt-1.5 h-1 w-12 rounded-full bg-chicky"></div>
+          <p class="mt-3 text-ink/60">Tap to add. Over-tap? No worries — adjust at the booth. <span class="text-ink/40">Egg &amp; cheese included.</span></p>
+
+          <!-- Step 1: Base -->
+          <div class="mt-8">
+            <p class="font-display text-sm font-700 uppercase tracking-[0.12em] text-ink/50">Step 1 · Choose your base <span class="text-chicky">(carbs)</span></p>
+            <div class="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-3" data-step="base">
+              <button class="opt flex items-center justify-between rounded-2xl border border-black/10 bg-white px-4 py-3.5 text-left font-display font-500 shadow-soft" aria-pressed="true" data-group="base" data-label="Croissant">🥐 Croissant <svg class="opt-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+              <button class="opt flex items-center justify-between rounded-2xl border border-black/10 bg-white px-4 py-3.5 text-left font-display font-500 shadow-soft" aria-pressed="false" data-group="base" data-label="Biscuit">🫓 Biscuit <svg class="opt-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+              <button class="opt flex items-center justify-between rounded-2xl border border-black/10 bg-white px-4 py-3.5 text-left font-display font-500 shadow-soft" aria-pressed="false" data-group="base" data-label="Bagel">🥯 Bagel <svg class="opt-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+              <button class="opt flex items-center justify-between rounded-2xl border border-black/10 bg-white px-4 py-3.5 text-left font-display font-500 shadow-soft" aria-pressed="false" data-group="base" data-label="Toast">🍞 Toast <svg class="opt-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+              <button class="opt flex items-center justify-between rounded-2xl border border-black/10 bg-white px-4 py-3.5 text-left font-display font-500 shadow-soft" aria-pressed="false" data-group="base" data-label="English Muffin">🧈 English Muffin <svg class="opt-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+              <button class="opt flex items-center justify-between rounded-2xl border border-black/10 bg-white px-4 py-3.5 text-left font-display font-500 shadow-soft" aria-pressed="false" data-group="base" data-label="Sourdough">🍞 Sourdough <svg class="opt-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+            </div>
+          </div>
+
+          <!-- Step 2: Protein -->
+          <div class="mt-8">
+            <p class="font-display text-sm font-700 uppercase tracking-[0.12em] text-ink/50">Step 2 · Add your meat <span class="text-chicky">(protein)</span></p>
+            <div class="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4" data-step="meat">
+              <button class="opt flex items-center justify-between rounded-2xl border border-black/10 bg-white px-4 py-3.5 text-left font-display font-500 shadow-soft" aria-pressed="false" data-group="meat" data-label="Bacon" data-price="50">🥓 Bacon <span class="opt-price text-xs font-600 text-chicky">+50</span></button>
+              <button class="opt flex items-center justify-between rounded-2xl border border-black/10 bg-white px-4 py-3.5 text-left font-display font-500 shadow-soft" aria-pressed="false" data-group="meat" data-label="Sausage" data-price="50">🌭 Sausage <span class="opt-price text-xs font-600 text-chicky">+50</span></button>
+              <button class="opt flex items-center justify-between rounded-2xl border border-black/10 bg-white px-4 py-3.5 text-left font-display font-500 shadow-soft" aria-pressed="false" data-group="meat" data-label="Ham" data-price="50">🍖 Ham <span class="opt-price text-xs font-600 text-chicky">+50</span></button>
+              <button class="opt flex items-center justify-between rounded-2xl border border-black/10 bg-white px-4 py-3.5 text-left font-display font-500 shadow-soft" aria-pressed="false" data-group="meat" data-label="Steak" data-price="60">🥩 Steak <span class="opt-price text-xs font-600 text-chicky">+60</span></button>
+            </div>
+          </div>
+
+          <!-- Step 3: Cheese -->
+          <div class="mt-8">
+            <p class="font-display text-sm font-700 uppercase tracking-[0.12em] text-ink/50">Step 3 · Choose your cheese <span class="text-ink/40">(included)</span></p>
+            <div class="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4" data-step="cheese">
+              <button class="opt flex items-center justify-between rounded-2xl border border-black/10 bg-white px-4 py-3.5 text-left font-display font-500 shadow-soft" aria-pressed="true" data-group="cheese" data-label="Cheddar">🧀 Cheddar <svg class="opt-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+              <button class="opt flex items-center justify-between rounded-2xl border border-black/10 bg-white px-4 py-3.5 text-left font-display font-500 shadow-soft" aria-pressed="false" data-group="cheese" data-label="American">🧀 American <svg class="opt-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+              <button class="opt flex items-center justify-between rounded-2xl border border-black/10 bg-white px-4 py-3.5 text-left font-display font-500 shadow-soft" aria-pressed="false" data-group="cheese" data-label="Swiss">🧀 Swiss <svg class="opt-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+              <button class="opt flex items-center justify-between rounded-2xl border border-black/10 bg-white px-4 py-3.5 text-left font-display font-500 shadow-soft" aria-pressed="false" data-group="cheese" data-label="Pepper Jack">🧀 Pepper Jack <svg class="opt-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live summary -->
+        <div class="lg:col-span-1">
+          <div class="lg:sticky lg:top-24 rounded-3xl bg-white p-6 shadow-card ring-1 ring-chicky/10">
+            <p class="font-display text-sm font-700 uppercase tracking-[0.12em] text-chicky">Your sandwich</p>
+            <p id="buildSummary" class="mt-3 font-display text-xl font-600 leading-snug">Egg &amp; Cheese on a Croissant</p>
+            <div class="mt-5 border-t border-black/5 pt-5">
+              <div class="flex items-end justify-between">
+                <span class="font-display font-500 text-ink/60">Total</span>
+                <span class="font-display text-4xl font-700 text-chicky"><span id="buildTotal">159</span> <span class="text-base font-500 text-ink/40">THB</span></span>
+              </div>
+            </div>
+            <button class="mt-5 w-full rounded-full bg-chicky px-6 py-3.5 font-display font-500 text-white shadow-soft transition-all hover:bg-chicky-dark hover:-translate-y-0.5">Order at the Booth</button>
+            <p class="mt-3 text-center text-xs text-ink/40">Wrapped &amp; ready · Open 24 hours in Pattaya</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FAVORITES (named premades) ===================== -->
+    <section id="favorites" class="bg-[#fbf1e6]">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8 py-16 sm:py-20">
+        <div class="text-center">
+          <p class="font-display text-sm font-600 uppercase tracking-[0.14em] text-chicky">Crowd Favorites</p>
+          <h2 class="mt-2 font-display text-4xl font-700 tracking-tight sm:text-5xl">Or grab a classic</h2>
+          <p class="mt-3 text-lg text-ink/60">Named after the cities that made them famous. Don't feel like building? Just point.</p>
+        </div>
+
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="group overflow-hidden rounded-3xl bg-white shadow-card transition-all hover:-translate-y-1.5">
+            <span class="img-slot relative block aspect-[4/3] overflow-hidden">
+              <img alt="The Original breakfast sandwich" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            </span>
+            <div class="p-5">
+              <div class="flex items-baseline justify-between gap-3">
+                <h3 class="font-display text-xl font-600">The Original</h3>
+                <p class="font-display text-lg font-700 text-chicky">159 <span class="text-xs font-500 text-ink/45">THB</span></p>
+              </div>
+              <p class="mt-1 text-[15px] leading-snug text-ink/60">Egg &amp; cheese on a buttery croissant. The one that started it all.</p>
+            </div>
+          </article>
+
+          <article class="group overflow-hidden rounded-3xl bg-white shadow-card transition-all hover:-translate-y-1.5">
+            <span class="img-slot relative block aspect-[4/3] overflow-hidden">
+              <img alt="The New York breakfast sandwich" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            </span>
+            <div class="p-5">
+              <div class="flex items-baseline justify-between gap-3">
+                <h3 class="font-display text-xl font-600">The New York</h3>
+                <p class="font-display text-lg font-700 text-chicky">209 <span class="text-xs font-500 text-ink/45">THB</span></p>
+              </div>
+              <p class="mt-1 text-[15px] leading-snug text-ink/60">Bacon, egg &amp; cheese on a chewy bagel. Deli-style.</p>
+            </div>
+          </article>
+
+          <article class="group overflow-hidden rounded-3xl bg-white shadow-card transition-all hover:-translate-y-1.5">
+            <span class="img-slot relative block aspect-[4/3] overflow-hidden">
+              <img alt="The Nashville breakfast sandwich" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            </span>
+            <div class="p-5">
+              <div class="flex items-baseline justify-between gap-3">
+                <h3 class="font-display text-xl font-600">The Nashville</h3>
+                <p class="font-display text-lg font-700 text-chicky">209 <span class="text-xs font-500 text-ink/45">THB</span></p>
+              </div>
+              <p class="mt-1 text-[15px] leading-snug text-ink/60">Sausage, egg &amp; cheese on a flaky biscuit. Southern comfort.</p>
+            </div>
+          </article>
+
+          <article class="group overflow-hidden rounded-3xl bg-white shadow-card transition-all hover:-translate-y-1.5">
+            <span class="img-slot relative block aspect-[4/3] overflow-hidden">
+              <img alt="The Texan breakfast sandwich" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            </span>
+            <div class="p-5">
+              <div class="flex items-baseline justify-between gap-3">
+                <h3 class="font-display text-xl font-600">The Texan</h3>
+                <p class="font-display text-lg font-700 text-chicky">219 <span class="text-xs font-500 text-ink/45">THB</span></p>
+              </div>
+              <p class="mt-1 text-[15px] leading-snug text-ink/60">Steak, egg &amp; cheese on toast. Big and hearty.</p>
+            </div>
+          </article>
+
+          <article class="group overflow-hidden rounded-3xl bg-white shadow-card transition-all hover:-translate-y-1.5">
+            <span class="img-slot relative block aspect-[4/3] overflow-hidden">
+              <img alt="The Heavyweight breakfast sandwich" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            </span>
+            <div class="p-5">
+              <div class="flex items-baseline justify-between gap-3">
+                <h3 class="font-display text-xl font-600">The Heavyweight</h3>
+                <p class="font-display text-lg font-700 text-chicky">259 <span class="text-xs font-500 text-ink/45">THB</span></p>
+              </div>
+              <p class="mt-1 text-[15px] leading-snug text-ink/60">Double meat — bacon + ham — egg &amp; cheese on a croissant. Go big.</p>
+            </div>
+          </article>
+
+          <article class="group flex items-center justify-center rounded-3xl border-2 border-dashed border-chicky/30 bg-white/40 p-8 text-center transition-all hover:-translate-y-1.5 hover:border-chicky/50">
+            <a href="#builder" class="block">
+              <p class="text-4xl">🥪</p>
+              <h3 class="mt-3 font-display text-xl font-600 text-chicky">Build your own</h3>
+              <p class="mt-1 text-[15px] text-ink/55">Your sandwich, your rules. Start from 159 THB.</p>
+            </a>
+          </article>
+        </div>
+
+        <p class="mt-8 text-center text-xs text-ink/40">Prices are placeholders — final pricing to be confirmed.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer id="contact" class="bg-chicky text-white">
+    <div class="mx-auto grid max-w-7xl gap-8 px-5 sm:px-8 py-12 md:grid-cols-3 md:items-center">
+      <div class="flex items-center gap-3">
+        <span class="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-white/15 text-center font-display text-[11px] font-600 leading-tight">24<br/>HOURS</span>
+        <div>
+          <p class="font-display text-lg font-600">Open 24 Hours</p>
+          <p class="text-sm text-white/80">Breakfast all day. All dogs, all people, one love.</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-2xl">📍</span>
+        <div>
+          <p class="font-display text-lg font-600">Pattaya, Thailand</p>
+          <p class="text-sm text-white/80">Find us at the Chicky Chic booth — open 24/7!</p>
+        </div>
+      </div>
+      <div class="md:text-right">
+        <p class="font-display text-base font-600">Hungry? See the full menu</p>
+        <a href="menu.html" class="mt-3 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 font-display font-500 text-chicky transition-all hover:-translate-y-0.5">Full Menu →</a>
+      </div>
+    </div>
+    <div class="border-t border-white/15">
+      <p class="mx-auto max-w-7xl px-5 sm:px-8 py-5 text-center text-sm text-white/70">© 2026 Chicky Chic · Fendi. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mobileMenu');
+    btn?.addEventListener('click', () => menu.classList.toggle('hidden'));
+    menu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.add('hidden')));
+
+    // ---- Sandwich builder ----
+    const BASE_PRICE = 159; // egg & cheese, any base (placeholder)
+    const opts = [...document.querySelectorAll('.opt')];
+    const press = (el, v) => el.setAttribute('aria-pressed', v ? 'true' : 'false');
+    const isOn = el => el.getAttribute('aria-pressed') === 'true';
+
+    function recompute() {
+      const base = opts.find(o => o.dataset.group === 'base' && isOn(o));
+      const cheese = opts.find(o => o.dataset.group === 'cheese' && isOn(o));
+      const meats = opts.filter(o => o.dataset.group === 'meat' && isOn(o));
+
+      const total = BASE_PRICE + meats.reduce((s, m) => s + (+m.dataset.price || 0), 0);
+      document.getElementById('buildTotal').textContent = total;
+
+      const meatLabels = meats.map(m => m.dataset.label);
+      const protein = meatLabels.length ? meatLabels.join(', ') + ', ' : '';
+      const baseLabel = base ? base.dataset.label : '—';
+      const article = /^[AEIOU]/.test(baseLabel) ? 'an' : 'a';
+      const cheeseLabel = cheese ? `${cheese.dataset.label} cheese` : 'cheese';
+      document.getElementById('buildSummary').innerHTML =
+        `${protein}egg &amp; ${cheeseLabel} on ${article} ${baseLabel}`;
+    }
+
+    opts.forEach(o => o.addEventListener('click', () => {
+      const group = o.dataset.group;
+      if (group === 'meat') {
+        press(o, !isOn(o));                       // toggle
+      } else {
+        opts.filter(x => x.dataset.group === group).forEach(x => press(x, x === o)); // radio
+      }
+      recompute();
+    }));
+    recompute();
+  </script>
+</body>
+</html>
