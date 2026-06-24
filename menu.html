@@ -193,7 +193,6 @@
         <div class="flex gap-2 overflow-x-auto py-3 font-display text-[15px] font-500 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           <a href="#chicken-boxes" class="cat-tab is-active inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-5 py-2.5 text-ink/80 transition-all"><span>🍗</span> Chicken Boxes</a>
           <a href="#hot-dogs" class="cat-tab inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-5 py-2.5 text-ink/80 transition-all"><span>🌭</span> Hot Dogs</a>
-          <a href="#pies" class="cat-tab inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-5 py-2.5 text-ink/80 transition-all"><span>🥧</span> Pies</a>
           <a href="#sauces" class="cat-tab inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-5 py-2.5 text-ink/80 transition-all"><span>🥣</span> Sauces</a>
           <a href="#drinks" class="cat-tab inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-5 py-2.5 text-ink/80 transition-all"><span>🥤</span> Drinks</a>
         </div>
@@ -316,35 +315,8 @@
           </div>
         </section>
 
-        <!-- Pies + Drinks -->
+        <!-- Drinks -->
         <div class="space-y-10">
-          <section id="pies" class="scroll-mt-32">
-            <h2 class="font-display text-3xl font-700">Pies</h2>
-            <div class="mt-1.5 h-1 w-12 rounded-full bg-chicky"></div>
-            <div class="mt-6 divide-y divide-black/5 rounded-3xl bg-white p-3 shadow-card">
-              <div class="flex items-center gap-4 p-3">
-                <span class="img-slot relative grid h-20 w-24 shrink-0 place-items-center overflow-hidden rounded-2xl">
-                  <img alt="Corn Pie" class="h-full w-full object-cover" />
-                </span>
-                <div class="min-w-0 flex-1">
-                  <h3 class="font-display text-lg font-600">Corn Pie</h3>
-                  <p class="text-[14px] leading-snug text-ink/55">Sweet corn filling in a crispy golden crust</p>
-                </div>
-                <p class="shrink-0 font-display text-lg font-700 text-chicky">35 <span class="text-xs font-500 text-ink/45">THB</span></p>
-              </div>
-              <div class="flex items-center gap-4 p-3">
-                <span class="img-slot relative grid h-20 w-24 shrink-0 place-items-center overflow-hidden rounded-2xl">
-                  <img alt="Carbonara Pie" class="h-full w-full object-cover" />
-                </span>
-                <div class="min-w-0 flex-1">
-                  <h3 class="font-display text-lg font-600">Carbonara Pie</h3>
-                  <p class="text-[14px] leading-snug text-ink/55">Creamy carbonara filling in a flaky pastry shell</p>
-                </div>
-                <p class="shrink-0 font-display text-lg font-700 text-chicky">45 <span class="text-xs font-500 text-ink/45">THB</span></p>
-              </div>
-            </div>
-          </section>
-
           <section id="drinks" class="scroll-mt-32">
             <h2 class="font-display text-3xl font-700">Drinks</h2>
             <div class="mt-1.5 h-1 w-12 rounded-full bg-chicky"></div>
@@ -503,7 +475,7 @@
         }
       });
     }, { rootMargin: '-45% 0px -50% 0px' });
-    ['chicken-boxes','hot-dogs','pies','sauces','drinks'].forEach(id => {
+    ['chicken-boxes','hot-dogs','sauces','drinks'].forEach(id => {
       const el = document.getElementById(id); if (el) spy.observe(el);
     });
   </script>
