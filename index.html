@@ -122,6 +122,11 @@
         </nav>
 
         <div class="flex items-center gap-2">
+          <select id="langSel" aria-label="Language" title="Language" class="cursor-pointer rounded-full border border-black/10 bg-white/70 px-2.5 py-1.5 font-display text-sm font-500 text-ink/80 shadow-soft focus:outline-none">
+            <option value="en">EN</option>
+            <option value="th">ไทย</option>
+            <option value="ru">RU</option>
+          </select>
           <a href="menu.html" class="hidden sm:inline-flex items-center rounded-full bg-brand px-6 py-2.5 font-display font-500 text-white shadow-soft transition-all hover:bg-brand-dark hover:-translate-y-0.5 active:translate-y-0">
             Follow the Journey
           </a>
@@ -455,5 +460,6 @@
     btn?.addEventListener('click', () => menu.classList.toggle('hidden'));
     menu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.add('hidden')));
   </script>
+  <script src="i18n.js"></script>
 </body>
 </html>
