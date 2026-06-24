@@ -1,0 +1,9 @@
+# internal / non-site files (do not publish)
+.deploy/
+dist/
+prompts/
+assets/
+output/
+*.zip
+.DS_Store
+node_modules/
