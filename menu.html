@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chicky Chic Menu — Hotdogs & Fried Chicken in Pattaya | FENDI</title>
+  <meta name="description" content="Chicky Chic by Fendi — crispy fried chicken boxes, juicy hotdogs, pies, sauces & drinks. Open 24 hours in Pattaya, Thailand. All dogs, all people, one love." />
+
+  <!-- Favicon / home-screen icon (Fendi's face) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png" />
+  <meta name="theme-color" content="#d4202a" />
+
+  <!-- Social share preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Chicky Chic Menu — Hotdogs & Fried Chicken in Pattaya" />
+  <meta property="og:description" content="Crispy fried chicken, juicy hotdogs, pies & more. Open 24 hours in Pattaya. Made with love." />
+  <meta property="og:image" content="images/og.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Tailwind Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Type: Fredoka (display) + Nunito (body) + Caveat (hand) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#f15a29',
+            'brand-dark': '#d8431a',
+            chicky: '#d4202a',
+            'chicky-dark': '#b01a20',
+            cream: '#fdf8f2',
+            peach: '#fbe6d8',
+            panel: '#ece4d8',
+            ink: '#22130c',
+          },
+          fontFamily: {
+            display: ['Fredoka', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            body: ['Nunito', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            hand: ['Caveat', 'cursive'],
+          },
+          boxShadow: {
+            card: '0 18px 40px -18px rgba(34,19,12,0.22)',
+            soft: '0 10px 30px -12px rgba(34,19,12,0.18)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Nunito', sans-serif; }
+    .font-display { font-family: 'Fredoka', sans-serif; }
+    .font-hand { font-family: 'Caveat', cursive; }
+
+    /* Neutral placeholder so dropping real food photos in later won't shift layout */
+    .img-slot {
+      background-color: #e7ddcf;
+      background-image:
+        linear-gradient(135deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0) 55%),
+        repeating-linear-gradient(45deg, rgba(255,255,255,0.10) 0 14px, rgba(0,0,0,0.02) 14px 28px);
+    }
+    .img-slot::after {
+      content: "🍗 photo";
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center; gap: .4rem;
+      font-family: 'Nunito', sans-serif; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; font-size: .68rem; color: #a99b86;
+    }
+    .img-slot > img { position: relative; z-index: 1; }
+    .img-slot > img:not([src]), .img-slot > img[src=""] { opacity: 0; }
+
+    /* Red scalloped awning edge (Chicky Chic booth vibe) */
+    .awning {
+      height: 26px;
+      background-image: radial-gradient(circle at 16px 0, #d4202a 14px, transparent 15px);
+      background-size: 32px 28px;
+      background-repeat: repeat-x;
+      background-position: 0 -14px;
+    }
+
+    @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .rise { opacity: 0; animation: rise .6s cubic-bezier(.2,.7,.2,1) forwards; }
+
+    a:focus-visible, button:focus-visible { outline: 3px solid #d4202a; outline-offset: 3px; border-radius: 9999px; }
+
+    /* Active category tab */
+    .cat-tab.is-active { background-color: #f15a29; color: #fff; box-shadow: 0 10px 30px -12px rgba(34,19,12,0.18); }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .rise { animation: none !important; opacity: 1 !important; }
+      * { transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+
+<body class="bg-cream text-ink font-body antialiased selection:bg-chicky/20">
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="sticky top-0 z-50 bg-cream/85 backdrop-blur-md border-b border-black/5">
+    <div class="mx-auto max-w-7xl px-5 sm:px-8">
+      <div class="flex h-[68px] items-center justify-between">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <span class="img-slot relative grid h-10 w-10 place-items-center overflow-hidden rounded-full ring-2 ring-brand/30">
+            <img src="images/hero.jpg" alt="Fendi avatar" class="h-full w-full object-cover object-top" />
+          </span>
+          <span class="font-display text-2xl font-700 tracking-tight">FENDI</span>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-9 font-display text-[15px] font-500">
+          <a href="index.html#about" class="text-ink/80 hover:text-ink transition-colors">About</a>
+          <a href="index.html#gallery" class="text-ink/80 hover:text-ink transition-colors">Gallery</a>
+          <a href="index.html#adventures" class="text-ink/80 hover:text-ink transition-colors">Adventures</a>
+          <a href="menu.html" class="text-chicky font-600">Menu</a>
+          <a href="index.html#contact" class="text-ink/80 hover:text-ink transition-colors">Contact</a>
+        </nav>
+
+        <div class="flex items-center gap-2">
+          <a href="#order" class="hidden sm:inline-flex items-center rounded-full bg-chicky px-6 py-2.5 font-display font-500 text-white shadow-soft transition-all hover:bg-chicky-dark hover:-translate-y-0.5">
+            Order at the Booth
+          </a>
+          <button id="menuBtn" aria-label="Open menu" class="md:hidden grid h-11 w-11 place-items-center rounded-xl border border-black/10 bg-white/60">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobileMenu" class="md:hidden hidden pb-4">
+        <nav class="flex flex-col gap-1 font-display text-base">
+          <a href="index.html#about" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">About</a>
+          <a href="index.html#gallery" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">Gallery</a>
+          <a href="index.html#adventures" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">Adventures</a>
+          <a href="menu.html" class="rounded-lg px-3 py-2.5 bg-peach/60 text-chicky font-600">Menu</a>
+          <a href="index.html#contact" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================== MENU HERO ===================== -->
+    <section class="relative overflow-hidden">
+      <div class="awning"></div>
+      <div class="bg-gradient-to-b from-[#fbeede] to-cream">
+        <div class="mx-auto grid max-w-7xl items-center gap-8 px-5 sm:px-8 py-10 lg:grid-cols-2 lg:py-12">
+          <!-- Title block -->
+          <div class="rise">
+            <div class="flex items-center gap-4">
+              <span class="img-slot relative grid h-16 w-16 shrink-0 place-items-center overflow-hidden rounded-full ring-4 ring-chicky/25">
+                <img src="images/hero.jpg" alt="Fendi" class="h-full w-full object-cover object-top" />
+              </span>
+              <span class="font-display text-xl font-600 uppercase tracking-[0.12em] text-chicky">Chicky Chic</span>
+            </div>
+            <h1 class="mt-4 font-display text-6xl font-700 leading-[0.92] tracking-tight sm:text-7xl">
+              <span class="text-chicky">The</span> Menu
+            </h1>
+            <p class="mt-4 flex items-center gap-2 font-display text-lg font-500">
+              <span class="text-chicky">❤</span> Hotdogs &amp; Fried Chicken <span class="text-chicky">❤</span>
+            </p>
+            <p class="mt-4 max-w-md text-lg leading-relaxed text-ink/70">
+              Crispy fried chicken, juicy hotdogs and tasty pies — made fresh, served with love at Fendi's food booth in Pattaya.
+            </p>
+            <div class="mt-6 flex flex-wrap items-center gap-3 font-display text-sm font-500">
+              <span class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-soft"><span class="text-chicky">🕐</span> Open 24 Hours</span>
+              <span class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-soft"><span class="text-chicky">📍</span> Pattaya, Thailand</span>
+            </div>
+          </div>
+
+          <!-- Booth photo -->
+          <div class="relative rise" style="animation-delay:.1s">
+            <div class="img-slot relative ml-auto aspect-[4/3] w-full max-w-[560px] overflow-hidden rounded-[2rem] shadow-card">
+              <img alt="Chicky Chic food booth in Pattaya" class="h-full w-full object-cover" />
+            </div>
+            <span class="absolute right-3 top-3 z-10 grid h-16 w-16 place-items-center rounded-full bg-chicky text-center font-display text-[11px] font-600 leading-tight text-white shadow-card">24<br/>HOURS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CATEGORY TABS (sticky) ===================== -->
+    <div class="sticky top-[68px] z-40 border-y border-black/5 bg-cream/90 backdrop-blur-md">
+      <div class="mx-auto max-w-7xl px-3 sm:px-8">
+        <div class="flex gap-2 overflow-x-auto py-3 font-display text-[15px] font-500 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <a href="#chicken-boxes" class="cat-tab is-active inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-5 py-2.5 text-ink/80 transition-all"><span>🍗</span> Chicken Boxes</a>
+          <a href="#hot-dogs" class="cat-tab inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-5 py-2.5 text-ink/80 transition-all"><span>🌭</span> Hot Dogs</a>
+          <a href="#pies" class="cat-tab inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-5 py-2.5 text-ink/80 transition-all"><span>🥧</span> Pies</a>
+          <a href="#sauces" class="cat-tab inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-5 py-2.5 text-ink/80 transition-all"><span>🥣</span> Sauces</a>
+          <a href="#drinks" class="cat-tab inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-5 py-2.5 text-ink/80 transition-all"><span>🥤</span> Drinks</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="order" class="mx-auto max-w-7xl px-5 sm:px-8 py-12 sm:py-16">
+
+      <!-- ===================== CHICKEN BOXES ===================== -->
+      <section id="chicken-boxes" class="scroll-mt-32">
+        <h2 class="font-display text-3xl font-700">Chicken Boxes</h2>
+        <div class="mt-1.5 h-1 w-12 rounded-full bg-chicky"></div>
+
+        <div class="mt-7 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+          <!-- box card template -->
+          <article class="group rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5">
+            <span class="img-slot relative block aspect-square overflow-hidden rounded-2xl">
+              <img alt="Lite Box" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            </span>
+            <h3 class="mt-3 px-1 font-display text-lg font-600 leading-tight">Lite Box</h3>
+            <p class="mt-0.5 px-1 text-[13px] leading-snug text-ink/55">Crispy chicken &amp; choice of sauce</p>
+            <p class="mt-2 px-1 font-display text-lg font-700 text-chicky">89 <span class="text-xs font-500 text-ink/45">THB</span></p>
+          </article>
+
+          <article class="group rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5">
+            <span class="img-slot relative block aspect-square overflow-hidden rounded-2xl">
+              <img alt="Pop Box" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            </span>
+            <h3 class="mt-3 px-1 font-display text-lg font-600 leading-tight">Pop Box</h3>
+            <p class="mt-0.5 px-1 text-[13px] leading-snug text-ink/55">Crispy chicken, fries &amp; sauce</p>
+            <p class="mt-2 px-1 font-display text-lg font-700 text-chicky">119 <span class="text-xs font-500 text-ink/45">THB</span></p>
+          </article>
+
+          <article class="group rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5">
+            <span class="img-slot relative block aspect-square overflow-hidden rounded-2xl">
+              <img alt="Trio Box" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            </span>
+            <h3 class="mt-3 px-1 font-display text-lg font-600 leading-tight">Trio Box</h3>
+            <p class="mt-0.5 px-1 text-[13px] leading-snug text-ink/55">Chicken bites, fries &amp; sauce</p>
+            <p class="mt-2 px-1 font-display text-lg font-700 text-chicky">119 <span class="text-xs font-500 text-ink/45">THB</span></p>
+          </article>
+
+          <article class="group rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5">
+            <span class="img-slot relative block aspect-square overflow-hidden rounded-2xl">
+              <img alt="Combo Box" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            </span>
+            <h3 class="mt-3 px-1 font-display text-lg font-600 leading-tight">Combo Box</h3>
+            <p class="mt-0.5 px-1 text-[13px] leading-snug text-ink/55">Crispy chicken, fries &amp; drink</p>
+            <p class="mt-2 px-1 font-display text-lg font-700 text-chicky">129 <span class="text-xs font-500 text-ink/45">THB</span></p>
+          </article>
+
+          <article class="group rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5">
+            <span class="img-slot relative block aspect-square overflow-hidden rounded-2xl">
+              <img alt="Family Box" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            </span>
+            <h3 class="mt-3 px-1 font-display text-lg font-600 leading-tight">Family Box</h3>
+            <p class="mt-0.5 px-1 text-[13px] leading-snug text-ink/55">Large chicken, large fries, 2 sauces</p>
+            <p class="mt-2 px-1 font-display text-lg font-700 text-chicky">299 <span class="text-xs font-500 text-ink/45">THB</span></p>
+          </article>
+
+          <article class="group rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5">
+            <span class="img-slot relative block aspect-square overflow-hidden rounded-2xl">
+              <img alt="Ultimate Box" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            </span>
+            <h3 class="mt-3 px-1 font-display text-lg font-600 leading-tight">Ultimate Box</h3>
+            <p class="mt-0.5 px-1 text-[13px] leading-snug text-ink/55">Family set, large fries, drinks, 3 sauces</p>
+            <p class="mt-2 px-1 font-display text-lg font-700 text-chicky">359 <span class="text-xs font-500 text-ink/45">THB</span></p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ===================== HOT DOGS + PIES/DRINKS ===================== -->
+      <div class="mt-14 grid gap-10 lg:grid-cols-2">
+        <!-- Hot Dogs -->
+        <section id="hot-dogs" class="scroll-mt-32">
+          <h2 class="font-display text-3xl font-700">Hot Dogs</h2>
+          <div class="mt-1.5 h-1 w-12 rounded-full bg-chicky"></div>
+          <div class="mt-6 divide-y divide-black/5 rounded-3xl bg-white p-3 shadow-card">
+            <!-- dog row template -->
+            <div class="flex items-center gap-4 p-3">
+              <span class="img-slot relative grid h-20 w-24 shrink-0 place-items-center overflow-hidden rounded-2xl">
+                <img alt="Classic Dog" class="h-full w-full object-cover" />
+              </span>
+              <div class="min-w-0 flex-1">
+                <h3 class="font-display text-lg font-600">Classic Dog</h3>
+                <p class="text-[14px] leading-snug text-ink/55">Sausage, ketchup, mustard</p>
+              </div>
+              <p class="shrink-0 font-display text-lg font-700 text-chicky">60 <span class="text-xs font-500 text-ink/45">THB</span></p>
+            </div>
+            <div class="flex items-center gap-4 p-3">
+              <span class="img-slot relative grid h-20 w-24 shrink-0 place-items-center overflow-hidden rounded-2xl">
+                <img alt="Cheese Dog" class="h-full w-full object-cover" />
+              </span>
+              <div class="min-w-0 flex-1">
+                <h3 class="font-display text-lg font-600">Cheese Dog</h3>
+                <p class="text-[14px] leading-snug text-ink/55">Sausage, cheese sauce, ketchup, mustard</p>
+              </div>
+              <p class="shrink-0 font-display text-lg font-700 text-chicky">70 <span class="text-xs font-500 text-ink/45">THB</span></p>
+            </div>
+            <div class="flex items-center gap-4 p-3">
+              <span class="img-slot relative grid h-20 w-24 shrink-0 place-items-center overflow-hidden rounded-2xl">
+                <img alt="Bacon Dog" class="h-full w-full object-cover" />
+              </span>
+              <div class="min-w-0 flex-1">
+                <h3 class="font-display text-lg font-600">Bacon Dog</h3>
+                <p class="text-[14px] leading-snug text-ink/55">Sausage, bacon, ketchup, mustard</p>
+              </div>
+              <p class="shrink-0 font-display text-lg font-700 text-chicky">80 <span class="text-xs font-500 text-ink/45">THB</span></p>
+            </div>
+            <div class="flex items-center gap-4 p-3">
+              <span class="img-slot relative grid h-20 w-24 shrink-0 place-items-center overflow-hidden rounded-2xl">
+                <img alt="Chili Dog" class="h-full w-full object-cover" />
+              </span>
+              <div class="min-w-0 flex-1">
+                <h3 class="font-display text-lg font-600">Chili Dog</h3>
+                <p class="text-[14px] leading-snug text-ink/55">Sausage, chili sauce, onions</p>
+              </div>
+              <p class="shrink-0 font-display text-lg font-700 text-chicky">80 <span class="text-xs font-500 text-ink/45">THB</span></p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Pies + Drinks -->
+        <div class="space-y-10">
+          <section id="pies" class="scroll-mt-32">
+            <h2 class="font-display text-3xl font-700">Pies</h2>
+            <div class="mt-1.5 h-1 w-12 rounded-full bg-chicky"></div>
+            <div class="mt-6 divide-y divide-black/5 rounded-3xl bg-white p-3 shadow-card">
+              <div class="flex items-center gap-4 p-3">
+                <span class="img-slot relative grid h-20 w-24 shrink-0 place-items-center overflow-hidden rounded-2xl">
+                  <img alt="Corn Pie" class="h-full w-full object-cover" />
+                </span>
+                <div class="min-w-0 flex-1">
+                  <h3 class="font-display text-lg font-600">Corn Pie</h3>
+                  <p class="text-[14px] leading-snug text-ink/55">Sweet corn filling in a crispy golden crust</p>
+                </div>
+                <p class="shrink-0 font-display text-lg font-700 text-chicky">35 <span class="text-xs font-500 text-ink/45">THB</span></p>
+              </div>
+              <div class="flex items-center gap-4 p-3">
+                <span class="img-slot relative grid h-20 w-24 shrink-0 place-items-center overflow-hidden rounded-2xl">
+                  <img alt="Carbonara Pie" class="h-full w-full object-cover" />
+                </span>
+                <div class="min-w-0 flex-1">
+                  <h3 class="font-display text-lg font-600">Carbonara Pie</h3>
+                  <p class="text-[14px] leading-snug text-ink/55">Creamy carbonara filling in a flaky pastry shell</p>
+                </div>
+                <p class="shrink-0 font-display text-lg font-700 text-chicky">45 <span class="text-xs font-500 text-ink/45">THB</span></p>
+              </div>
+            </div>
+          </section>
+
+          <section id="drinks" class="scroll-mt-32">
+            <h2 class="font-display text-3xl font-700">Drinks</h2>
+            <div class="mt-1.5 h-1 w-12 rounded-full bg-chicky"></div>
+            <div class="mt-6 grid grid-cols-3 gap-4">
+              <article class="rounded-3xl bg-white p-3 text-center shadow-card transition-all hover:-translate-y-1.5">
+                <span class="img-slot relative block aspect-square overflow-hidden rounded-2xl">
+                  <img alt="Coke" class="h-full w-full object-cover" />
+                </span>
+                <h3 class="mt-3 font-display text-base font-600">Coke</h3>
+                <p class="font-display text-base font-700 text-chicky">25 <span class="text-xs font-500 text-ink/45">THB</span></p>
+              </article>
+              <article class="rounded-3xl bg-white p-3 text-center shadow-card transition-all hover:-translate-y-1.5">
+                <span class="img-slot relative block aspect-square overflow-hidden rounded-2xl">
+                  <img alt="Sprite" class="h-full w-full object-cover" />
+                </span>
+                <h3 class="mt-3 font-display text-base font-600">Sprite</h3>
+                <p class="font-display text-base font-700 text-chicky">25 <span class="text-xs font-500 text-ink/45">THB</span></p>
+              </article>
+              <article class="rounded-3xl bg-white p-3 text-center shadow-card transition-all hover:-translate-y-1.5">
+                <span class="img-slot relative block aspect-square overflow-hidden rounded-2xl">
+                  <img alt="Water" class="h-full w-full object-cover" />
+                </span>
+                <h3 class="mt-3 font-display text-base font-600">Water</h3>
+                <p class="font-display text-base font-700 text-chicky">15 <span class="text-xs font-500 text-ink/45">THB</span></p>
+              </article>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- ===================== SAUCES + CHICKY STORY ===================== -->
+      <div class="mt-14 grid gap-10 lg:grid-cols-2">
+        <!-- Sauces -->
+        <section id="sauces" class="scroll-mt-32">
+          <h2 class="font-display text-3xl font-700">Sauces</h2>
+          <div class="mt-1.5 h-1 w-12 rounded-full bg-chicky"></div>
+          <div class="mt-6 grid grid-cols-3 gap-4 rounded-3xl bg-white p-5 shadow-card sm:grid-cols-6 lg:grid-cols-3 xl:grid-cols-6">
+            <div class="text-center">
+              <span class="img-slot relative mx-auto block aspect-square w-16 overflow-hidden rounded-full"><img alt="Cheddar Cheese" class="h-full w-full object-cover" /></span>
+              <p class="mt-2 font-display text-[13px] font-600 leading-tight">Cheddar Cheese</p>
+              <p class="font-display text-sm font-700 text-chicky">+20 <span class="text-[10px] font-500 text-ink/45">THB</span></p>
+            </div>
+            <div class="text-center">
+              <span class="img-slot relative mx-auto block aspect-square w-16 overflow-hidden rounded-full"><img alt="White Mayo" class="h-full w-full object-cover" /></span>
+              <p class="mt-2 font-display text-[13px] font-600 leading-tight">White Mayo</p>
+              <p class="font-display text-sm font-700 text-chicky">+15 <span class="text-[10px] font-500 text-ink/45">THB</span></p>
+            </div>
+            <div class="text-center">
+              <span class="img-slot relative mx-auto block aspect-square w-16 overflow-hidden rounded-full"><img alt="BBQ Sauce" class="h-full w-full object-cover" /></span>
+              <p class="mt-2 font-display text-[13px] font-600 leading-tight">BBQ Sauce</p>
+              <p class="font-display text-sm font-700 text-chicky">+10 <span class="text-[10px] font-500 text-ink/45">THB</span></p>
+            </div>
+            <div class="text-center">
+              <span class="img-slot relative mx-auto block aspect-square w-16 overflow-hidden rounded-full"><img alt="Black Pepper" class="h-full w-full object-cover" /></span>
+              <p class="mt-2 font-display text-[13px] font-600 leading-tight">Black Pepper</p>
+              <p class="font-display text-sm font-700 text-chicky">+10 <span class="text-[10px] font-500 text-ink/45">THB</span></p>
+            </div>
+            <div class="text-center">
+              <span class="img-slot relative mx-auto block aspect-square w-16 overflow-hidden rounded-full"><img alt="Spicy Sauce" class="h-full w-full object-cover" /></span>
+              <p class="mt-2 font-display text-[13px] font-600 leading-tight">Spicy Sauce</p>
+              <p class="font-display text-sm font-700 text-chicky">+10 <span class="text-[10px] font-500 text-ink/45">THB</span></p>
+            </div>
+            <div class="text-center">
+              <span class="img-slot relative mx-auto block aspect-square w-16 overflow-hidden rounded-full"><img alt="Signature Sauce" class="h-full w-full object-cover" /></span>
+              <p class="mt-2 font-display text-[13px] font-600 leading-tight">Signature Sauce</p>
+              <p class="font-display text-sm font-700 text-chicky">+15 <span class="text-[10px] font-500 text-ink/45">THB</span></p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Chicky Story -->
+        <section>
+          <h2 class="flex items-center gap-2 font-display text-3xl font-700"><span class="text-chicky">❤</span> Our Chicky Story</h2>
+          <div class="mt-1.5 h-1 w-12 rounded-full bg-chicky"></div>
+          <div class="mt-6 grid grid-cols-2 gap-5 rounded-3xl border border-chicky/15 bg-white p-6 shadow-card sm:grid-cols-4">
+            <div class="text-center">
+              <div class="mx-auto grid h-12 w-12 place-items-center rounded-full bg-peach text-2xl">🐔</div>
+              <p class="mt-2 font-display text-sm font-700 uppercase tracking-wide">Fresh Chicken</p>
+              <p class="mt-1 text-xs leading-snug text-ink/55">Carefully selected quality chicken.</p>
+            </div>
+            <div class="text-center">
+              <div class="mx-auto grid h-12 w-12 place-items-center rounded-full bg-peach text-2xl">🏭</div>
+              <p class="mt-2 font-display text-sm font-700 uppercase tracking-wide">Quality Controlled</p>
+              <p class="mt-1 text-xs leading-snug text-ink/55">GMP, HACCP &amp; Halal certified facilities.</p>
+            </div>
+            <div class="text-center">
+              <div class="mx-auto grid h-12 w-12 place-items-center rounded-full bg-peach text-2xl">🍳</div>
+              <p class="mt-2 font-display text-sm font-700 uppercase tracking-wide">Cooked Fresh</p>
+              <p class="mt-1 text-xs leading-snug text-ink/55">Every order cooked fresh and served hot.</p>
+            </div>
+            <div class="text-center">
+              <div class="mx-auto grid h-12 w-12 place-items-center rounded-full bg-peach text-2xl">❤️</div>
+              <p class="mt-2 font-display text-sm font-700 uppercase tracking-wide">Since 2006</p>
+              <p class="mt-1 text-xs leading-snug text-ink/55">Proudly serving Thailand with love.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===================== FOOTER (Chicky red) ===================== -->
+  <footer id="contact" class="bg-chicky text-white">
+    <div class="mx-auto grid max-w-7xl gap-8 px-5 sm:px-8 py-12 md:grid-cols-3 md:items-center">
+      <div class="flex items-center gap-3">
+        <span class="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-white/15 text-center font-display text-[11px] font-600 leading-tight">24<br/>HOURS</span>
+        <div>
+          <p class="font-display text-lg font-600">Open 24 Hours</p>
+          <p class="text-sm text-white/80">Every day in Pattaya. All dogs, all people, one love.</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <span class="text-2xl">📍</span>
+        <div>
+          <p class="font-display text-lg font-600">Pattaya, Thailand</p>
+          <p class="text-sm text-white/80">Find us at the Chicky Chic booth — open 24/7!</p>
+        </div>
+      </div>
+
+      <div class="md:text-right">
+        <p class="font-display text-base font-600">Love our food? Follow Fendi!</p>
+        <div class="mt-3 flex gap-3 md:justify-end">
+          <a href="#" aria-label="Instagram" class="grid h-11 w-11 place-items-center rounded-full bg-white/15 transition-all hover:-translate-y-1 hover:bg-white hover:text-chicky">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" aria-label="TikTok" class="grid h-11 w-11 place-items-center rounded-full bg-white/15 transition-all hover:-translate-y-1 hover:bg-white hover:text-chicky">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 2c.3 2.4 1.7 4.1 4 4.4v2.7c-1.4.1-2.7-.3-4-1v6.3c0 3.4-2.6 5.9-5.9 5.9A5.7 5.7 0 0 1 5 14.6c.2-3 2.6-5.2 5.9-5v2.9c-.4-.1-.9-.2-1.3-.2-1.5 0-2.6 1.2-2.6 2.6 0 1.5 1.2 2.6 2.7 2.6 1.5 0 2.7-1.1 2.7-2.7V2h2.1z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube" class="grid h-11 w-11 place-items-center rounded-full bg-white/15 transition-all hover:-translate-y-1 hover:bg-white hover:text-chicky">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.1 5 12 5 12 5s-6.1 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.9 19 12 19 12 19s6.1 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3-5.2 3z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/15">
+      <p class="mx-auto max-w-7xl px-5 sm:px-8 py-5 text-center text-sm text-white/70">© 2026 Chicky Chic · Fendi. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mobileMenu');
+    btn?.addEventListener('click', () => menu.classList.toggle('hidden'));
+    menu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.add('hidden')));
+
+    // Scrollspy: highlight the active category tab
+    const tabs = [...document.querySelectorAll('.cat-tab')];
+    const byId = id => tabs.find(t => t.getAttribute('href') === '#' + id);
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          tabs.forEach(t => t.classList.remove('is-active'));
+          byId(e.target.id)?.classList.add('is-active');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    ['chicken-boxes','hot-dogs','pies','sauces','drinks'].forEach(id => {
+      const el = document.getElementById(id); if (el) spy.observe(el);
+    });
+  </script>
+</body>
+</html>
