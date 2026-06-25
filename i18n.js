@@ -23,6 +23,7 @@
       "See Our Menu": "Смотреть меню",
       // ---- Homepage 2026 redesign: hero ----
       "Pattaya's Favorite Street Food": "Любимая уличная еда Паттайи",
+      "Open now · 24h": "Открыто · 24ч",
       "CRISPY CHICKEN.": "ХРУСТЯЩАЯ КУРИЦА.", "JUICY HOTDOGS.": "СОЧНЫЕ ХОТ-ДОГИ.",
       "GOOD VIBES.": "ХОРОШЕЕ НАСТРОЕНИЕ.",
       "From our booth in Pattaya to adventures across Thailand — Fendi brings you food, fun and happiness 24 hours a day!": "От нашей будки в Паттайе до приключений по всему Таиланду — Fendi дарит вам еду, веселье и счастье 24 часа в сутки!",
@@ -179,6 +180,7 @@
       "See Our Menu": "ดูเมนูของเรา",
       // ---- Homepage 2026 redesign: hero ----
       "Pattaya's Favorite Street Food": "สตรีทฟู้ดยอดนิยมของพัทยา",
+      "Open now · 24h": "เปิดอยู่ · 24 ชม.",
       "CRISPY CHICKEN.": "ไก่ทอดกรอบ", "JUICY HOTDOGS.": "ฮอทดอกฉ่ำ",
       "GOOD VIBES.": "บรรยากาศดี",
       "From our booth in Pattaya to adventures across Thailand — Fendi brings you food, fun and happiness 24 hours a day!": "จากร้านของเราในพัทยาสู่การผจญภัยทั่วเมืองไทย — เฟนดิมอบอาหาร ความสนุก และความสุขให้คุณ 24 ชั่วโมงทุกวัน!",

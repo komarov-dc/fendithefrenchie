@@ -96,6 +96,9 @@
     @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
     .rise { opacity: 0; animation: rise .7s cubic-bezier(.2,.7,.2,1) forwards; }
 
+    @keyframes livedot { 0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.55); } 70% { box-shadow: 0 0 0 7px rgba(34,197,94,0); } 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); } }
+    .live-dot { animation: livedot 2s ease-out infinite; }
+
     a:focus-visible, button:focus-visible { outline: 3px solid #d4202a; outline-offset: 3px; border-radius: 9999px; }
 
     @media (prefers-reduced-motion: reduce) {
@@ -192,7 +195,12 @@
               From our booth in Pattaya to adventures across Thailand — Fendi brings you food, fun and happiness 24 hours a day!
             </p>
 
-            <div class="rise mt-4 flex items-center gap-3 sm:mt-8" style="animation-delay:.28s">
+            <p class="rise mt-3 inline-flex items-center gap-2 rounded-full border border-emerald-500/25 bg-white/80 px-3.5 py-1.5 font-display text-xs font-700 text-ink/75 shadow-soft backdrop-blur-sm sm:mt-5 sm:text-sm" style="animation-delay:.24s">
+              <span class="live-dot inline-block h-2.5 w-2.5 shrink-0 rounded-full bg-emerald-500"></span>
+              Open now · 24h
+            </p>
+
+            <div class="rise mt-4 flex items-center gap-3 sm:mt-6" style="animation-delay:.28s">
               <a href="menu.html" class="group inline-flex flex-1 justify-center items-center gap-2 rounded-full bg-chicky px-4 py-3 text-sm font-display font-600 text-white shadow-soft transition-all hover:bg-chicky-dark hover:-translate-y-0.5 active:translate-y-0 sm:flex-none sm:px-7 sm:py-3.5 sm:text-base">
                 <span class="text-base sm:text-lg">🍗</span> See Our Menu
               </a>
@@ -227,22 +235,30 @@
     <section class="mx-auto max-w-7xl px-5 sm:px-8 -mt-2">
       <div class="grid grid-cols-2 gap-px overflow-hidden rounded-3xl bg-black/5 shadow-card lg:grid-cols-4">
         <div class="flex flex-col items-center gap-2 bg-white px-5 py-7 text-center">
-          <span class="text-3xl">🕐</span>
+          <span class="grid h-12 w-12 place-items-center rounded-2xl bg-peach text-chicky">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+          </span>
           <h3 class="font-display text-base font-700 uppercase tracking-wide text-chicky">24 Hours</h3>
           <p class="text-sm leading-snug text-ink/60">Open all day, every day</p>
         </div>
         <div class="flex flex-col items-center gap-2 bg-white px-5 py-7 text-center">
-          <span class="text-3xl">♨️</span>
+          <span class="grid h-12 w-12 place-items-center rounded-2xl bg-peach text-chicky">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22c4-1.5 6-4.8 6-8.5 0-3-1.8-5.2-3-6.5-.4 1.6-1.4 2.6-2.6 3.2C13 7.4 12.6 5 11 3c-.2 2.2-1.4 3.6-2.8 4.8C6.8 9 6 10.9 6 13.5 6 17.2 8 20.5 12 22Z"/><path d="M12 22c1.9-.7 3-2.3 3-4.2 0-1.7-1-3-2-3.8-.3 1-1 1.7-1.8 2.1.1-1.1-.4-2.3-1.2-3.1-.4 1.6-1.5 2.4-2 3.6-.2.5-.3 1-.3 1.4C6.7 19.7 9 21.3 12 22Z"/></svg>
+          </span>
           <h3 class="font-display text-base font-700 uppercase tracking-wide text-chicky">Freshly Cooked</h3>
           <p class="text-sm leading-snug text-ink/60">Made to order, always hot</p>
         </div>
         <div class="flex flex-col items-center gap-2 bg-white px-5 py-7 text-center">
-          <span class="text-3xl">🐔</span>
+          <span class="grid h-12 w-12 place-items-center rounded-2xl bg-peach text-chicky">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 2.5 5.3 5.5.8-4 4 1 5.6L12 20.4 7 17.7l1-5.6-4-4 5.5-.8z"/></svg>
+          </span>
           <h3 class="font-display text-base font-700 uppercase tracking-wide text-chicky">Quality Ingredients</h3>
           <p class="text-sm leading-snug text-ink/60">Premium chicken &amp; real ingredients</p>
         </div>
         <div class="flex flex-col items-center gap-2 bg-white px-5 py-7 text-center">
-          <span class="text-3xl">❤️</span>
+          <span class="grid h-12 w-12 place-items-center rounded-2xl bg-peach text-chicky">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.5 4.5 13a4.7 4.7 0 0 1 0-6.6 4.6 4.6 0 0 1 6.5 0l1 1 1-1a4.6 4.6 0 0 1 6.5 0 4.7 4.7 0 0 1 0 6.6Z"/></svg>
+          </span>
           <h3 class="font-display text-base font-700 uppercase tracking-wide text-chicky">All Dogs, All People, One Love</h3>
           <p class="text-sm leading-snug text-ink/60">Good food brings us together</p>
         </div>
