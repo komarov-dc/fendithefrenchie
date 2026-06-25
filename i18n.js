@@ -121,6 +121,7 @@
       "Love our food? Follow Fendi!": "Нравится наша еда? Подпишись на Fendi!",
       // ---- Breakfast page ----
       "Breakfast · Wrapped & Ready": "Завтрак · завёрнуто и готово",
+      "Served 4am–11am · Limited time": "Подаётся 4:00–11:00 · Ограниченное время",
       "Build Your Own": "Собери свой", "Breakfast Sandwich": "Сэндвич на завтрак",
       "carbs + protein.": "углеводы + белок.",
       "Pick your base, stack your meat, choose your cheese — egg & cheese to full double-meat. Made fresh, wrapped to go.": "Выбери основу, добавь мясо, выбери сыр — от «яйцо и сыр» до двойного мяса. Готовим свежим, заворачиваем с собой.",
@@ -256,6 +257,7 @@
       "Love our food? Follow Fendi!": "ชอบอาหารเราไหม? ติดตามเฟนดิ!",
       // ---- Breakfast page ----
       "Breakfast · Wrapped & Ready": "อาหารเช้า · ห่อพร้อมเสิร์ฟ",
+      "Served 4am–11am · Limited time": "เสิร์ฟ 04:00–11:00 น. · เวลาจำกัด",
       "Build Your Own": "สร้างของคุณเอง", "Breakfast Sandwich": "แซนด์วิชอาหารเช้า",
       "carbs + protein.": "แป้ง + โปรตีน",
       "Pick your base, stack your meat, choose your cheese — egg & cheese to full double-meat. Made fresh, wrapped to go.": "เลือกแป้ง เพิ่มเนื้อ เลือกชีส — ตั้งแต่ไข่กับชีสไปจนถึงเนื้อสองชั้น ทำสดใหม่ ห่อพร้อมไป",
