@@ -23,43 +23,13 @@
   <meta name="twitter:description" content="Crispy chicken, juicy hotdogs & good vibes from our booth in Pattaya. Open 24 hours." />
   <meta name="twitter:image" content="images/og.jpg" />
 
-  <!-- Tailwind Play CDN (zero-install, instant) -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Pre-compiled Tailwind (built from tailwind-input.css via tailwind.config.js) -->
+  <link rel="stylesheet" href="css/app.css" />
 
   <!-- Distinctive type: Fredoka (bold rounded display) + Nunito (friendly body) + Caveat (hand note) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: '#f15a29',
-            'brand-dark': '#d8431a',
-            chicky: '#d4202a',
-            'chicky-dark': '#b01a20',
-            gold: '#f5a623',
-            'gold-dark': '#e08e00',
-            cream: '#fdf8f2',
-            peach: '#fbe6d8',
-            panel: '#ece4d8',
-            ink: '#22130c',
-          },
-          fontFamily: {
-            display: ['Fredoka', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-            body: ['Nunito', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-            hand: ['Caveat', 'cursive'],
-          },
-          boxShadow: {
-            card: '0 18px 40px -18px rgba(34,19,12,0.22)',
-            soft: '0 10px 30px -12px rgba(34,19,12,0.18)',
-          },
-        },
-      },
-    };
-  </script>
 
   <style>
     html { scroll-behavior: smooth; }
