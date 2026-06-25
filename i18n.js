@@ -50,8 +50,8 @@
       // ---- Homepage 2026 redesign: journey ----
       "Follow Our Journey": "Следите за нашими приключениями",
       "Food, friends and fun from Pattaya to all around Thailand!": "Еда, друзья и веселье — от Паттайи до всего Таиланда!",
-      "Follow on TikTok @fendi.frenchie": "Подписаться в TikTok @fendi.frenchie",
-      "Follow on Instagram @fendi.frenchie": "Подписаться в Instagram @fendi.frenchie",
+      "Follow on TikTok @fendi.the.frechie": "Подписаться в TikTok @fendi.the.frechie",
+      "Follow on Instagram @fendi.the.frechie": "Подписаться в Instagram @fendi.the.frechie",
       // ---- Homepage 2026 redesign: footer ----
       "Pattaya · Thailand": "Паттайя · Таиланд",
       "© 2026 Fendi's Food Hut · Fendi. All rights reserved.": "© 2026 Fendi's Food Hut · Fendi. Все права защищены.",
@@ -207,8 +207,8 @@
       // ---- Homepage 2026 redesign: journey ----
       "Follow Our Journey": "ติดตามการเดินทางของเรา",
       "Food, friends and fun from Pattaya to all around Thailand!": "อาหาร เพื่อน และความสนุก จากพัทยาสู่ทั่วเมืองไทย!",
-      "Follow on TikTok @fendi.frenchie": "ติดตามใน TikTok @fendi.frenchie",
-      "Follow on Instagram @fendi.frenchie": "ติดตามใน Instagram @fendi.frenchie",
+      "Follow on TikTok @fendi.the.frechie": "ติดตามใน TikTok @fendi.the.frechie",
+      "Follow on Instagram @fendi.the.frechie": "ติดตามใน Instagram @fendi.the.frechie",
       // ---- Homepage 2026 redesign: footer ----
       "Pattaya · Thailand": "พัทยา · ประเทศไทย",
       "© 2026 Fendi's Food Hut · Fendi. All rights reserved.": "© 2026 Fendi's Food Hut · Fendi. สงวนลิขสิทธิ์",
