@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<title>Fendi's Food Hut — Orders</title>
+<style>
+  :root {
+    --noir: #0e0c0a;
+    --charcoal: #1a1613;
+    --charcoal-2: #221d18;
+    --gold: #c9a24b;
+    --gold-soft: #e0c074;
+    --cream: #f3ead7;
+    --muted: #9c8f78;
+    --line: #2e271f;
+    --new: #c9a24b;
+    --preparing: #6fa8dc;
+    --ready: #6fcf97;
+    --done: #7d8c7d;
+    --cancelled: #c0564b;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--noir);
+    color: var(--cream);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* ---- Login gate ---- */
+  #gate {
+    position: fixed; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: radial-gradient(120% 120% at 50% 0%, #17120d 0%, var(--noir) 70%);
+    padding: 24px;
+    z-index: 100;
+  }
+  #gate .card {
+    width: 100%; max-width: 380px;
+    background: var(--charcoal);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 32px 28px;
+    box-shadow: 0 24px 60px rgba(0,0,0,.5);
+    text-align: center;
+  }
+  #gate h1 { font-size: 22px; margin: 0 0 4px; color: var(--gold); letter-spacing: .5px; }
+  #gate p { color: var(--muted); margin: 0 0 22px; font-size: 14px; }
+  #gate input {
+    width: 100%; padding: 16px 14px; margin: 8px 0;
+    background: var(--noir); color: var(--cream);
+    border: 1px solid var(--line); border-radius: 12px;
+    font-size: 17px; outline: none;
+  }
+  #gate input:focus { border-color: var(--gold); }
+  #gate button {
+    width: 100%; margin-top: 14px; padding: 16px;
+    background: var(--gold); color: #1a1410;
+    border: none; border-radius: 12px;
+    font-size: 17px; font-weight: 700; letter-spacing: .3px;
+    cursor: pointer;
+  }
+  #gate button:active { transform: scale(.99); }
+  #gate .err { color: var(--cancelled); font-size: 14px; min-height: 18px; margin-top: 10px; }
+
+  /* ---- Header ---- */
+  header {
+    position: sticky; top: 0; z-index: 20;
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 18px calc(14px) 18px;
+    padding-top: max(14px, env(safe-area-inset-top));
+    background: rgba(14,12,10,.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  header .brand { font-size: 19px; font-weight: 800; color: var(--gold); letter-spacing: .4px; }
+  header .brand small { display:block; font-size: 11px; font-weight: 500; color: var(--muted); letter-spacing: 1.4px; text-transform: uppercase; }
+  header .spacer { flex: 1; }
+  header .stat { font-size: 13px; color: var(--muted); text-align: right; }
+  header .stat b { color: var(--cream); }
+  header .dot { display:inline-block; width:8px; height:8px; border-radius:50%; background: var(--ready); margin-right:6px; vertical-align: middle; }
+  header .dot.stale { background: var(--cancelled); }
+  header button.logout {
+    background: transparent; border: 1px solid var(--line); color: var(--muted);
+    border-radius: 10px; padding: 8px 12px; font-size: 13px; cursor: pointer;
+  }
+
+  /* ---- Filter chips ---- */
+  .filters {
+    display: flex; gap: 8px; overflow-x: auto;
+    padding: 12px 18px; border-bottom: 1px solid var(--line);
+    -webkit-overflow-scrolling: touch;
+  }
+  .filters::-webkit-scrollbar { display: none; }
+  .chip {
+    flex: 0 0 auto; padding: 9px 16px; border-radius: 999px;
+    background: var(--charcoal); border: 1px solid var(--line);
+    color: var(--muted); font-size: 14px; cursor: pointer; white-space: nowrap;
+  }
+  .chip.active { background: var(--gold); color: #1a1410; border-color: var(--gold); font-weight: 700; }
+
+  /* ---- Orders grid ---- */
+  main { padding: 16px; display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+  .empty { grid-column: 1/-1; text-align:center; color: var(--muted); padding: 60px 20px; font-size: 16px; }
+
+  .card {
+    background: var(--charcoal);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 16px 16px 14px;
+    display: flex; flex-direction: column;
+    box-shadow: 0 8px 24px rgba(0,0,0,.25);
+  }
+  .card.is-new { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold), 0 8px 24px rgba(0,0,0,.35); }
+  .card.flash { animation: flash 1.2s ease-out; }
+  @keyframes flash {
+    0% { box-shadow: 0 0 0 3px var(--gold-soft), 0 8px 24px rgba(0,0,0,.35); }
+    100% { box-shadow: 0 0 0 1px var(--gold), 0 8px 24px rgba(0,0,0,.35); }
+  }
+  .card.cancelled { opacity: .55; }
+
+  .card .top { display:flex; align-items:center; justify-content: space-between; gap: 10px; }
+  .ref { font-size: 18px; font-weight: 800; color: var(--gold); letter-spacing: .5px; }
+  .ago { font-size: 12px; color: var(--muted); }
+
+  .pill {
+    display:inline-block; padding: 5px 12px; border-radius: 999px;
+    font-size: 12px; font-weight: 700; letter-spacing: .4px; text-transform: uppercase;
+    color: #14110d;
+  }
+  .pill.new { background: var(--new); }
+  .pill.preparing { background: var(--preparing); }
+  .pill.ready { background: var(--ready); }
+  .pill.done { background: var(--done); color: var(--cream); }
+  .pill.cancelled { background: var(--cancelled); color: var(--cream); }
+
+  .items { list-style: none; margin: 14px 0 0; padding: 0; border-top: 1px solid var(--line); padding-top: 12px; }
+  .items li { display:flex; justify-content: space-between; gap: 10px; padding: 4px 0; font-size: 15px; }
+  .items li .q { color: var(--gold-soft); font-weight: 700; }
+  .items li .nm { flex: 1; }
+  .items li .pr { color: var(--muted); }
+
+  .total { display:flex; justify-content: space-between; align-items: baseline;
+    margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); }
+  .total .lbl { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+  .total .val { font-size: 20px; font-weight: 800; color: var(--cream); }
+  .total .val small { font-size: 12px; color: var(--muted); font-weight: 500; }
+
+  .meta { margin-top: 12px; font-size: 14px; line-height: 1.7; color: var(--cream); }
+  .meta .row { display:flex; gap: 8px; }
+  .meta .ic { width: 20px; text-align:center; opacity:.85; }
+  .meta a { color: var(--gold-soft); text-decoration: none; }
+  .meta .note { color: var(--gold-soft); }
+
+  .actions { display:grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px; }
+  .actions.single { grid-template-columns: 1fr; }
+  .btn {
+    padding: 14px 10px; border-radius: 12px; border: 1px solid var(--line);
+    background: var(--charcoal-2); color: var(--cream);
+    font-size: 15px; font-weight: 700; cursor: pointer; text-align:center;
+    min-height: 50px;
+  }
+  .btn:active { transform: scale(.98); }
+  .btn.primary { background: var(--gold); color: #1a1410; border-color: var(--gold); }
+  .btn.ghost { background: transparent; color: var(--muted); }
+
+  .toast {
+    position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%) translateY(120%);
+    background: var(--gold); color:#1a1410; padding: 12px 22px; border-radius: 999px;
+    font-weight: 700; font-size: 15px; box-shadow: 0 12px 30px rgba(0,0,0,.4);
+    transition: transform .3s ease; z-index: 50; max-width: 90vw; text-align:center;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- Login gate -->
+<div id="gate">
+  <div class="card">
+    <h1>Fendi's Food Hut</h1>
+    <p>Order board — staff sign in</p>
+    <input id="u" type="text" autocomplete="username" placeholder="Username" autocapitalize="none" autocorrect="off" />
+    <input id="p" type="password" autocomplete="current-password" placeholder="Password" />
+    <button id="signin">Sign in</button>
+    <div class="err" id="gateErr"></div>
+  </div>
+</div>
+
+<!-- App -->
+<header style="display:none" id="hdr">
+  <div class="brand">Fendi's Food Hut<small>Order Board</small></div>
+  <div class="spacer"></div>
+  <div class="stat">
+    <span class="dot" id="liveDot"></span><span id="liveTxt">live</span><br>
+    <b id="activeCount">0</b> active · <span id="newCount">0</span> new
+  </div>
+  <button class="logout" id="logout">Exit</button>
+</header>
+
+<div class="filters" id="filters" style="display:none">
+  <div class="chip active" data-f="active">Active</div>
+  <div class="chip" data-f="new">New</div>
+  <div class="chip" data-f="preparing">Preparing</div>
+  <div class="chip" data-f="ready">Ready</div>
+  <div class="chip" data-f="done">Done</div>
+  <div class="chip" data-f="cancelled">Cancelled</div>
+  <div class="chip" data-f="all">All</div>
+</div>
+
+<main id="board" style="display:none"></main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function () {
+  "use strict";
+
+  var AUTH_KEY = "ffh_auth";
+  var SEEN_KEY = "ffh_seen_max"; // highest order id we've already shown
+  var REFRESH_MS = 15000;
+
+  var gate = document.getElementById("gate");
+  var hdr = document.getElementById("hdr");
+  var filtersEl = document.getElementById("filters");
+  var board = document.getElementById("board");
+  var toastEl = document.getElementById("toast");
+
+  var state = {
+    auth: sessionStorage.getItem(AUTH_KEY) || "",
+    filter: "active",
+    orders: [],
+    seenMax: Number(sessionStorage.getItem(SEEN_KEY) || 0),
+    firstLoad: true,
+    timer: null,
+    audioCtx: null
+  };
+
+  // ---- helpers ----
+  function esc(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function timeAgo(ts) {
+    var diff = Math.floor((Date.now() - ts) / 1000);
+    if (diff < 5) return "just now";
+    if (diff < 60) return diff + "s ago";
+    var m = Math.floor(diff / 60);
+    if (m < 60) return m + "m ago";
+    var h = Math.floor(m / 60);
+    if (h < 24) return h + "h " + (m % 60) + "m ago";
+    var d = Math.floor(h / 24);
+    return d + "d ago";
+  }
+
+  function telLink(phone) {
+    var clean = String(phone || "").replace(/[^\d+]/g, "");
+    return clean ? '<a href="tel:' + esc(clean) + '">' + esc(phone) + "</a>" : esc(phone);
+  }
+
+  function toast(msg) {
+    toastEl.textContent = msg;
+    toastEl.classList.add("show");
+    clearTimeout(toast._t);
+    toast._t = setTimeout(function () { toastEl.classList.remove("show"); }, 2200);
+  }
+
+  function beep() {
+    try {
+      if (!state.audioCtx) {
+        var AC = window.AudioContext || window.webkitAudioContext;
+        if (!AC) return;
+        state.audioCtx = new AC();
+      }
+      var ctx = state.audioCtx;
+      var o = ctx.createOscillator();
+      var g = ctx.createGain();
+      o.connect(g); g.connect(ctx.destination);
+      o.type = "sine";
+      o.frequency.value = 880;
+      g.gain.setValueAtTime(0.0001, ctx.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.18, ctx.currentTime + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.5);
+      o.start();
+      o.stop(ctx.currentTime + 0.5);
+    } catch (e) { /* ignore */ }
+  }
+
+  // ---- network ----
+  function api(method, url, body) {
+    var opts = {
+      method: method,
+      headers: { "Authorization": "Basic " + state.auth }
+    };
+    if (body !== undefined) {
+      opts.headers["Content-Type"] = "application/json";
+      opts.body = JSON.stringify(body);
+    }
+    return fetch(url, opts);
+  }
+
+  // ---- auth ----
+  function showGate(msg) {
+    gate.style.display = "flex";
+    hdr.style.display = "none";
+    filtersEl.style.display = "none";
+    board.style.display = "none";
+    if (state.timer) { clearInterval(state.timer); state.timer = null; }
+    document.getElementById("gateErr").textContent = msg || "";
+  }
+
+  function showApp() {
+    gate.style.display = "none";
+    hdr.style.display = "flex";
+    filtersEl.style.display = "flex";
+    board.style.display = "grid";
+  }
+
+  function signIn(user, pass) {
+    var token = btoa(user + ":" + pass);
+    var headers = { "Authorization": "Basic " + token };
+    return fetch("/api/orders", { headers: headers }).then(function (r) {
+      if (r.status === 401) throw new Error("Wrong username or password");
+      if (!r.ok) throw new Error("Server error (" + r.status + ")");
+      state.auth = token;
+      sessionStorage.setItem(AUTH_KEY, token);
+      return r.json();
+    });
+  }
+
+  document.getElementById("signin").addEventListener("click", function () {
+    var u = document.getElementById("u").value.trim();
+    var p = document.getElementById("p").value;
+    if (!u || !p) { document.getElementById("gateErr").textContent = "Enter username and password"; return; }
+    signIn(u, p).then(function (data) {
+      showApp();
+      ingest(data.orders, true);
+      startLoop();
+    }).catch(function (e) {
+      document.getElementById("gateErr").textContent = e.message;
+    });
+  });
+  document.getElementById("p").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") document.getElementById("signin").click();
+  });
+
+  document.getElementById("logout").addEventListener("click", function () {
+    sessionStorage.removeItem(AUTH_KEY);
+    state.auth = "";
+    showGate("");
+  });
+
+  // ---- filters ----
+  Array.prototype.forEach.call(filtersEl.querySelectorAll(".chip"), function (chip) {
+    chip.addEventListener("click", function () {
+      filtersEl.querySelector(".chip.active").classList.remove("active");
+      chip.classList.add("active");
+      state.filter = chip.getAttribute("data-f");
+      render();
+    });
+  });
+
+  // ---- data ----
+  function load(silent) {
+    return api("GET", "/api/orders").then(function (r) {
+      if (r.status === 401) { showGate("Session expired — sign in again"); throw new Error("401"); }
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      document.getElementById("liveDot").classList.remove("stale");
+      document.getElementById("liveTxt").textContent = "live";
+      return r.json();
+    }).then(function (data) {
+      ingest(data.orders, false);
+    }).catch(function () {
+      if (!silent) { /* keep showing last data */ }
+      document.getElementById("liveDot").classList.add("stale");
+      document.getElementById("liveTxt").textContent = "offline";
+    });
+  }
+
+  function ingest(orders, isFirst) {
+    orders = orders || [];
+    var maxId = state.seenMax;
+    var newArrivals = 0;
+    orders.forEach(function (o) {
+      if (o.id > state.seenMax) {
+        if (!isFirst && !state.firstLoad) newArrivals++;
+        if (o.id > maxId) maxId = o.id;
+      }
+    });
+    state.orders = orders;
+    render();
+
+    if (isFirst || state.firstLoad) {
+      state.seenMax = maxId;
+      sessionStorage.setItem(SEEN_KEY, String(maxId));
+      state.firstLoad = false;
+    } else if (newArrivals > 0) {
+      state.seenMax = maxId;
+      sessionStorage.setItem(SEEN_KEY, String(maxId));
+      beep();
+      toast(newArrivals === 1 ? "New order!" : newArrivals + " new orders!");
+    }
+  }
+
+  function startLoop() {
+    if (state.timer) clearInterval(state.timer);
+    state.timer = setInterval(function () {
+      load(true);
+      // also refresh "time ago" labels
+      Array.prototype.forEach.call(document.querySelectorAll("[data-ago]"), function (el) {
+        el.textContent = timeAgo(Number(el.getAttribute("data-ago")));
+      });
+    }, REFRESH_MS);
+  }
+
+  // ---- status flow ----
+  var NEXT = { new: "preparing", preparing: "ready", ready: "done" };
+  var NEXT_LABEL = { new: "Start preparing", preparing: "Mark ready", ready: "Mark done" };
+
+  function setStatus(id, status) {
+    api("PATCH", "/api/orders/" + id, { status: status }).then(function (r) {
+      if (r.status === 401) { showGate("Session expired — sign in again"); return; }
+      if (!r.ok) { toast("Update failed"); return; }
+      // optimistic local update + immediate reload
+      state.orders.forEach(function (o) { if (o.id === id) o.status = status; });
+      render();
+      load(true);
+    }).catch(function () { toast("Update failed"); });
+  }
+
+  // expose for inline onclick
+  window.__ffh = { setStatus: setStatus };
+
+  // ---- render ----
+  function matchesFilter(o) {
+    if (state.filter === "all") return true;
+    if (state.filter === "active") return o.status === "new" || o.status === "preparing" || o.status === "ready";
+    return o.status === state.filter;
+  }
+
+  function render() {
+    var active = state.orders.filter(function (o) {
+      return o.status === "new" || o.status === "preparing" || o.status === "ready";
+    }).length;
+    var newC = state.orders.filter(function (o) { return o.status === "new"; }).length;
+    document.getElementById("activeCount").textContent = active;
+    document.getElementById("newCount").textContent = newC;
+
+    var list = state.orders.filter(matchesFilter);
+    if (!list.length) {
+      board.innerHTML = '<div class="empty">No orders here yet.</div>';
+      return;
+    }
+
+    board.innerHTML = list.map(renderCard).join("");
+  }
+
+  function renderCard(o) {
+    var isFresh = o.id > state.seenMax || (o.status === "new" && o.id >= state.seenMax);
+    var isNew = o.status === "new";
+    var cls = "card" + (isNew ? " is-new" : "") + (o.status === "cancelled" ? " cancelled" : "");
+
+    var items = (o.items || []).map(function (it) {
+      var q = (it.qty || 1);
+      var pr = (it.price != null) ? '<span class="pr">' + (it.price * q) + " ฿</span>" : "";
+      return '<li><span class="q">' + esc(q) + '×</span> <span class="nm">' + esc(it.name) + "</span> " + pr + "</li>";
+    }).join("");
+
+    var meta = "";
+    meta += '<div class="row"><span class="ic">👤</span><span>' + esc(o.name) + "</span></div>";
+    if (o.phone) meta += '<div class="row"><span class="ic">📞</span><span>' + telLink(o.phone) + "</span></div>";
+    if (o.pickup) meta += '<div class="row"><span class="ic">⏰</span><span>' + esc(o.pickup) + "</span></div>";
+    if (o.note) meta += '<div class="row"><span class="ic">📝</span><span class="note">' + esc(o.note) + "</span></div>";
+
+    var actions;
+    if (o.status === "done" || o.status === "cancelled") {
+      actions = '<div class="actions single">' +
+        '<button class="btn ghost" onclick="__ffh.setStatus(' + o.id + ',\'new\')">Reopen</button>' +
+        "</div>";
+    } else {
+      var nextStatus = NEXT[o.status];
+      var primary = '<button class="btn primary" onclick="__ffh.setStatus(' + o.id + ',\'' + nextStatus + '\')">' +
+        esc(NEXT_LABEL[o.status]) + "</button>";
+      var cancel = '<button class="btn ghost" onclick="__ffh.setStatus(' + o.id + ',\'cancelled\')">Cancel</button>';
+      actions = '<div class="actions">' + primary + cancel + "</div>";
+    }
+
+    return (
+      '<div class="' + cls + '">' +
+        '<div class="top">' +
+          '<span class="ref">#' + esc(o.ref) + "</span>" +
+          '<span class="pill ' + esc(o.status) + '">' + esc(o.status) + "</span>" +
+        "</div>" +
+        '<div class="ago"><span data-ago="' + o.created_at + '">' + timeAgo(o.created_at) + "</span></div>" +
+        '<ul class="items">' + items + "</ul>" +
+        '<div class="total"><span class="lbl">Total</span>' +
+          '<span class="val">' + esc(o.total) + ' ฿ <small>· pay at booth</small></span></div>' +
+        '<div class="meta">' + meta + "</div>" +
+        actions +
+      "</div>"
+    );
+  }
+
+  // ---- boot ----
+  if (state.auth) {
+    // verify stored creds
+    load(false).then(function () {
+      // if load succeeded (no gate shown), reveal app
+      if (gate.style.display !== "flex") {
+        showApp();
+        render();
+        startLoop();
+      }
+    });
+    // optimistically show app shell; load() will gate us out on 401
+    showApp();
+  } else {
+    showGate("");
+  }
+})();
+</script>
+</body>
+</html>

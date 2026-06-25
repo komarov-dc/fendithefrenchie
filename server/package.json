@@ -1,0 +1,20 @@
+{
+  "name": "fendi-orders",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Order backend for Fendi's Food Hut — receives orders, stores them in SQLite, notifies Telegram, and serves an iPad admin panel.",
+  "main": "server.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.8.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}
