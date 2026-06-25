@@ -168,30 +168,30 @@
     <!-- ===================== HERO ===================== -->
     <section class="relative overflow-hidden">
       <div class="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-[#fbeede] via-[#fdf3e8] to-cream"></div>
-      <!-- faint palm backdrop -->
-      <svg class="pointer-events-none absolute -right-16 top-6 -z-10 h-[520px] w-[520px] text-[#e7c9a8] opacity-40" viewBox="0 0 200 200" fill="currentColor" aria-hidden="true">
+      <!-- faint palm backdrop (desktop accent only — hidden on mobile to avoid dead space) -->
+      <svg class="pointer-events-none absolute -right-16 top-6 -z-10 hidden h-[520px] w-[520px] text-[#e7c9a8] opacity-40 lg:block" viewBox="0 0 200 200" fill="currentColor" aria-hidden="true">
         <path d="M98 190c-2-40-2-78 4-104-14 6-26 16-34 30 6-22 20-38 38-46-12-8-28-10-44-4 16-12 36-14 52-6-4-14-14-26-28-32 18-2 34 8 42 24 4-14 2-28-6-40 16 8 24 26 22 44 18-8 30 0 36 14-14-6-26-4-34 6 16 2 28 12 32 28-12-12-26-16-40-12 8 28 8 66 6 104z"/>
       </svg>
 
-      <div class="mx-auto max-w-7xl px-5 sm:px-8 pt-12 pb-16 sm:pb-20 lg:pt-16">
-        <div class="grid items-center gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-10">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8 pt-8 pb-14 sm:pt-12 sm:pb-20 lg:pt-16">
+        <div class="grid items-center gap-7 sm:gap-9 lg:grid-cols-[1.05fr_1fr] lg:gap-10">
           <!-- Copy -->
           <div>
             <p class="rise inline-flex items-center gap-2 rounded-full bg-gold px-4 py-1.5 font-display text-xs font-700 uppercase tracking-[0.12em] text-ink shadow-soft" style="animation-delay:.05s">
               <span class="text-sm">🍗</span> Pattaya's Favorite Street Food
             </p>
 
-            <h1 class="rise mt-5 font-display text-5xl font-700 leading-[1.02] tracking-tight sm:text-6xl lg:text-[64px]" style="animation-delay:.12s">
+            <h1 class="rise mt-4 font-display text-[2.6rem] font-700 leading-[1.03] tracking-tight sm:mt-5 sm:text-6xl lg:text-[64px]" style="animation-delay:.12s">
               <span class="text-ink">CRISPY CHICKEN.</span><br />
               <span class="text-chicky">JUICY HOTDOGS.</span><br />
               <span class="text-gold-dark">GOOD VIBES.</span>
             </h1>
 
-            <p class="rise mt-6 max-w-md text-lg leading-relaxed text-ink/70" style="animation-delay:.2s">
+            <p class="rise mt-4 max-w-md text-base leading-relaxed text-ink/70 sm:mt-6 sm:text-lg" style="animation-delay:.2s">
               From our booth in Pattaya to adventures across Thailand — Fendi brings you food, fun and happiness 24 hours a day!
             </p>
 
-            <div class="rise mt-8 flex flex-wrap items-center gap-3" style="animation-delay:.28s">
+            <div class="rise mt-6 flex flex-wrap items-center gap-3 sm:mt-8" style="animation-delay:.28s">
               <a href="menu.html" class="group inline-flex items-center gap-2.5 rounded-full bg-chicky px-7 py-3.5 font-display font-600 text-white shadow-soft transition-all hover:bg-chicky-dark hover:-translate-y-0.5 active:translate-y-0">
                 <span class="text-lg">🍗</span> See Our Menu
               </a>
@@ -201,20 +201,20 @@
             </div>
           </div>
 
-          <!-- Visual: sharp Fendi hero + booth/food-spread placeholder -->
-          <div class="relative">
-            <div class="relative aspect-[5/5.3] w-full max-w-[540px] ml-auto overflow-hidden rounded-[2.5rem] rounded-tr-[5rem] shadow-card">
-              <img src="images/hero.jpg" alt="Fendi the Frenchie, face of Chicky Chic in Pattaya" class="h-full w-full object-cover object-[center_28%]" />
-              <div class="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/35 to-transparent"></div>
+          <!-- Visual: sharp Fendi hero + real booth-night inset -->
+          <div class="relative mt-2 sm:mt-0">
+            <div class="relative aspect-[4/3] w-full max-w-[540px] overflow-hidden rounded-[2rem] shadow-card sm:aspect-[5/4] lg:ml-auto lg:aspect-[5/5.3] lg:rounded-[2.5rem] lg:rounded-tr-[5rem]">
+              <img src="images/hero.jpg" alt="Fendi the Frenchie, face of Chicky Chic in Pattaya" class="h-full w-full object-cover object-[center_38%] lg:object-[center_28%]" />
+              <div class="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/45 to-transparent"></div>
             </div>
 
-            <!-- Booth + food-spread placeholder (we don't have the render yet) -->
-            <div class="img-slot absolute -bottom-6 -left-3 z-20 hidden h-36 w-52 overflow-hidden rounded-2xl shadow-card ring-4 ring-cream sm:block">
-              <img alt="Chicky Chic booth & food spread" class="h-full w-full object-cover" />
+            <!-- Real booth-at-night photo inset -->
+            <div class="absolute -bottom-7 -left-3 z-20 hidden h-40 w-60 overflow-hidden rounded-2xl shadow-card ring-4 ring-cream sm:block">
+              <img src="images/booth-night.jpg" alt="Chicky Chic booth & food spread" class="h-full w-full object-cover object-center" />
             </div>
 
-            <!-- 24h badge -->
-            <div class="floaty absolute -right-2 -top-2 z-20 grid h-20 w-20 place-items-center rounded-full bg-gold text-center font-display text-sm font-700 leading-[1.05] text-ink shadow-card ring-4 ring-cream">
+            <!-- 24h badge — sits in the photo card's top-right corner -->
+            <div class="floaty absolute right-3 top-3 z-20 grid h-16 w-16 place-items-center rounded-full bg-gold text-center font-display text-[13px] font-700 leading-[1.05] text-ink shadow-card ring-4 ring-cream sm:-right-2 sm:-top-2 sm:h-20 sm:w-20 sm:text-sm">
               OPEN<br />24<br />HRS
             </div>
           </div>
@@ -255,41 +255,47 @@
       </h2>
       <p class="mt-3 text-center text-lg text-ink/60">The crispy, juicy favorites people line up for.</p>
 
-      <div class="mx-auto mt-10 grid max-w-5xl grid-cols-2 gap-5 lg:grid-cols-4">
-        <!-- Crispy Chicken Box (landscape shot) -->
-        <article class="group flex flex-col rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5">
-          <span class="img-slot relative block aspect-[4/3] overflow-hidden rounded-2xl">
-            <img src="images/m/bs-chicken.jpg" alt="Crispy Chicken Box" class="h-full w-full object-cover" />
+      <!-- Styled food-spread banner -->
+      <div class="relative mx-auto mt-10 aspect-[16/10] w-full max-w-5xl overflow-hidden rounded-[2rem] shadow-card sm:aspect-[2/1] lg:aspect-[5/2]">
+        <img src="images/spread.jpg" alt="Chicky Chic food spread — fried chicken, hot dog, breakfast sandwich, sauces and drinks" class="h-full w-full object-cover" />
+        <div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/5"></div>
+      </div>
+
+      <div class="mx-auto mt-6 grid max-w-5xl grid-cols-2 gap-5 lg:grid-cols-4">
+        <!-- Crispy Chicken Box (square, item centered on white) -->
+        <article class="group flex flex-col rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5 hover:shadow-[0_26px_50px_-20px_rgba(34,19,12,0.32)]">
+          <span class="relative block aspect-square overflow-hidden rounded-2xl bg-white">
+            <img src="images/m/bs-chicken.jpg" alt="Crispy Chicken Box" class="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.04]" />
           </span>
           <div class="flex grow flex-col px-1 pt-3">
             <h3 class="font-display text-lg font-600 leading-tight">Crispy Chicken Box</h3>
             <p class="mt-auto pt-2 font-display text-xl font-700 text-chicky">70 <span class="text-xs font-500 text-ink/45">THB</span></p>
           </div>
         </article>
-        <!-- Signature Hot Dog (landscape shot) -->
-        <article class="group flex flex-col rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5">
-          <span class="img-slot relative block aspect-[16/9] overflow-hidden rounded-2xl">
-            <img src="images/m/bs-hotdog.jpg" alt="Signature Hot Dog" class="h-full w-full object-cover" />
+        <!-- Signature Hot Dog (square, item centered on white) -->
+        <article class="group flex flex-col rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5 hover:shadow-[0_26px_50px_-20px_rgba(34,19,12,0.32)]">
+          <span class="relative block aspect-square overflow-hidden rounded-2xl bg-white">
+            <img src="images/m/bs-hotdog.jpg" alt="Signature Hot Dog" class="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.04]" />
           </span>
           <div class="flex grow flex-col px-1 pt-3">
             <h3 class="font-display text-lg font-600 leading-tight">Signature Hot Dog</h3>
             <p class="mt-auto pt-2 font-display text-xl font-700 text-chicky">60 <span class="text-xs font-500 text-ink/45">THB</span></p>
           </div>
         </article>
-        <!-- Combo Box (landscape shot) -->
-        <article class="group flex flex-col rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5">
-          <span class="img-slot relative block aspect-[4/3] overflow-hidden rounded-2xl">
-            <img src="images/m/bs-combo.jpg" alt="Combo Box" class="h-full w-full object-cover" />
+        <!-- Combo Box (square, item centered on white) -->
+        <article class="group flex flex-col rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5 hover:shadow-[0_26px_50px_-20px_rgba(34,19,12,0.32)]">
+          <span class="relative block aspect-square overflow-hidden rounded-2xl bg-white">
+            <img src="images/m/bs-combo.jpg" alt="Combo Box" class="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.04]" />
           </span>
           <div class="flex grow flex-col px-1 pt-3">
             <h3 class="font-display text-lg font-600 leading-tight">Combo Box</h3>
             <p class="mt-auto pt-2 font-display text-xl font-700 text-chicky">129 <span class="text-xs font-500 text-ink/45">THB</span></p>
           </div>
         </article>
-        <!-- Family Bucket (landscape shot) -->
-        <article class="group flex flex-col rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5">
-          <span class="img-slot relative block aspect-[4/3] overflow-hidden rounded-2xl">
-            <img src="images/m/bs-bucket.jpg" alt="Family Bucket" class="h-full w-full object-cover" />
+        <!-- Family Bucket (square, item centered on white) -->
+        <article class="group flex flex-col rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5 hover:shadow-[0_26px_50px_-20px_rgba(34,19,12,0.32)]">
+          <span class="relative block aspect-square overflow-hidden rounded-2xl bg-white">
+            <img src="images/m/bs-bucket.jpg" alt="Family Bucket" class="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.04]" />
           </span>
           <div class="flex grow flex-col px-1 pt-3">
             <h3 class="font-display text-lg font-600 leading-tight">Family Bucket</h3>
@@ -311,7 +317,7 @@
       <div class="grid gap-6 lg:grid-cols-2">
         <!-- MEET FENDI (red) -->
         <div id="meet-fendi" class="overflow-hidden rounded-[2rem] bg-chicky text-white shadow-card">
-          <div class="img-slot relative aspect-[16/9] w-full overflow-hidden">
+          <div class="relative aspect-[16/9] w-full overflow-hidden">
             <img src="images/scooter.jpg" alt="Fendi the Frenchie out on an adventure" class="h-full w-full object-cover object-center" />
           </div>
           <div class="p-7 sm:p-9">
@@ -335,8 +341,8 @@
 
         <!-- OUR FOOD BOOTH (gold) -->
         <div id="food-booth" class="overflow-hidden rounded-[2rem] bg-gold text-ink shadow-card">
-          <div class="img-slot relative aspect-[16/9] w-full overflow-hidden">
-            <img alt="The Chicky Chic booth at night in Pattaya" class="h-full w-full object-cover object-center" />
+          <div class="relative aspect-[16/9] w-full overflow-hidden">
+            <img src="images/booth-night.jpg" alt="The Chicky Chic booth at night in Pattaya" class="h-full w-full object-cover object-center" />
           </div>
           <div class="p-7 sm:p-9">
             <h2 class="font-display text-3xl font-700 tracking-tight sm:text-4xl"><span class="text-chicky-dark">♥</span> Our Food Booth <span class="text-chicky-dark">♥</span></h2>
@@ -363,38 +369,38 @@
         <p class="mt-3 text-center text-lg text-ink/60">Everything from chicken boxes to ice-cold drinks.</p>
 
         <div class="mx-auto mt-10 grid max-w-5xl grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-          <!-- Chicken boxes (landscape) -->
-          <a href="menu.html" class="group flex flex-col items-center rounded-2xl bg-white p-3 shadow-soft transition-all hover:-translate-y-1.5">
-            <span class="img-slot relative block aspect-[4/3] w-full overflow-hidden rounded-xl">
-              <img src="images/m/bs-chicken.jpg" alt="Chicken boxes" class="h-full w-full object-cover" />
+          <!-- Chicken boxes -->
+          <a href="menu.html" class="group flex flex-col items-center rounded-2xl bg-white p-3 shadow-soft transition-all hover:-translate-y-1.5 hover:shadow-card">
+            <span class="relative block aspect-square w-full overflow-hidden rounded-xl bg-white">
+              <img src="images/m/bs-chicken.jpg" alt="Chicken boxes" class="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.05]" />
             </span>
             <h3 class="mt-3 font-display text-sm font-700 uppercase tracking-wide text-ink/80">Chicken Boxes</h3>
           </a>
-          <!-- Hot dogs (landscape) -->
-          <a href="menu.html" class="group flex flex-col items-center rounded-2xl bg-white p-3 shadow-soft transition-all hover:-translate-y-1.5">
-            <span class="img-slot relative block aspect-[4/3] w-full overflow-hidden rounded-xl">
-              <img src="images/m/bs-hotdog.jpg" alt="Hot dogs" class="h-full w-full object-cover" />
+          <!-- Hot dogs -->
+          <a href="menu.html" class="group flex flex-col items-center rounded-2xl bg-white p-3 shadow-soft transition-all hover:-translate-y-1.5 hover:shadow-card">
+            <span class="relative block aspect-square w-full overflow-hidden rounded-xl bg-white">
+              <img src="images/m/bs-hotdog.jpg" alt="Hot dogs" class="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.05]" />
             </span>
             <h3 class="mt-3 font-display text-sm font-700 uppercase tracking-wide text-ink/80">Hot Dogs</h3>
           </a>
-          <!-- Breakfast (tiny landscape shot — keep small) -->
-          <a href="breakfast.html" class="group flex flex-col items-center rounded-2xl bg-white p-3 shadow-soft transition-all hover:-translate-y-1.5">
-            <span class="img-slot relative block aspect-[16/9] w-full overflow-hidden rounded-xl">
-              <img src="images/m/bk-original.jpg" alt="Breakfast sandwiches" class="h-full w-full object-cover" />
+          <!-- Breakfast -->
+          <a href="breakfast.html" class="group flex flex-col items-center rounded-2xl bg-white p-3 shadow-soft transition-all hover:-translate-y-1.5 hover:shadow-card">
+            <span class="relative block aspect-square w-full overflow-hidden rounded-xl bg-white">
+              <img src="images/m/bk-original.jpg" alt="Breakfast sandwiches" class="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.05]" />
             </span>
             <h3 class="mt-3 font-display text-sm font-700 uppercase tracking-wide text-ink/80">Breakfast</h3>
           </a>
-          <!-- Sauces (small ~3/2 shot) -->
-          <a href="menu.html" class="group flex flex-col items-center rounded-2xl bg-white p-3 shadow-soft transition-all hover:-translate-y-1.5">
-            <span class="img-slot relative block aspect-[3/2] w-full overflow-hidden rounded-xl">
-              <img src="images/m/sc-cheddar.jpg" alt="Sauces" class="h-full w-full object-cover" />
+          <!-- Sauces -->
+          <a href="menu.html" class="group flex flex-col items-center rounded-2xl bg-white p-3 shadow-soft transition-all hover:-translate-y-1.5 hover:shadow-card">
+            <span class="relative block aspect-square w-full overflow-hidden rounded-xl bg-white">
+              <img src="images/m/sc-cheddar.jpg" alt="Sauces" class="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.05]" />
             </span>
             <h3 class="mt-3 font-display text-sm font-700 uppercase tracking-wide text-ink/80">Sauces</h3>
           </a>
-          <!-- Drinks (portrait shot) -->
-          <a href="menu.html" class="group flex flex-col items-center rounded-2xl bg-white p-3 shadow-soft transition-all hover:-translate-y-1.5">
-            <span class="img-slot relative block aspect-[3/4] w-full overflow-hidden rounded-xl">
-              <img src="images/m/dr-coke.jpg" alt="Drinks" class="h-full w-full object-cover" />
+          <!-- Drinks -->
+          <a href="menu.html" class="group flex flex-col items-center rounded-2xl bg-white p-3 shadow-soft transition-all hover:-translate-y-1.5 hover:shadow-card">
+            <span class="relative block aspect-square w-full overflow-hidden rounded-xl bg-white">
+              <img src="images/m/dr-coke.jpg" alt="Drinks" class="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.05]" />
             </span>
             <h3 class="mt-3 font-display text-sm font-700 uppercase tracking-wide text-ink/80">Drinks</h3>
           </a>
@@ -410,35 +416,37 @@
     </section>
 
     <!-- ===================== FOLLOW OUR JOURNEY ===================== -->
-    <section id="journey" class="mx-auto max-w-7xl px-5 sm:px-8 py-16 sm:py-20">
+    <section id="journey" class="relative overflow-hidden bg-ink text-white">
+      <div class="awning h-3 w-full"></div>
+      <div class="mx-auto max-w-7xl px-5 sm:px-8 py-16 sm:py-20">
       <h2 class="text-center font-display text-4xl font-700 tracking-tight sm:text-5xl">
-        <span class="text-gold-dark">♥</span> Follow Our Journey <span class="text-gold-dark">♥</span>
+        <span class="text-gold">♥</span> Follow Our Journey <span class="text-gold">♥</span>
       </h2>
-      <p class="mt-3 text-center text-lg text-ink/60">Food, friends and fun from Pattaya to all around Thailand!</p>
+      <p class="mt-3 text-center text-lg text-white/70">Food, friends and fun from Pattaya to all around Thailand!</p>
 
       <div class="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-        <span class="img-slot relative block aspect-square overflow-hidden rounded-2xl shadow-soft">
-          <img src="images/scooter.jpg" alt="Fendi on the scooter" class="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
+        <span class="group relative block aspect-square overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-card">
+          <img src="images/scooter.jpg" alt="Fendi on the scooter" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
         </span>
-        <span class="img-slot relative block aspect-square overflow-hidden rounded-2xl shadow-soft">
-          <img src="images/food.jpg" alt="Reviewing street food" class="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
+        <span class="group relative block aspect-square overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-card">
+          <img src="images/food.jpg" alt="Reviewing street food" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
         </span>
-        <span class="img-slot relative block aspect-square overflow-hidden rounded-2xl shadow-soft">
-          <img src="images/coding.jpg" alt="Fendi at work" class="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
+        <span class="group relative block aspect-square overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-card">
+          <img src="images/coding.jpg" alt="Fendi at work" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
         </span>
-        <span class="img-slot relative block aspect-square overflow-hidden rounded-2xl shadow-soft">
-          <img src="images/hero.jpg" alt="Fendi portrait" class="h-full w-full object-cover object-top transition-transform duration-500 hover:scale-105" />
+        <span class="group relative block aspect-square overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-card">
+          <img src="images/booth-night.jpg" alt="Fendi portrait" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
         </span>
-        <span class="img-slot relative block aspect-square overflow-hidden rounded-2xl shadow-soft">
-          <img alt="Fendi adventure photo" class="h-full w-full object-cover" />
+        <span class="group relative block aspect-square overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-card">
+          <img src="images/m/cb-combo.jpg" alt="Fendi adventure photo" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
         </span>
-        <span class="img-slot relative block aspect-square overflow-hidden rounded-2xl shadow-soft">
-          <img alt="Fendi adventure photo" class="h-full w-full object-cover" />
+        <span class="group relative block aspect-square overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-card">
+          <img src="images/spread.jpg" alt="Fendi adventure photo" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
         </span>
       </div>
 
       <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
-        <a href="#" class="inline-flex items-center gap-2.5 rounded-full bg-ink px-7 py-3.5 font-display font-600 text-white shadow-soft transition-all hover:-translate-y-0.5 hover:bg-black">
+        <a href="#" class="inline-flex items-center gap-2.5 rounded-full bg-white px-7 py-3.5 font-display font-600 text-ink shadow-soft transition-all hover:-translate-y-0.5 hover:bg-white/90">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.5 2c.3 2.4 1.7 4.1 4 4.4v2.7c-1.4.1-2.7-.3-4-1v6.3c0 3.4-2.6 5.9-5.9 5.9A5.7 5.7 0 0 1 5 14.6c.2-3 2.6-5.2 5.9-5v2.9c-.4-.1-.9-.2-1.3-.2-1.5 0-2.6 1.2-2.6 2.6 0 1.5 1.2 2.6 2.7 2.6 1.5 0 2.7-1.1 2.7-2.7V2h2.1z"/></svg>
           Follow on TikTok @fendi.frenchie
         </a>
@@ -446,6 +454,7 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg>
           Follow on Instagram @fendi.frenchie
         </a>
+      </div>
       </div>
     </section>
   </main>

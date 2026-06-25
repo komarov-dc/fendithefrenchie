@@ -7,3 +7,8 @@ output/
 *.zip
 .DS_Store
 node_modules/
+# internal ops + image sources (keep out of the public Pages repo)
+backlog/
+images/src/
+CLAUDE.md
+README.md
