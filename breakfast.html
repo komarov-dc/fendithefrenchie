@@ -8,7 +8,7 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png" />
-  <meta name="theme-color" content="#d4202a" />
+  <meta name="theme-color" content="#0e0c0a" />
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Build Your Own Breakfast Sandwich — Fendi's Food Hut" />
@@ -17,91 +17,117 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Pre-compiled Tailwind (built from tailwind-input.css via tailwind.config.js) -->
-  <link rel="stylesheet" href="css/app.css?v=3" />
+  <link rel="stylesheet" href="css/app.css?v=4" />
 
+  <!-- Distinctive type: Fredoka + Nunito + Caveat + Playfair (gold serif) + Cormorant (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     html { scroll-behavior: smooth; }
-    body { font-family: 'Nunito', sans-serif; }
+    body { font-family: 'Cormorant Garamond', Georgia, serif; }
     .font-display { font-family: 'Fredoka', sans-serif; }
     .font-hand { font-family: 'Caveat', cursive; }
     .font-brand { font-family: 'Playfair Display', serif; }
+    .font-ui { font-family: 'Nunito', sans-serif; }
 
-    .img-slot { background-color: #e7ddcf; background-image: linear-gradient(135deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0) 55%), repeating-linear-gradient(45deg, rgba(255,255,255,0.10) 0 14px, rgba(0,0,0,0.02) 14px 28px); }
-    .img-slot::after { content: "🍳 photo"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: .4rem; font-family: 'Nunito', sans-serif; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-size: .68rem; color: #a99b86; }
-    .img-slot > img { position: relative; z-index: 1; }
-    .img-slot > img:not([src]), .img-slot > img[src=""] { opacity: 0; }
+    /* Subtle FFH art-deco monogram texture for dark sections */
+    .ffh-texture {
+      background-image: url("images/luxe/pattern.jpg");
+      background-size: 460px;
+      background-repeat: repeat;
+    }
+    /* Gold hairline */
+    .gold-rule {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,162,75,0.55), transparent);
+    }
 
-    .awning { height: 26px; background-image: radial-gradient(circle at 16px 0, #d4202a 14px, transparent 15px); background-size: 32px 28px; background-repeat: repeat-x; background-position: 0 -14px; }
+    @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    .rise { opacity: 0; animation: rise .7s cubic-bezier(.2,.7,.2,1) forwards; }
 
-    @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-    .rise { opacity: 0; animation: rise .6s cubic-bezier(.2,.7,.2,1) forwards; }
+    @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    .floaty { animation: floaty 5s ease-in-out infinite; }
 
-    a:focus-visible, button:focus-visible { outline: 3px solid #d4202a; outline-offset: 3px; border-radius: 9999px; }
+    @keyframes livedot { 0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.55); } 70% { box-shadow: 0 0 0 7px rgba(34,197,94,0); } 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); } }
+    .live-dot { animation: livedot 2s ease-out infinite; }
 
-    /* Builder option chips */
+    a:focus-visible, button:focus-visible, select:focus-visible { outline: 2px solid #e3c878; outline-offset: 3px; border-radius: 9999px; }
+
+    /* Builder option chips — dark/gold, selected state gold */
     .opt { transition: all .15s ease; }
-    .opt[aria-pressed="true"] { background-color: #d4202a; border-color: #d4202a; color: #fff; box-shadow: 0 10px 24px -10px rgba(212,32,42,.5); }
-    .opt[aria-pressed="true"] .opt-price { color: rgba(255,255,255,.85); }
+    .opt[aria-pressed="true"] {
+      background-image: linear-gradient(180deg, #e3c878, #c9a24b);
+      border-color: #e3c878;
+      color: #0e0c0a;
+      box-shadow: 0 16px 34px -16px rgba(201,162,75,.6);
+    }
+    .opt[aria-pressed="true"] .opt-price { color: rgba(14,12,10,.7); }
     .opt[aria-pressed="true"] .opt-check { opacity: 1; }
     .opt-check { opacity: 0; transition: opacity .15s ease; }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .rise { animation: none !important; opacity: 1 !important; }
+      .rise, .floaty { animation: none !important; opacity: 1 !important; }
       * { transition-duration: 0.01ms !important; }
     }
   </style>
 </head>
 
-<body class="bg-cream text-ink font-body antialiased selection:bg-chicky/20">
+<body class="bg-noir text-ink-cream antialiased selection:bg-gold/30 selection:text-noir">
 
   <!-- ===================== HEADER ===================== -->
-  <header class="sticky top-0 z-50 bg-cream/85 backdrop-blur-md border-b border-black/5">
+  <header class="sticky top-0 z-50 border-b border-gold/20 bg-noir/90 backdrop-blur-md">
     <div class="mx-auto max-w-7xl px-5 sm:px-8">
-      <div class="flex h-[68px] items-center justify-between">
-        <a href="index.html" class="flex items-center gap-3 group">
-          <span class="img-slot relative grid h-10 w-10 place-items-center overflow-hidden rounded-full ring-2 ring-brand/30">
-            <img src="images/logo.png" alt="Fendi logo" class="h-full w-full object-cover object-center" />
+      <div class="flex h-[76px] items-center justify-between gap-3">
+        <!-- Logo + wordmark -->
+        <a href="index.html" class="group flex shrink-0 items-center gap-3">
+          <span class="relative grid h-12 w-12 place-items-center overflow-hidden rounded-full bg-noir ring-1 ring-gold/50">
+            <img src="images/luxe/mascot.jpg" alt="Fendi logo" class="h-full w-full object-cover object-center" />
           </span>
-          <span class="font-brand text-xl font-600 tracking-tight text-chicky whitespace-nowrap">Fendi's Food Hut</span>
+          <span class="leading-none">
+            <span class="block whitespace-nowrap font-brand text-xl font-600 tracking-tight text-gold-light">Fendi's Food Hut</span>
+            <span class="mt-1 block font-ui text-[9px] font-600 uppercase tracking-[0.22em] text-gold/60">Hotdogs &amp; Fried Chicken</span>
+          </span>
         </a>
 
-        <nav class="hidden md:flex items-center gap-7 font-display text-[15px] font-500">
-          <a href="index.html#about" class="text-ink/80 hover:text-ink transition-colors">About</a>
-          <a href="index.html#gallery" class="text-ink/80 hover:text-ink transition-colors">Gallery</a>
-          <a href="menu.html" class="text-ink/80 hover:text-ink transition-colors">Menu</a>
-          <a href="breakfast.html" class="text-chicky font-600">Breakfast</a>
-          <a href="index.html#franchise" class="text-ink/80 hover:text-ink transition-colors">Franchise</a>
-          <a href="index.html#contact" class="text-ink/80 hover:text-ink transition-colors">Contact</a>
+        <!-- Center nav -->
+        <nav class="hidden items-center gap-8 font-ui text-[13px] font-600 uppercase tracking-[0.14em] lg:flex">
+          <a href="index.html#about" class="relative text-ink-cream/75 transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all hover:text-gold-light hover:after:w-full">About</a>
+          <a href="index.html#gallery" class="relative text-ink-cream/75 transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all hover:text-gold-light hover:after:w-full">Gallery</a>
+          <a href="menu.html" class="relative text-ink-cream/75 transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all hover:text-gold-light hover:after:w-full">Menu</a>
+          <a href="breakfast.html" class="relative text-gold-light after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-full after:bg-gold">Breakfast</a>
+          <a href="index.html#franchise" class="relative text-ink-cream/75 transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all hover:text-gold-light hover:after:w-full">Franchise</a>
+          <a href="index.html#contact" class="relative text-ink-cream/75 transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all hover:text-gold-light hover:after:w-full">Contact</a>
         </nav>
 
-        <div class="flex items-center gap-2">
-          <select id="langSel" aria-label="Language" title="Language" class="cursor-pointer rounded-full border border-black/10 bg-white/70 px-2.5 py-1.5 font-display text-sm font-500 text-ink/80 shadow-soft focus:outline-none">
+        <!-- Right side -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          <select id="langSel" aria-label="Language" title="Language" class="cursor-pointer rounded-full border border-gold/35 bg-charcoal px-2.5 py-1.5 font-ui text-sm font-600 text-gold-light focus:outline-none">
             <option value="en">EN</option>
             <option value="th">ไทย</option>
             <option value="ru">RU</option>
           </select>
-          <a href="#builder" class="hidden sm:inline-flex items-center rounded-full bg-chicky px-6 py-2.5 font-display font-500 text-white shadow-soft transition-all hover:bg-chicky-dark hover:-translate-y-0.5">
+          <a href="#builder" class="hidden items-center rounded-full bg-gradient-to-b from-gold-light to-gold px-6 py-2.5 font-ui text-sm font-700 uppercase tracking-[0.06em] text-noir shadow-luxe transition-all hover:-translate-y-0.5 hover:from-gold hover:to-gold-deep sm:inline-flex">
             Build Yours
           </a>
-          <button id="menuBtn" aria-label="Open menu" class="md:hidden grid h-11 w-11 place-items-center rounded-xl border border-black/10 bg-white/60">
+          <button id="menuBtn" aria-label="Open menu" class="grid h-11 w-11 place-items-center rounded-xl border border-gold/30 bg-charcoal text-gold-light lg:hidden">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
           </button>
         </div>
       </div>
 
-      <div id="mobileMenu" class="md:hidden hidden pb-4">
-        <nav class="flex flex-col gap-1 font-display text-base">
-          <a href="index.html#about" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">About</a>
-          <a href="index.html#gallery" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">Gallery</a>
-          <a href="menu.html" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">Menu</a>
-          <a href="breakfast.html" class="rounded-lg px-3 py-2.5 bg-peach/60 text-chicky font-600">Breakfast</a>
-          <a href="index.html#franchise" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">Franchise</a>
-          <a href="index.html#contact" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">Contact</a>
+      <!-- Mobile menu -->
+      <div id="mobileMenu" class="hidden pb-4 lg:hidden">
+        <nav class="flex flex-col gap-1 font-ui text-base font-600">
+          <a href="index.html#about" class="rounded-lg px-3 py-2.5 text-ink-cream/85 transition-colors hover:bg-gold/10 hover:text-gold-light">About</a>
+          <a href="index.html#gallery" class="rounded-lg px-3 py-2.5 text-ink-cream/85 transition-colors hover:bg-gold/10 hover:text-gold-light">Gallery</a>
+          <a href="menu.html" class="rounded-lg px-3 py-2.5 text-ink-cream/85 transition-colors hover:bg-gold/10 hover:text-gold-light">Menu</a>
+          <a href="breakfast.html" class="rounded-lg bg-gold/10 px-3 py-2.5 font-600 text-gold-light">Breakfast</a>
+          <a href="index.html#franchise" class="rounded-lg px-3 py-2.5 text-ink-cream/85 transition-colors hover:bg-gold/10 hover:text-gold-light">Franchise</a>
+          <a href="index.html#contact" class="rounded-lg px-3 py-2.5 text-ink-cream/85 transition-colors hover:bg-gold/10 hover:text-gold-light">Contact</a>
+          <a href="#builder" class="mt-2 rounded-full bg-gold px-5 py-3 text-center font-700 uppercase tracking-wide text-noir">Build Yours</a>
         </nav>
       </div>
     </div>
@@ -109,209 +135,249 @@
 
   <main>
     <!-- ===================== HERO ===================== -->
-    <section class="relative overflow-hidden">
-      <div class="awning"></div>
-      <div class="bg-gradient-to-b from-[#fbeede] to-cream">
-        <div class="mx-auto grid max-w-7xl items-center gap-8 px-5 sm:px-8 py-10 lg:grid-cols-2 lg:py-12">
-          <div class="rise">
-            <p class="flex items-center gap-2 font-display text-sm font-600 uppercase tracking-[0.14em] text-chicky"><span>🍳</span> Breakfast · Wrapped &amp; Ready</p>
-            <h1 class="mt-4 font-display text-[2.15rem] font-700 leading-[1.0] tracking-tight sm:text-5xl lg:text-6xl">
-              Build Your Own<br /><span class="text-chicky">Breakfast Sandwich</span>
-            </h1>
-            <p class="mt-5 max-w-md text-lg leading-relaxed text-ink/70">
-              Keep it simple: <span class="font-700">carbs + protein.</span> Pick your base, stack your meat, choose your cheese — egg &amp; cheese to full double-meat. Made fresh, wrapped to go.
-            </p>
-            <p class="mt-5 inline-flex items-center gap-2 rounded-full bg-chicky/10 px-4 py-2 font-display text-sm font-700 text-chicky"><span>⏰</span> Served 4am–11am · Limited time</p>
-            <div class="mt-6 flex flex-wrap items-center gap-3">
-              <a href="#builder" class="inline-flex items-center gap-2 rounded-full bg-chicky px-6 py-3.5 font-display font-500 text-white shadow-soft transition-all hover:bg-chicky-dark hover:-translate-y-0.5"><span>🥪</span> Start Building</a>
-              <a href="#favorites" class="inline-flex items-center gap-2 rounded-full border border-black/12 bg-white px-6 py-3.5 font-display font-500 text-ink shadow-soft transition-all hover:-translate-y-0.5 hover:border-chicky/40">See Favorites</a>
-            </div>
+    <section class="relative overflow-hidden bg-noir">
+      <!-- subtle FFH monogram texture + radial glow -->
+      <div class="ffh-texture pointer-events-none absolute inset-0 -z-10 opacity-[0.18]"></div>
+      <div class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(120%_90%_at_50%_-10%,rgba(201,162,75,0.12),transparent_60%)]"></div>
+
+      <div class="mx-auto grid max-w-7xl items-center gap-8 px-5 pb-12 pt-8 sm:px-8 sm:pb-16 sm:pt-14 lg:grid-cols-2 lg:gap-14 lg:pt-16">
+        <div class="order-2 lg:order-1">
+          <p class="rise inline-flex items-center gap-2 rounded-full border border-gold/40 bg-charcoal px-4 py-1.5 font-ui text-[11px] font-700 uppercase tracking-[0.18em] text-gold-light" style="animation-delay:.05s"><span class="text-sm">🍳</span> Breakfast · Wrapped &amp; Ready</p>
+          <h1 class="rise mt-5 font-brand text-[2.4rem] font-600 leading-[1.04] tracking-tight sm:text-5xl lg:text-6xl" style="animation-delay:.12s">
+            <span class="text-ink-cream">Build Your Own</span><br /><span class="bg-gradient-to-r from-gold-light to-gold-deep bg-clip-text text-transparent">Breakfast Sandwich</span>
+          </h1>
+          <div class="gold-rule mt-6 max-w-xs"></div>
+          <p class="rise mt-5 max-w-md text-lg leading-relaxed text-ink-cream/75 sm:text-xl" style="animation-delay:.2s">
+            Keep it simple: <span class="font-700 text-gold-light">carbs + protein.</span> Pick your base, stack your meat, choose your cheese — egg &amp; cheese to full double-meat. Made fresh, wrapped to go.
+          </p>
+          <p class="rise mt-5 inline-flex items-center gap-2 rounded-full border border-gold/40 bg-charcoal px-4 py-2 font-ui text-sm font-700 uppercase tracking-wide text-gold-light" style="animation-delay:.24s"><span>⏰</span> Served 4am–11am · Limited time</p>
+          <div class="rise mt-7 flex flex-wrap items-center gap-3" style="animation-delay:.28s">
+            <a href="#builder" class="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-b from-gold-light to-gold px-7 py-3.5 font-ui text-sm font-700 uppercase tracking-[0.08em] text-noir shadow-luxe transition-all hover:-translate-y-0.5 hover:from-gold hover:to-gold-deep active:translate-y-0 sm:text-base"><span class="text-base sm:text-lg">🥪</span> Start Building</a>
+            <a href="#favorites" class="inline-flex items-center justify-center gap-2 rounded-full border border-gold/50 bg-transparent px-7 py-3.5 font-ui text-sm font-700 uppercase tracking-[0.08em] text-gold-light transition-all hover:-translate-y-0.5 hover:border-gold hover:bg-gold/10 sm:text-base">See Favorites</a>
           </div>
-          <div class="relative rise" style="animation-delay:.1s">
-            <div class="img-slot relative ml-auto aspect-[4/3] w-full max-w-[520px] overflow-hidden rounded-[2rem] shadow-card">
-              <img src="images/m/bk-newyork.jpg" alt="Fendi's Food Hut breakfast sandwich" class="h-full w-full object-cover" />
-            </div>
+        </div>
+        <div class="rise relative order-1 lg:order-2" style="animation-delay:.1s">
+          <div class="relative ml-auto overflow-hidden rounded-[1.5rem] ring-1 ring-gold/25 shadow-luxe lg:rounded-[2rem]">
+            <img src="images/luxe/breakfast.jpg" alt="Fendi's Food Hut breakfast sandwich" class="h-full w-full object-cover" />
+            <div class="pointer-events-none absolute inset-0 rounded-[1.5rem] ring-1 ring-inset ring-gold/15 lg:rounded-[2rem]"></div>
+          </div>
+          <!-- 24h badge -->
+          <div class="floaty absolute -right-2 -top-2 z-20 grid h-16 w-16 place-items-center rounded-full border border-gold/50 bg-noir text-center font-ui text-[12px] font-700 leading-[1.05] text-gold-light shadow-luxe sm:h-20 sm:w-20 sm:text-sm">
+            OPEN<br />24<br />HRS
           </div>
         </div>
       </div>
+      <div class="gold-rule mx-auto max-w-7xl"></div>
     </section>
 
     <!-- ===================== BUILDER ===================== -->
-    <section id="builder" class="mx-auto max-w-7xl px-5 sm:px-8 py-12 sm:py-16">
+    <section id="builder" class="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-20">
       <div class="grid gap-8 lg:grid-cols-3">
         <!-- Options -->
         <div class="lg:col-span-2">
-          <h2 class="font-display text-3xl font-700">Build it your way</h2>
-          <div class="mt-1.5 h-1 w-12 rounded-full bg-chicky"></div>
-          <p class="mt-3 text-ink/60">Tap to add. Over-tap? No worries — adjust at the booth. <span class="text-ink/40">Egg &amp; cheese included.</span></p>
+          <div class="mx-auto h-px w-16 bg-gradient-to-r from-transparent via-gold to-transparent lg:mx-0"></div>
+          <h2 class="mt-5 font-brand text-3xl font-600 tracking-tight text-ink-cream sm:text-4xl">Build it your way</h2>
+          <p class="mt-3 text-lg text-ink-cream/65">Tap to add. Over-tap? No worries — adjust at the booth. <span class="text-ink-cream/40">Egg &amp; cheese included.</span></p>
 
           <!-- Step 1: Base -->
           <div class="mt-8">
-            <p class="font-display text-sm font-700 uppercase tracking-[0.12em] text-ink/50">Step 1 · Choose your base <span class="text-chicky">(carbs)</span></p>
+            <p class="font-ui text-sm font-700 uppercase tracking-[0.12em] text-gold/70">Step 1 · Choose your base <span class="text-gold-light">(carbs)</span></p>
             <div class="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-3" data-step="base">
-              <button class="opt flex items-center justify-between rounded-2xl border border-black/10 bg-white px-4 py-3.5 text-left font-display font-500 shadow-soft" aria-pressed="true" data-group="base" data-label="Croissant">🥐 Croissant <svg class="opt-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
-              <button class="opt flex items-center justify-between rounded-2xl border border-black/10 bg-white px-4 py-3.5 text-left font-display font-500 shadow-soft" aria-pressed="false" data-group="base" data-label="Biscuit">🫓 Biscuit <svg class="opt-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
-              <button class="opt flex items-center justify-between rounded-2xl border border-black/10 bg-white px-4 py-3.5 text-left font-display font-500 shadow-soft" aria-pressed="false" data-group="base" data-label="Bagel">🥯 Bagel <svg class="opt-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
-              <button class="opt flex items-center justify-between rounded-2xl border border-black/10 bg-white px-4 py-3.5 text-left font-display font-500 shadow-soft" aria-pressed="false" data-group="base" data-label="Toast">🍞 Toast <svg class="opt-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
-              <button class="opt flex items-center justify-between rounded-2xl border border-black/10 bg-white px-4 py-3.5 text-left font-display font-500 shadow-soft" aria-pressed="false" data-group="base" data-label="English Muffin">🧈 English Muffin <svg class="opt-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
-              <button class="opt flex items-center justify-between rounded-2xl border border-black/10 bg-white px-4 py-3.5 text-left font-display font-500 shadow-soft" aria-pressed="false" data-group="base" data-label="Sourdough">🍞 Sourdough <svg class="opt-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+              <button class="opt flex items-center justify-between rounded-2xl border border-gold/20 bg-charcoal px-4 py-3.5 text-left font-ui font-600 text-ink-cream shadow-luxe" aria-pressed="true" data-group="base" data-label="Croissant">🥐 Croissant <svg class="opt-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+              <button class="opt flex items-center justify-between rounded-2xl border border-gold/20 bg-charcoal px-4 py-3.5 text-left font-ui font-600 text-ink-cream shadow-luxe" aria-pressed="false" data-group="base" data-label="Biscuit">🫓 Biscuit <svg class="opt-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+              <button class="opt flex items-center justify-between rounded-2xl border border-gold/20 bg-charcoal px-4 py-3.5 text-left font-ui font-600 text-ink-cream shadow-luxe" aria-pressed="false" data-group="base" data-label="Bagel">🥯 Bagel <svg class="opt-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+              <button class="opt flex items-center justify-between rounded-2xl border border-gold/20 bg-charcoal px-4 py-3.5 text-left font-ui font-600 text-ink-cream shadow-luxe" aria-pressed="false" data-group="base" data-label="Toast">🍞 Toast <svg class="opt-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+              <button class="opt flex items-center justify-between rounded-2xl border border-gold/20 bg-charcoal px-4 py-3.5 text-left font-ui font-600 text-ink-cream shadow-luxe" aria-pressed="false" data-group="base" data-label="English Muffin">🧈 English Muffin <svg class="opt-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+              <button class="opt flex items-center justify-between rounded-2xl border border-gold/20 bg-charcoal px-4 py-3.5 text-left font-ui font-600 text-ink-cream shadow-luxe" aria-pressed="false" data-group="base" data-label="Sourdough">🍞 Sourdough <svg class="opt-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
             </div>
           </div>
 
           <!-- Step 2: Protein -->
           <div class="mt-8">
-            <p class="font-display text-sm font-700 uppercase tracking-[0.12em] text-ink/50">Step 2 · Add your meat <span class="text-chicky">(protein)</span></p>
+            <p class="font-ui text-sm font-700 uppercase tracking-[0.12em] text-gold/70">Step 2 · Add your meat <span class="text-gold-light">(protein)</span></p>
             <div class="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4" data-step="meat">
-              <button class="opt flex items-center justify-between rounded-2xl border border-black/10 bg-white px-4 py-3.5 text-left font-display font-500 shadow-soft" aria-pressed="false" data-group="meat" data-label="Bacon" data-price="50">🥓 Bacon <span class="opt-price text-xs font-600 text-chicky">+50</span></button>
-              <button class="opt flex items-center justify-between rounded-2xl border border-black/10 bg-white px-4 py-3.5 text-left font-display font-500 shadow-soft" aria-pressed="false" data-group="meat" data-label="Sausage" data-price="50">🌭 Sausage <span class="opt-price text-xs font-600 text-chicky">+50</span></button>
-              <button class="opt flex items-center justify-between rounded-2xl border border-black/10 bg-white px-4 py-3.5 text-left font-display font-500 shadow-soft" aria-pressed="false" data-group="meat" data-label="Ham" data-price="50">🍖 Ham <span class="opt-price text-xs font-600 text-chicky">+50</span></button>
-              <button class="opt flex items-center justify-between rounded-2xl border border-black/10 bg-white px-4 py-3.5 text-left font-display font-500 shadow-soft" aria-pressed="false" data-group="meat" data-label="Steak" data-price="60">🥩 Steak <span class="opt-price text-xs font-600 text-chicky">+60</span></button>
+              <button class="opt flex items-center justify-between rounded-2xl border border-gold/20 bg-charcoal px-4 py-3.5 text-left font-ui font-600 text-ink-cream shadow-luxe" aria-pressed="false" data-group="meat" data-label="Bacon" data-price="50">🥓 Bacon <span class="opt-price text-xs font-700 text-gold-light">+50</span></button>
+              <button class="opt flex items-center justify-between rounded-2xl border border-gold/20 bg-charcoal px-4 py-3.5 text-left font-ui font-600 text-ink-cream shadow-luxe" aria-pressed="false" data-group="meat" data-label="Sausage" data-price="50">🌭 Sausage <span class="opt-price text-xs font-700 text-gold-light">+50</span></button>
+              <button class="opt flex items-center justify-between rounded-2xl border border-gold/20 bg-charcoal px-4 py-3.5 text-left font-ui font-600 text-ink-cream shadow-luxe" aria-pressed="false" data-group="meat" data-label="Ham" data-price="50">🍖 Ham <span class="opt-price text-xs font-700 text-gold-light">+50</span></button>
+              <button class="opt flex items-center justify-between rounded-2xl border border-gold/20 bg-charcoal px-4 py-3.5 text-left font-ui font-600 text-ink-cream shadow-luxe" aria-pressed="false" data-group="meat" data-label="Steak" data-price="60">🥩 Steak <span class="opt-price text-xs font-700 text-gold-light">+60</span></button>
             </div>
           </div>
 
           <!-- Step 3: Cheese -->
           <div class="mt-8">
-            <p class="font-display text-sm font-700 uppercase tracking-[0.12em] text-ink/50">Step 3 · Choose your cheese <span class="text-ink/40">(included)</span></p>
+            <p class="font-ui text-sm font-700 uppercase tracking-[0.12em] text-gold/70">Step 3 · Choose your cheese <span class="text-ink-cream/40">(included)</span></p>
             <div class="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4" data-step="cheese">
-              <button class="opt flex items-center justify-between rounded-2xl border border-black/10 bg-white px-4 py-3.5 text-left font-display font-500 shadow-soft" aria-pressed="true" data-group="cheese" data-label="Cheddar">🧀 Cheddar <svg class="opt-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
-              <button class="opt flex items-center justify-between rounded-2xl border border-black/10 bg-white px-4 py-3.5 text-left font-display font-500 shadow-soft" aria-pressed="false" data-group="cheese" data-label="American">🧀 American <svg class="opt-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
-              <button class="opt flex items-center justify-between rounded-2xl border border-black/10 bg-white px-4 py-3.5 text-left font-display font-500 shadow-soft" aria-pressed="false" data-group="cheese" data-label="Swiss">🧀 Swiss <svg class="opt-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
-              <button class="opt flex items-center justify-between rounded-2xl border border-black/10 bg-white px-4 py-3.5 text-left font-display font-500 shadow-soft" aria-pressed="false" data-group="cheese" data-label="Pepper Jack">🧀 Pepper Jack <svg class="opt-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+              <button class="opt flex items-center justify-between rounded-2xl border border-gold/20 bg-charcoal px-4 py-3.5 text-left font-ui font-600 text-ink-cream shadow-luxe" aria-pressed="true" data-group="cheese" data-label="Cheddar">🧀 Cheddar <svg class="opt-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+              <button class="opt flex items-center justify-between rounded-2xl border border-gold/20 bg-charcoal px-4 py-3.5 text-left font-ui font-600 text-ink-cream shadow-luxe" aria-pressed="false" data-group="cheese" data-label="American">🧀 American <svg class="opt-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+              <button class="opt flex items-center justify-between rounded-2xl border border-gold/20 bg-charcoal px-4 py-3.5 text-left font-ui font-600 text-ink-cream shadow-luxe" aria-pressed="false" data-group="cheese" data-label="Swiss">🧀 Swiss <svg class="opt-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+              <button class="opt flex items-center justify-between rounded-2xl border border-gold/20 bg-charcoal px-4 py-3.5 text-left font-ui font-600 text-ink-cream shadow-luxe" aria-pressed="false" data-group="cheese" data-label="Pepper Jack">🧀 Pepper Jack <svg class="opt-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
             </div>
           </div>
         </div>
 
         <!-- Live summary -->
         <div class="lg:col-span-1">
-          <div class="lg:sticky lg:top-24 rounded-3xl bg-white p-6 shadow-card ring-1 ring-chicky/10">
-            <p class="font-display text-sm font-700 uppercase tracking-[0.12em] text-chicky">Your sandwich</p>
-            <p id="buildSummary" class="mt-3 font-display text-xl font-600 leading-snug">Egg &amp; Cheese on a Croissant</p>
-            <div class="mt-5 border-t border-black/5 pt-5">
+          <div class="lg:sticky lg:top-24 rounded-3xl border border-gold/25 bg-charcoal p-6 shadow-luxe">
+            <p class="font-ui text-sm font-700 uppercase tracking-[0.12em] text-gold/80">Your sandwich</p>
+            <p id="buildSummary" class="mt-3 font-brand text-xl font-600 leading-snug text-ink-cream">Egg &amp; Cheese on a Croissant</p>
+            <div class="gold-rule mt-5"></div>
+            <div class="mt-5">
               <div class="flex items-end justify-between">
-                <span class="font-display font-500 text-ink/60">Total</span>
-                <span class="font-display text-4xl font-700 text-chicky"><span id="buildTotal">159</span> <span class="text-base font-500 text-ink/40">฿</span></span>
+                <span class="font-ui font-600 text-ink-cream/60">Total</span>
+                <span class="font-brand text-4xl font-700 text-gold-light"><span id="buildTotal">159</span> <span class="font-ui text-base font-600 text-gold/55">฿</span></span>
               </div>
             </div>
-            <button class="mt-5 w-full rounded-full bg-chicky px-6 py-3.5 font-display font-500 text-white shadow-soft transition-all hover:bg-chicky-dark hover:-translate-y-0.5">Order at the Booth</button>
-            <p class="mt-3 text-center text-xs text-ink/40">Wrapped &amp; ready · Open 24 hours in Pattaya</p>
+            <button class="mt-5 w-full rounded-full bg-gradient-to-b from-gold-light to-gold px-6 py-3.5 font-ui text-sm font-700 uppercase tracking-[0.06em] text-noir shadow-luxe transition-all hover:-translate-y-0.5 hover:from-gold hover:to-gold-deep">Order at the Booth</button>
+            <p class="mt-3 text-center text-xs text-ink-cream/45">Wrapped &amp; ready · Open 24 hours in Pattaya</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ===================== FAVORITES (named premades) ===================== -->
-    <section id="favorites" class="bg-[#fbf1e6]">
-      <div class="mx-auto max-w-7xl px-5 sm:px-8 py-16 sm:py-20">
+    <section id="favorites" class="relative border-y border-gold/15 bg-charcoal">
+      <div class="ffh-texture pointer-events-none absolute inset-0 opacity-[0.08]"></div>
+      <div class="relative mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-20">
         <div class="text-center">
-          <p class="font-display text-sm font-600 uppercase tracking-[0.14em] text-chicky">Crowd Favorites</p>
-          <h2 class="mt-2 font-display text-4xl font-700 tracking-tight sm:text-5xl">Or grab a classic</h2>
-          <p class="mt-3 text-lg text-ink/60">Named after the cities that made them famous. Don't feel like building? Just point.</p>
+          <div class="mx-auto h-px w-16 bg-gradient-to-r from-transparent via-gold to-transparent"></div>
+          <p class="mt-5 font-ui text-xs font-700 uppercase tracking-[0.3em] text-gold/70">Crowd Favorites</p>
+          <h2 class="mt-3 font-brand text-4xl font-600 tracking-tight text-ink-cream sm:text-5xl">Or grab a classic</h2>
+          <p class="mt-3 text-lg text-ink-cream/55">Named after the cities that made them famous. Don't feel like building? Just point.</p>
         </div>
 
         <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <article class="group overflow-hidden rounded-3xl bg-white shadow-card transition-all hover:-translate-y-1.5">
-            <span class="img-slot relative block aspect-[4/3] overflow-hidden">
-              <img src="images/m/bk-original.jpg" alt="The Original breakfast sandwich" class="h-full w-full object-cover object-[center_38%] transition-transform duration-500 group-hover:scale-105" />
+          <article class="group overflow-hidden rounded-2xl border border-gold/20 bg-noir shadow-luxe transition-all hover:-translate-y-1.5 hover:border-gold/45">
+            <span class="relative block aspect-[4/3] overflow-hidden">
+              <img src="images/luxe/breakfast.jpg" alt="The Original breakfast sandwich" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <span class="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-noir to-transparent"></span>
             </span>
             <div class="p-5">
               <div class="flex items-baseline justify-between gap-3">
-                <h3 class="font-display text-xl font-600">The Original</h3>
-                <p class="font-display text-lg font-700 text-chicky">159 <span class="text-xs font-500 text-ink/45">฿</span></p>
+                <h3 class="font-brand text-xl font-600 text-ink-cream">The Original</h3>
+                <p class="font-brand text-lg font-700 text-gold-light">159 <span class="font-ui text-xs font-600 text-gold/55">฿</span></p>
               </div>
-              <p class="mt-1 text-[15px] leading-snug text-ink/60">Egg &amp; cheese on a buttery croissant. The one that started it all.</p>
+              <p class="mt-1 text-[15px] leading-snug text-ink-cream/60">Egg &amp; cheese on a buttery croissant. The one that started it all.</p>
             </div>
           </article>
 
-          <article class="group overflow-hidden rounded-3xl bg-white shadow-card transition-all hover:-translate-y-1.5">
-            <span class="img-slot relative block aspect-[4/3] overflow-hidden">
-              <img src="images/m/bk-newyork.jpg" alt="The New York breakfast sandwich" class="h-full w-full object-cover object-[42%_50%] transition-transform duration-500 group-hover:scale-105" />
+          <article class="group overflow-hidden rounded-2xl border border-gold/20 bg-noir shadow-luxe transition-all hover:-translate-y-1.5 hover:border-gold/45">
+            <span class="relative block aspect-[4/3] overflow-hidden">
+              <img src="images/luxe/breakfast.jpg" alt="The New York breakfast sandwich" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <span class="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-noir to-transparent"></span>
             </span>
             <div class="p-5">
               <div class="flex items-baseline justify-between gap-3">
-                <h3 class="font-display text-xl font-600">The New York</h3>
-                <p class="font-display text-lg font-700 text-chicky">209 <span class="text-xs font-500 text-ink/45">฿</span></p>
+                <h3 class="font-brand text-xl font-600 text-ink-cream">The New York</h3>
+                <p class="font-brand text-lg font-700 text-gold-light">209 <span class="font-ui text-xs font-600 text-gold/55">฿</span></p>
               </div>
-              <p class="mt-1 text-[15px] leading-snug text-ink/60">Bacon, egg &amp; cheese on a chewy bagel. Deli-style.</p>
+              <p class="mt-1 text-[15px] leading-snug text-ink-cream/60">Bacon, egg &amp; cheese on a chewy bagel. Deli-style.</p>
             </div>
           </article>
 
-          <article class="group overflow-hidden rounded-3xl bg-white shadow-card transition-all hover:-translate-y-1.5">
-            <span class="img-slot relative block aspect-[4/3] overflow-hidden">
-              <img src="images/m/bk-nashville.jpg" alt="The Nashville breakfast sandwich" class="h-full w-full object-cover object-[58%_50%] transition-transform duration-500 group-hover:scale-105" />
+          <article class="group overflow-hidden rounded-2xl border border-gold/20 bg-noir shadow-luxe transition-all hover:-translate-y-1.5 hover:border-gold/45">
+            <span class="relative block aspect-[4/3] overflow-hidden">
+              <img src="images/luxe/breakfast.jpg" alt="The Nashville breakfast sandwich" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <span class="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-noir to-transparent"></span>
             </span>
             <div class="p-5">
               <div class="flex items-baseline justify-between gap-3">
-                <h3 class="font-display text-xl font-600">The Nashville</h3>
-                <p class="font-display text-lg font-700 text-chicky">209 <span class="text-xs font-500 text-ink/45">฿</span></p>
+                <h3 class="font-brand text-xl font-600 text-ink-cream">The Nashville</h3>
+                <p class="font-brand text-lg font-700 text-gold-light">209 <span class="font-ui text-xs font-600 text-gold/55">฿</span></p>
               </div>
-              <p class="mt-1 text-[15px] leading-snug text-ink/60">Sausage, egg &amp; cheese on a flaky biscuit. Southern comfort.</p>
+              <p class="mt-1 text-[15px] leading-snug text-ink-cream/60">Sausage, egg &amp; cheese on a flaky biscuit. Southern comfort.</p>
             </div>
           </article>
 
-          <article class="group overflow-hidden rounded-3xl bg-white shadow-card transition-all hover:-translate-y-1.5">
-            <span class="img-slot relative block aspect-[4/3] overflow-hidden">
-              <img src="images/m/bk-texan.jpg" alt="The Texan breakfast sandwich" class="h-full w-full object-cover object-[center_62%] transition-transform duration-500 group-hover:scale-105" />
+          <article class="group overflow-hidden rounded-2xl border border-gold/20 bg-noir shadow-luxe transition-all hover:-translate-y-1.5 hover:border-gold/45">
+            <span class="relative block aspect-[4/3] overflow-hidden">
+              <img src="images/luxe/breakfast.jpg" alt="The Texan breakfast sandwich" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <span class="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-noir to-transparent"></span>
             </span>
             <div class="p-5">
               <div class="flex items-baseline justify-between gap-3">
-                <h3 class="font-display text-xl font-600">The Texan</h3>
-                <p class="font-display text-lg font-700 text-chicky">219 <span class="text-xs font-500 text-ink/45">฿</span></p>
+                <h3 class="font-brand text-xl font-600 text-ink-cream">The Texan</h3>
+                <p class="font-brand text-lg font-700 text-gold-light">219 <span class="font-ui text-xs font-600 text-gold/55">฿</span></p>
               </div>
-              <p class="mt-1 text-[15px] leading-snug text-ink/60">Steak, egg &amp; cheese on toast. Big and hearty.</p>
+              <p class="mt-1 text-[15px] leading-snug text-ink-cream/60">Steak, egg &amp; cheese on toast. Big and hearty.</p>
             </div>
           </article>
 
-          <article class="group overflow-hidden rounded-3xl bg-white shadow-card transition-all hover:-translate-y-1.5">
-            <span class="img-slot relative block aspect-[4/3] overflow-hidden">
-              <img src="images/m/bk-heavyweight.jpg" alt="The Heavyweight breakfast sandwich" class="h-full w-full object-cover object-[center_28%] transition-transform duration-500 group-hover:scale-105" />
+          <article class="group overflow-hidden rounded-2xl border border-gold/20 bg-noir shadow-luxe transition-all hover:-translate-y-1.5 hover:border-gold/45">
+            <span class="relative block aspect-[4/3] overflow-hidden">
+              <img src="images/luxe/breakfast.jpg" alt="The Heavyweight breakfast sandwich" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <span class="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-noir to-transparent"></span>
             </span>
             <div class="p-5">
               <div class="flex items-baseline justify-between gap-3">
-                <h3 class="font-display text-xl font-600">The Heavyweight</h3>
-                <p class="font-display text-lg font-700 text-chicky">259 <span class="text-xs font-500 text-ink/45">฿</span></p>
+                <h3 class="font-brand text-xl font-600 text-ink-cream">The Heavyweight</h3>
+                <p class="font-brand text-lg font-700 text-gold-light">259 <span class="font-ui text-xs font-600 text-gold/55">฿</span></p>
               </div>
-              <p class="mt-1 text-[15px] leading-snug text-ink/60">Double meat — bacon + ham — egg &amp; cheese on a croissant. Go big.</p>
+              <p class="mt-1 text-[15px] leading-snug text-ink-cream/60">Double meat — bacon + ham — egg &amp; cheese on a croissant. Go big.</p>
             </div>
           </article>
 
-          <article class="group flex items-center justify-center rounded-3xl border-2 border-dashed border-chicky/30 bg-white/40 p-8 text-center transition-all hover:-translate-y-1.5 hover:border-chicky/50">
+          <article class="group flex items-center justify-center rounded-2xl border-2 border-dashed border-gold/30 bg-noir/40 p-8 text-center transition-all hover:-translate-y-1.5 hover:border-gold/55">
             <a href="#builder" class="block">
               <p class="text-4xl">🥪</p>
-              <h3 class="mt-3 font-display text-xl font-600 text-chicky">Build your own</h3>
-              <p class="mt-1 text-[15px] text-ink/55">Your sandwich, your rules. Start from 159 ฿.</p>
+              <h3 class="mt-3 font-brand text-xl font-600 text-gold-light">Build your own</h3>
+              <p class="mt-1 text-[15px] text-ink-cream/55">Your sandwich, your rules. Start from 159 ฿.</p>
             </a>
           </article>
         </div>
 
-        <p class="mt-8 text-center text-xs text-ink/40">Prices are placeholders — final pricing to be confirmed.</p>
+        <p class="mt-8 text-center text-xs text-ink-cream/40">Prices are placeholders — final pricing to be confirmed.</p>
       </div>
     </section>
   </main>
 
   <!-- ===================== FOOTER ===================== -->
-  <footer id="contact" class="bg-chicky text-white">
-    <div class="mx-auto grid max-w-7xl gap-8 px-5 sm:px-8 py-12 md:grid-cols-3 md:items-center">
-      <div class="flex items-center gap-3">
-        <span class="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-white/15 text-center font-display text-[11px] font-600 leading-tight">24<br/>HOURS</span>
-        <div>
-          <p class="font-display text-lg font-600">Open 24 Hours</p>
-          <p class="text-sm text-white/80">Breakfast all day. All dogs, all people, one love.</p>
+  <footer id="contact" class="relative overflow-hidden border-t border-gold/25 bg-noir text-ink-cream">
+    <div class="ffh-texture pointer-events-none absolute inset-0 opacity-[0.10]"></div>
+    <div class="relative mx-auto max-w-7xl px-5 py-16 sm:px-8">
+      <div class="flex flex-col items-center gap-6 text-center">
+        <a href="index.html" class="flex items-center gap-3">
+          <span class="relative grid h-12 w-12 place-items-center overflow-hidden rounded-full bg-noir ring-1 ring-gold/50">
+            <img src="images/luxe/mascot.jpg" alt="Fendi logo" class="h-full w-full object-cover object-center" />
+          </span>
+          <span class="text-left leading-none">
+            <span class="block whitespace-nowrap font-brand text-2xl font-600 tracking-tight text-gold-light">Fendi's Food Hut</span>
+            <span class="mt-1 block font-ui text-[9px] font-600 uppercase tracking-[0.22em] text-gold/60">Hotdogs &amp; Fried Chicken</span>
+          </span>
+        </a>
+
+        <div class="gold-rule w-full max-w-sm"></div>
+
+        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 font-ui text-sm font-600 text-ink-cream/80">
+          <span>🕐 Open 24 Hours</span><span class="text-gold/40">·</span>
+          <span>📍 Pattaya · Thailand</span><span class="text-gold/40">·</span>
+          <span>🐾 All Dogs, All People, One Love</span>
+        </p>
+
+        <div class="flex items-center gap-3">
+          <a href="https://instagram.com/fendi.the.frechie" target="_blank" rel="noopener" aria-label="Instagram" class="grid h-11 w-11 place-items-center rounded-full border border-gold/30 bg-charcoal text-gold-light transition-all hover:-translate-y-1 hover:bg-gold hover:text-noir">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://tiktok.com/@fendi.the.frechie" target="_blank" rel="noopener" aria-label="TikTok" class="grid h-11 w-11 place-items-center rounded-full border border-gold/30 bg-charcoal text-gold-light transition-all hover:-translate-y-1 hover:bg-gold hover:text-noir">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 2c.3 2.4 1.7 4.1 4 4.4v2.7c-1.4.1-2.7-.3-4-1v6.3c0 3.4-2.6 5.9-5.9 5.9A5.7 5.7 0 0 1 5 14.6c.2-3 2.6-5.2 5.9-5v2.9c-.4-.1-.9-.2-1.3-.2-1.5 0-2.6 1.2-2.6 2.6 0 1.5 1.2 2.6 2.7 2.6 1.5 0 2.7-1.1 2.7-2.7V2h2.1z"/></svg>
+          </a>
+          <a href="https://youtube.com/@fendi.the.frechie" target="_blank" rel="noopener" aria-label="YouTube" class="grid h-11 w-11 place-items-center rounded-full border border-gold/30 bg-charcoal text-gold-light transition-all hover:-translate-y-1 hover:bg-gold hover:text-noir">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.1 5 12 5 12 5s-6.1 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.9 19 12 19 12 19s6.1 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3-5.2 3z"/></svg>
+          </a>
+          <a href="https://facebook.com/fendi.the.frechie" target="_blank" rel="noopener" aria-label="Facebook" class="grid h-11 w-11 place-items-center rounded-full border border-gold/30 bg-charcoal text-gold-light transition-all hover:-translate-y-1 hover:bg-gold hover:text-noir">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg>
+          </a>
         </div>
+
+        <nav class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 font-ui text-sm font-600 text-ink-cream/70">
+          <a href="index.html" class="transition-colors hover:text-gold-light">Home</a>
+          <a href="menu.html" class="transition-colors hover:text-gold-light">Menu</a>
+          <a href="breakfast.html" class="transition-colors hover:text-gold-light">Breakfast</a>
+          <a href="index.html#franchise" class="transition-colors hover:text-gold-light">Franchise</a>
+          <a href="index.html#contact" class="transition-colors hover:text-gold-light">Contact</a>
+        </nav>
+
+        <p class="text-sm text-ink-cream/55">© 2026 Fendi's Food Hut · Fendi. All rights reserved.</p>
       </div>
-      <div class="flex items-center gap-3">
-        <span class="text-2xl">📍</span>
-        <div>
-          <p class="font-display text-lg font-600">Pattaya, Thailand</p>
-          <p class="text-sm text-white/80">Find us at the Fendi's Food Hut booth — open 24/7!</p>
-        </div>
-      </div>
-      <div class="md:text-right">
-        <p class="font-display text-base font-600">Hungry? See the full menu</p>
-        <a href="menu.html" class="mt-3 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 font-display font-500 text-chicky transition-all hover:-translate-y-0.5">Full Menu →</a>
-      </div>
-    </div>
-    <div class="border-t border-white/15">
-      <p class="mx-auto max-w-7xl px-5 sm:px-8 py-5 text-center text-sm text-white/70">© 2026 Fendi's Food Hut · Fendi. All rights reserved.</p>
     </div>
   </footer>
 
