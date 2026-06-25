@@ -84,6 +84,8 @@
       "Recipes & support": "Рецепты и поддержка", "All dogs, all people": "Все собаки, все люди",
       // ---- Find us / footer ----
       "Find Us": "Где нас найти", "Come say hi in Pattaya": "Заходи в гости в Паттайе",
+      "Come say hi in North Pattaya": "Заходи к нам в Северной Паттайе",
+      "Next to Northpoint, North Pattaya — look for the red Fendi's Food Hut booth. Open 24 hours, every day.": "Рядом с Northpoint, Северная Паттайя — ищи красную будку Fendi's Food Hut. Открыто 24 часа, каждый день.",
       "Wrapped & ready, all day every day. Pull up to the Fendi's Food Hut booth.": "Завёрнуто и готово, весь день каждый день. Подъезжай к будке Fendi's Food Hut.",
       "Open 24 Hours": "Работаем 24 часа", "Every single day — breakfast, lunch & late-night.": "Каждый день — завтрак, обед и поздний вечер.",
       "Pattaya, Thailand": "Паттайя, Таиланд", "📍 Pattaya, Thailand": "📍 Паттайя, Таиланд",
@@ -241,6 +243,8 @@
       "Recipes & support": "สูตรและการสนับสนุน", "All dogs, all people": "ทุกสุนัข ทุกคน",
       // ---- Find us / footer ----
       "Find Us": "หาเราเจอ", "Come say hi in Pattaya": "แวะมาทักทายที่พัทยา",
+      "Come say hi in North Pattaya": "แวะมาทักทายที่พัทยาเหนือ",
+      "Next to Northpoint, North Pattaya — look for the red Fendi's Food Hut booth. Open 24 hours, every day.": "ติดกับ Northpoint พัทยาเหนือ — มองหาบูธสีแดง Fendi's Food Hut เปิด 24 ชั่วโมงทุกวัน",
       "Wrapped & ready, all day every day. Pull up to the Fendi's Food Hut booth.": "ห่อพร้อมเสิร์ฟ ทั้งวันทุกวัน แวะมาที่ร้าน Fendi's Food Hut",
       "Open 24 Hours": "เปิด 24 ชั่วโมง", "Every single day — breakfast, lunch & late-night.": "ทุกวัน — เช้า กลางวัน และดึก",
       "Pattaya, Thailand": "พัทยา ประเทศไทย", "📍 Pattaya, Thailand": "📍 พัทยา ประเทศไทย",
