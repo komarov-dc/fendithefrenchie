@@ -1,4 +1,4 @@
-/* Lightweight i18n for the Fendi × Chicky Chic site.
+/* Lightweight i18n for the Fendi's Food Hut site.
    Text-node replacement: no HTML tagging needed. English is the source (implicit).
    Add languages by adding a column to DICT. Brand names, prices & "THB" stay as-is.
    ⚠ Thai for the marketing/breakfast copy is best-effort — have a native speaker review.
@@ -53,7 +53,7 @@
       "Follow on Instagram @fendi.frenchie": "Подписаться в Instagram @fendi.frenchie",
       // ---- Homepage 2026 redesign: footer ----
       "Pattaya · Thailand": "Паттайя · Таиланд",
-      "© 2026 Chicky Chic · Fendi. All rights reserved.": "© 2026 Chicky Chic · Fendi. Все права защищены.",
+      "© 2026 Fendi's Food Hut · Fendi. All rights reserved.": "© 2026 Fendi's Food Hut · Fendi. Все права защищены.",
       // ---- Homepage hero ----
       "Thailand based. Dog approved.": "Из Таиланда. Одобрено собакой.",
       "Exploring Thailand.": "Исследуем Таиланд.", "Spreading Love.": "Дарим любовь.",
@@ -69,7 +69,7 @@
       "All Dogs, All People, One Love": "Все собаки, все люди, одна любовь",
       "We believe in kindness, inclusion, and putting a smile on every face.": "Мы за доброту, открытость и улыбку на каждом лице.",
       // ---- Menu teaser (home) ----
-      "Chicky Chic Menu": "Меню Chicky Chic",
+      "Fendi's Food Hut Menu": "Меню Fendi's Food Hut",
       "Crispy chicken,": "Хрустящая курица,", "juicy hotdogs & more": "сочные хот-доги и не только",
       "Made fresh, served with love at our booth in Pattaya.": "Готовим свежим, подаём с любовью в нашей будке в Паттайе.",
       "Fendi's Latest Adventures": "Последние приключения Fendi", "Come along for the ride.": "Поехали с нами.",
@@ -78,12 +78,12 @@
       "Riding the Fendi scooter through Phuket": "Катаемся на скутере Fendi по Пхукету",
       // ---- Franchise ----
       "Open a New": "Открой новую", "Location": "точку",
-      "Be one of the first to bring Chicky Chic to your community. Proven recipes, full support and a simple 24/7 model — we'll help you set it up.": "Стань одним из первых, кто привезёт Chicky Chic в свой район. Проверенные рецепты, полная поддержка и простая модель 24/7 — поможем всё настроить.",
+      "Be one of the first to bring Fendi's Food Hut to your community. Proven recipes, full support and a simple 24/7 model — we'll help you set it up.": "Стань одним из первых, кто привезёт Fendi's Food Hut в свой район. Проверенные рецепты, полная поддержка и простая модель 24/7 — поможем всё настроить.",
       "Flagship in Pattaya": "Флагман в Паттайе", "Proven model": "Проверенная модель",
       "Recipes & support": "Рецепты и поддержка", "All dogs, all people": "Все собаки, все люди",
       // ---- Find us / footer ----
       "Find Us": "Где нас найти", "Come say hi in Pattaya": "Заходи в гости в Паттайе",
-      "Wrapped & ready, all day every day. Pull up to the Chicky Chic booth.": "Завёрнуто и готово, весь день каждый день. Подъезжай к будке Chicky Chic.",
+      "Wrapped & ready, all day every day. Pull up to the Fendi's Food Hut booth.": "Завёрнуто и готово, весь день каждый день. Подъезжай к будке Fendi's Food Hut.",
       "Open 24 Hours": "Работаем 24 часа", "Every single day — breakfast, lunch & late-night.": "Каждый день — завтрак, обед и поздний вечер.",
       "Pattaya, Thailand": "Паттайя, Таиланд", "📍 Pattaya, Thailand": "📍 Паттайя, Таиланд",
       "🕐 Open 24 Hours": "🕐 Работаем 24 часа", "🐾 All dogs, all people, one love": "🐾 Все собаки, все люди, одна любовь",
@@ -117,7 +117,7 @@
       "New": "Новинка", "Build Your Own Breakfast Sandwich": "Собери свой сэндвич на завтрак",
       "Pick your base, add your meat, choose your cheese — from 159 ฿.": "Выбери основу, добавь мясо, выбери сыр — от 159 ฿.",
       "Breakfast all day. All dogs, all people, one love.": "Завтрак весь день. Все собаки, все люди, одна любовь.",
-      "Find us at the Chicky Chic booth — open 24/7!": "Ищи нас у будки Chicky Chic — работаем 24/7!",
+      "Find us at the Fendi's Food Hut booth — open 24/7!": "Ищи нас у будки Fendi's Food Hut — работаем 24/7!",
       "Love our food? Follow Fendi!": "Нравится наша еда? Подпишись на Fendi!",
       // ---- Breakfast page ----
       "Breakfast · Wrapped & Ready": "Завтрак · завёрнуто и готово",
@@ -189,7 +189,7 @@
       "Follow on Instagram @fendi.frenchie": "ติดตามใน Instagram @fendi.frenchie",
       // ---- Homepage 2026 redesign: footer ----
       "Pattaya · Thailand": "พัทยา · ประเทศไทย",
-      "© 2026 Chicky Chic · Fendi. All rights reserved.": "© 2026 Chicky Chic · Fendi. สงวนลิขสิทธิ์",
+      "© 2026 Fendi's Food Hut · Fendi. All rights reserved.": "© 2026 Fendi's Food Hut · Fendi. สงวนลิขสิทธิ์",
       // ---- Homepage hero ----
       "Thailand based. Dog approved.": "อยู่เมืองไทย หมาการันตี",
       "Exploring Thailand.": "สำรวจเมืองไทย", "Spreading Love.": "แบ่งปันความรัก",
@@ -205,7 +205,7 @@
       "All Dogs, All People, One Love": "ทุกสุนัข ทุกคน หนึ่งเดียวคือความรัก",
       "We believe in kindness, inclusion, and putting a smile on every face.": "เราเชื่อในความเมตตา การมีส่วนร่วม และรอยยิ้มบนทุกใบหน้า",
       // ---- Menu teaser ----
-      "Chicky Chic Menu": "เมนู Chicky Chic",
+      "Fendi's Food Hut Menu": "เมนู Fendi's Food Hut",
       "Crispy chicken,": "ไก่กรอบ", "juicy hotdogs & more": "ฮอทดอกฉ่ำ และอื่น ๆ",
       "Made fresh, served with love at our booth in Pattaya.": "ทำสดใหม่ เสิร์ฟด้วยใจที่ร้านของเราในพัทยา",
       "Fendi's Latest Adventures": "การผจญภัยล่าสุดของเฟนดิ", "Come along for the ride.": "มาร่วมเดินทางกัน",
@@ -214,12 +214,12 @@
       "Riding the Fendi scooter through Phuket": "ขี่สกู๊ตเตอร์เฟนดิเที่ยวภูเก็ต",
       // ---- Franchise ----
       "Open a New": "เปิดสาขาใหม่", "Location": "ของคุณ",
-      "Be one of the first to bring Chicky Chic to your community. Proven recipes, full support and a simple 24/7 model — we'll help you set it up.": "เป็นหนึ่งในคนแรกที่นำ Chicky Chic มาสู่ชุมชนของคุณ สูตรที่พิสูจน์แล้ว การสนับสนุนเต็มที่ และโมเดล 24 ชั่วโมงที่ง่าย — เราช่วยคุณตั้งต้น",
+      "Be one of the first to bring Fendi's Food Hut to your community. Proven recipes, full support and a simple 24/7 model — we'll help you set it up.": "เป็นหนึ่งในคนแรกที่นำ Fendi's Food Hut มาสู่ชุมชนของคุณ สูตรที่พิสูจน์แล้ว การสนับสนุนเต็มที่ และโมเดล 24 ชั่วโมงที่ง่าย — เราช่วยคุณตั้งต้น",
       "Flagship in Pattaya": "สาขาแรกในพัทยา", "Proven model": "โมเดลที่พิสูจน์แล้ว",
       "Recipes & support": "สูตรและการสนับสนุน", "All dogs, all people": "ทุกสุนัข ทุกคน",
       // ---- Find us / footer ----
       "Find Us": "หาเราเจอ", "Come say hi in Pattaya": "แวะมาทักทายที่พัทยา",
-      "Wrapped & ready, all day every day. Pull up to the Chicky Chic booth.": "ห่อพร้อมเสิร์ฟ ทั้งวันทุกวัน แวะมาที่ร้าน Chicky Chic",
+      "Wrapped & ready, all day every day. Pull up to the Fendi's Food Hut booth.": "ห่อพร้อมเสิร์ฟ ทั้งวันทุกวัน แวะมาที่ร้าน Fendi's Food Hut",
       "Open 24 Hours": "เปิด 24 ชั่วโมง", "Every single day — breakfast, lunch & late-night.": "ทุกวัน — เช้า กลางวัน และดึก",
       "Pattaya, Thailand": "พัทยา ประเทศไทย", "📍 Pattaya, Thailand": "📍 พัทยา ประเทศไทย",
       "🕐 Open 24 Hours": "🕐 เปิด 24 ชั่วโมง", "🐾 All dogs, all people, one love": "🐾 ทุกสุนัข ทุกคน หนึ่งเดียวคือความรัก",
@@ -253,7 +253,7 @@
       "New": "ใหม่", "Build Your Own Breakfast Sandwich": "สร้างแซนด์วิชอาหารเช้าของคุณ",
       "Pick your base, add your meat, choose your cheese — from 159 ฿.": "เลือกแป้ง เพิ่มเนื้อ เลือกชีส — เริ่มต้น 159 บาท",
       "Breakfast all day. All dogs, all people, one love.": "อาหารเช้าทั้งวัน ทุกสุนัข ทุกคน หนึ่งเดียวคือความรัก",
-      "Find us at the Chicky Chic booth — open 24/7!": "เจอเราที่ร้าน Chicky Chic — เปิด 24 ชั่วโมง!",
+      "Find us at the Fendi's Food Hut booth — open 24/7!": "เจอเราที่ร้าน Fendi's Food Hut — เปิด 24 ชั่วโมง!",
       "Love our food? Follow Fendi!": "ชอบอาหารเราไหม? ติดตามเฟนดิ!",
       // ---- Breakfast page ----
       "Breakfast · Wrapped & Ready": "อาหารเช้า · ห่อพร้อมเสิร์ฟ",

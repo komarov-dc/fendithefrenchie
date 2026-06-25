@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chicky Chic — Hotdogs & Fried Chicken in Pattaya · Fendi</title>
-  <meta name="description" content="Chicky Chic — crispy fried chicken, juicy hotdogs and breakfast sandwiches from our street-food booth in Pattaya. Open 24 hours. Fendi the Frenchie brings the good vibes. All dogs, all people, one love." />
+  <title>Fendi's Food Hut — Hotdogs & Fried Chicken in Pattaya · Fendi</title>
+  <meta name="description" content="Fendi's Food Hut — crispy fried chicken, juicy hotdogs and breakfast sandwiches from our street-food booth in Pattaya. Open 24 hours. Fendi the Frenchie brings the good vibes. All dogs, all people, one love." />
 
   <!-- Favicon / home-screen icon (Fendi's face) -->
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
@@ -13,13 +13,13 @@
 
   <!-- Social share preview -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Chicky Chic — Hotdogs & Fried Chicken in Pattaya · Fendi" />
+  <meta property="og:title" content="Fendi's Food Hut — Hotdogs & Fried Chicken in Pattaya · Fendi" />
   <meta property="og:description" content="Crispy chicken, juicy hotdogs & good vibes from our booth in Pattaya. Open 24 hours. All dogs, all people, one love." />
   <meta property="og:image" content="images/og.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Chicky Chic — Hotdogs & Fried Chicken in Pattaya · Fendi" />
+  <meta name="twitter:title" content="Fendi's Food Hut — Hotdogs & Fried Chicken in Pattaya · Fendi" />
   <meta name="twitter:description" content="Crispy chicken, juicy hotdogs & good vibes from our booth in Pattaya. Open 24 hours." />
   <meta name="twitter:image" content="images/og.jpg" />
 
@@ -29,7 +29,7 @@
   <!-- Distinctive type: Fredoka (bold rounded display) + Nunito (friendly body) + Caveat (hand note) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
 
   <script>
     tailwind.config = {
@@ -66,6 +66,7 @@
     body { font-family: 'Nunito', sans-serif; }
     .font-display { font-family: 'Fredoka', sans-serif; }
     .font-hand { font-family: 'Caveat', cursive; }
+    .font-brand { font-family: 'Playfair Display', serif; }
 
     /* Neutral placeholder so dropping real images in later won't shift layout */
     .img-slot {
@@ -117,7 +118,7 @@
             <img src="images/hero.jpg" alt="Fendi avatar" class="h-full w-full object-cover object-top" />
           </span>
           <span class="leading-none">
-            <span class="block font-display text-2xl font-700 tracking-tight text-chicky">CHICKY CHIC</span>
+            <span class="block whitespace-nowrap font-brand text-xl font-600 tracking-tight text-chicky">Fendi's Food Hut</span>
             <span class="block font-display text-[9px] font-600 uppercase tracking-[0.18em] text-ink/55">Hotdogs &amp; Fried Chicken</span>
           </span>
         </a>
@@ -204,13 +205,13 @@
           <!-- Visual: booth-forward hero + Fendi inset (per Robert's mockup) -->
           <div class="relative mt-2 sm:mt-0">
             <div class="relative aspect-[4/3] w-full max-w-[540px] overflow-hidden rounded-[2rem] shadow-card sm:aspect-[5/4] lg:ml-auto lg:aspect-[5/5.3] lg:rounded-[2.5rem] lg:rounded-tr-[5rem]">
-              <img src="images/booth-night.jpg" alt="The Chicky Chic food booth in Pattaya — hotdogs & fried chicken" class="h-full w-full object-cover object-center" />
+              <img src="images/booth-night.jpg" alt="The Fendi's Food Hut food booth in Pattaya — hotdogs & fried chicken" class="h-full w-full object-cover object-center" />
               <div class="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/45 to-transparent"></div>
             </div>
 
             <!-- Fendi the Frenchie inset -->
             <div class="absolute -bottom-7 -left-3 z-20 hidden h-40 w-60 overflow-hidden rounded-2xl shadow-card ring-4 ring-cream sm:block">
-              <img src="images/hero.jpg" alt="Fendi the Frenchie, face of Chicky Chic" class="h-full w-full object-cover object-[center_30%]" />
+              <img src="images/hero.jpg" alt="Fendi the Frenchie, face of Fendi's Food Hut" class="h-full w-full object-cover object-[center_30%]" />
             </div>
 
             <!-- 24h badge — sits in the photo card's top-right corner -->
@@ -257,7 +258,7 @@
 
       <!-- Styled food-spread banner -->
       <div class="relative mx-auto mt-10 aspect-[16/10] w-full max-w-5xl overflow-hidden rounded-[2rem] shadow-card sm:aspect-[2/1] lg:aspect-[5/2]">
-        <img src="images/spread.jpg" alt="Chicky Chic food spread — fried chicken, hot dog, breakfast sandwich, sauces and drinks" class="h-full w-full object-cover" />
+        <img src="images/spread.jpg" alt="Fendi's Food Hut food spread — fried chicken, hot dog, breakfast sandwich, sauces and drinks" class="h-full w-full object-cover" />
         <div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/5"></div>
       </div>
 
@@ -342,7 +343,7 @@
         <!-- OUR FOOD BOOTH (gold) -->
         <div id="food-booth" class="overflow-hidden rounded-[2rem] bg-gold text-ink shadow-card">
           <div class="relative aspect-[16/9] w-full overflow-hidden">
-            <img src="images/booth-night.jpg" alt="The Chicky Chic booth at night in Pattaya" class="h-full w-full object-cover object-center" />
+            <img src="images/booth-night.jpg" alt="The Fendi's Food Hut booth at night in Pattaya" class="h-full w-full object-cover object-center" />
           </div>
           <div class="p-7 sm:p-9">
             <h2 class="font-display text-3xl font-700 tracking-tight sm:text-4xl"><span class="text-chicky-dark">♥</span> Our Food Booth <span class="text-chicky-dark">♥</span></h2>
@@ -469,7 +470,7 @@
             <img src="images/hero.jpg" alt="Fendi avatar" class="h-full w-full object-cover object-top" />
           </span>
           <span class="leading-none text-left">
-            <span class="block font-display text-2xl font-700 tracking-tight text-white">CHICKY CHIC</span>
+            <span class="block whitespace-nowrap font-brand text-2xl font-600 tracking-tight text-white">Fendi's Food Hut</span>
             <span class="block font-display text-[9px] font-600 uppercase tracking-[0.18em] text-white/70">Hotdogs &amp; Fried Chicken</span>
           </span>
         </a>
@@ -503,7 +504,7 @@
           <a href="#journey" class="transition-colors hover:text-white">Gallery</a>
         </nav>
 
-        <p class="text-sm text-white/70">© 2026 Chicky Chic · Fendi. All rights reserved.</p>
+        <p class="text-sm text-white/70">© 2026 Fendi's Food Hut · Fendi. All rights reserved.</p>
       </div>
     </div>
   </footer>
