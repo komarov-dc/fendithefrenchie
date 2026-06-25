@@ -9,7 +9,7 @@
   <!-- Favicon / home-screen icon (Fendi's face) -->
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png" />
-  <meta name="theme-color" content="#d4202a" />
+  <meta name="theme-color" content="#0e0c0a" />
 
   <!-- Social share preview -->
   <meta property="og:type" content="website" />
@@ -18,55 +18,47 @@
   <meta property="og:image" content="images/og.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Tailwind Play CDN -->
   <!-- Pre-compiled Tailwind (built from tailwind-input.css via tailwind.config.js) -->
-  <link rel="stylesheet" href="css/app.css?v=2" />
+  <link rel="stylesheet" href="css/app.css?v=3" />
 
-  <!-- Type: Fredoka (display) + Nunito (body) + Caveat (hand) -->
+  <!-- Distinctive type: Fredoka + Nunito + Caveat + Cormorant body + Playfair gold serif -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     html { scroll-behavior: smooth; }
-    body { font-family: 'Nunito', sans-serif; }
+    body { font-family: 'Cormorant Garamond', Georgia, serif; }
     .font-display { font-family: 'Fredoka', sans-serif; }
     .font-hand { font-family: 'Caveat', cursive; }
     .font-brand { font-family: 'Playfair Display', serif; }
+    .font-ui { font-family: 'Nunito', sans-serif; }
 
-    /* Neutral placeholder so dropping real food photos in later won't shift layout */
-    .img-slot {
-      background-color: #e7ddcf;
-      background-image:
-        linear-gradient(135deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0) 55%),
-        repeating-linear-gradient(45deg, rgba(255,255,255,0.10) 0 14px, rgba(0,0,0,0.02) 14px 28px);
+    /* Subtle FFH art-deco monogram texture for dark sections */
+    .ffh-texture {
+      background-image: url("images/luxe/pattern.jpg");
+      background-size: 460px;
+      background-repeat: repeat;
     }
-    .img-slot::after {
-      content: "🍗 photo";
-      position: absolute; inset: 0;
-      display: flex; align-items: center; justify-content: center; gap: .4rem;
-      font-family: 'Nunito', sans-serif; font-weight: 700; letter-spacing: .12em;
-      text-transform: uppercase; font-size: .68rem; color: #a99b86;
-    }
-    .img-slot > img { position: relative; z-index: 1; }
-    .img-slot > img:not([src]), .img-slot > img[src=""] { opacity: 0; }
-
-    /* Red scalloped awning edge (Fendi's Food Hut booth vibe) */
-    .awning {
-      height: 26px;
-      background-image: radial-gradient(circle at 16px 0, #d4202a 14px, transparent 15px);
-      background-size: 32px 28px;
-      background-repeat: repeat-x;
-      background-position: 0 -14px;
+    /* Gold hairline */
+    .gold-rule {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,162,75,0.55), transparent);
     }
 
     @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
     .rise { opacity: 0; animation: rise .6s cubic-bezier(.2,.7,.2,1) forwards; }
 
-    a:focus-visible, button:focus-visible { outline: 3px solid #d4202a; outline-offset: 3px; border-radius: 9999px; }
+    a:focus-visible, button:focus-visible, select:focus-visible { outline: 2px solid #e3c878; outline-offset: 3px; border-radius: 9999px; }
 
-    /* Active category tab */
-    .cat-tab.is-active { background-color: #f15a29; color: #fff; box-shadow: 0 10px 30px -12px rgba(34,19,12,0.18); }
+    /* Category tab — gold-outline pills; active = solid gold on noir */
+    .cat-tab { border: 1px solid rgba(201,162,75,0.30); color: rgba(243,234,215,0.75); }
+    .cat-tab:hover { border-color: rgba(201,162,75,0.60); color: #e3c878; }
+    .cat-tab.is-active {
+      background: linear-gradient(180deg, #e3c878, #c9a24b);
+      border-color: transparent; color: #0e0c0a;
+      box-shadow: 0 12px 30px -14px rgba(201,162,75,0.6);
+    }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -76,51 +68,59 @@
   </style>
 </head>
 
-<body class="bg-cream text-ink font-body antialiased selection:bg-chicky/20">
+<body class="bg-noir text-ink-cream font-body antialiased selection:bg-gold/30 selection:text-noir">
 
   <!-- ===================== HEADER ===================== -->
-  <header class="sticky top-0 z-50 bg-cream/85 backdrop-blur-md border-b border-black/5">
+  <header class="sticky top-0 z-50 border-b border-gold/20 bg-noir/90 backdrop-blur-md">
     <div class="mx-auto max-w-7xl px-5 sm:px-8">
-      <div class="flex h-[68px] items-center justify-between">
-        <a href="index.html" class="flex items-center gap-3 group">
-          <span class="img-slot relative grid h-10 w-10 place-items-center overflow-hidden rounded-full ring-2 ring-brand/30">
-            <img src="images/logo.png" alt="Fendi logo" class="h-full w-full object-cover object-center" />
+      <div class="flex h-[76px] items-center justify-between gap-3">
+        <!-- Logo + wordmark -->
+        <a href="index.html" class="group flex shrink-0 items-center gap-3">
+          <span class="relative grid h-12 w-12 place-items-center overflow-hidden rounded-full bg-noir ring-1 ring-gold/50">
+            <img src="images/luxe/mascot.jpg" alt="Fendi logo" class="h-full w-full object-cover object-center" />
           </span>
-          <span class="font-brand text-xl font-600 tracking-tight text-chicky whitespace-nowrap">Fendi's Food Hut</span>
+          <span class="leading-none">
+            <span class="block whitespace-nowrap font-brand text-xl font-600 tracking-tight text-gold-light">Fendi's Food Hut</span>
+            <span class="mt-1 block font-ui text-[9px] font-600 uppercase tracking-[0.22em] text-gold/60">Hotdogs &amp; Fried Chicken</span>
+          </span>
         </a>
 
-        <nav class="hidden md:flex items-center gap-9 font-display text-[15px] font-500">
-          <a href="index.html#about" class="text-ink/80 hover:text-ink transition-colors">About</a>
-          <a href="index.html#gallery" class="text-ink/80 hover:text-ink transition-colors">Gallery</a>
-          <a href="index.html#adventures" class="text-ink/80 hover:text-ink transition-colors">Adventures</a>
-          <a href="menu.html" class="text-chicky font-600">Menu</a>
-          <a href="breakfast.html" class="text-ink/80 hover:text-ink transition-colors">Breakfast</a>
-          <a href="index.html#contact" class="text-ink/80 hover:text-ink transition-colors">Contact</a>
+        <!-- Center nav -->
+        <nav class="hidden items-center gap-8 font-ui text-[13px] font-600 uppercase tracking-[0.14em] lg:flex">
+          <a href="index.html#about" class="relative text-ink-cream/75 transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all hover:text-gold-light hover:after:w-full">About</a>
+          <a href="index.html#journey" class="relative text-ink-cream/75 transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all hover:text-gold-light hover:after:w-full">Gallery</a>
+          <a href="index.html#food-booth" class="relative text-ink-cream/75 transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all hover:text-gold-light hover:after:w-full">Adventures</a>
+          <a href="menu.html" class="relative text-gold-light after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-full after:bg-gold">Menu</a>
+          <a href="breakfast.html" class="relative text-ink-cream/75 transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all hover:text-gold-light hover:after:w-full">Breakfast</a>
+          <a href="index.html#contact" class="relative text-ink-cream/75 transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all hover:text-gold-light hover:after:w-full">Contact</a>
         </nav>
 
-        <div class="flex items-center gap-2">
-          <select id="langSel" aria-label="Language" title="Language" class="cursor-pointer rounded-full border border-black/10 bg-white/70 px-2.5 py-1.5 font-display text-sm font-500 text-ink/80 shadow-soft focus:outline-none">
+        <!-- Right side -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          <select id="langSel" aria-label="Language" title="Language" class="cursor-pointer rounded-full border border-gold/35 bg-charcoal px-2.5 py-1.5 font-ui text-sm font-600 text-gold-light focus:outline-none">
             <option value="en">EN</option>
             <option value="th">ไทย</option>
             <option value="ru">RU</option>
           </select>
-          <a href="#order" class="hidden sm:inline-flex items-center rounded-full bg-chicky px-6 py-2.5 font-display font-500 text-white shadow-soft transition-all hover:bg-chicky-dark hover:-translate-y-0.5">
+          <a href="#order" class="hidden items-center rounded-full bg-gradient-to-b from-gold-light to-gold px-6 py-2.5 font-ui text-sm font-700 uppercase tracking-[0.06em] text-noir shadow-luxe transition-all hover:-translate-y-0.5 hover:from-gold hover:to-gold-deep sm:inline-flex">
             Order at the Booth
           </a>
-          <button id="menuBtn" aria-label="Open menu" class="md:hidden grid h-11 w-11 place-items-center rounded-xl border border-black/10 bg-white/60">
+          <button id="menuBtn" aria-label="Open menu" class="grid h-11 w-11 place-items-center rounded-xl border border-gold/30 bg-charcoal text-gold-light lg:hidden">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
           </button>
         </div>
       </div>
 
-      <div id="mobileMenu" class="md:hidden hidden pb-4">
-        <nav class="flex flex-col gap-1 font-display text-base">
-          <a href="index.html#about" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">About</a>
-          <a href="index.html#gallery" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">Gallery</a>
-          <a href="index.html#adventures" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">Adventures</a>
-          <a href="menu.html" class="rounded-lg px-3 py-2.5 bg-peach/60 text-chicky font-600">Menu</a>
-          <a href="breakfast.html" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">Breakfast</a>
-          <a href="index.html#contact" class="rounded-lg px-3 py-2.5 hover:bg-peach/60 transition-colors">Contact</a>
+      <!-- Mobile menu -->
+      <div id="mobileMenu" class="hidden pb-4 lg:hidden">
+        <nav class="flex flex-col gap-1 font-ui text-base font-600">
+          <a href="index.html#about" class="rounded-lg px-3 py-2.5 text-ink-cream/85 transition-colors hover:bg-gold/10 hover:text-gold-light">About</a>
+          <a href="index.html#journey" class="rounded-lg px-3 py-2.5 text-ink-cream/85 transition-colors hover:bg-gold/10 hover:text-gold-light">Gallery</a>
+          <a href="index.html#food-booth" class="rounded-lg px-3 py-2.5 text-ink-cream/85 transition-colors hover:bg-gold/10 hover:text-gold-light">Adventures</a>
+          <a href="menu.html" class="rounded-lg px-3 py-2.5 bg-gold/10 text-gold-light font-700">Menu</a>
+          <a href="breakfast.html" class="rounded-lg px-3 py-2.5 text-ink-cream/85 transition-colors hover:bg-gold/10 hover:text-gold-light">Breakfast</a>
+          <a href="index.html#contact" class="rounded-lg px-3 py-2.5 text-ink-cream/85 transition-colors hover:bg-gold/10 hover:text-gold-light">Contact</a>
+          <a href="#order" class="mt-2 rounded-full bg-gold px-5 py-3 text-center font-700 uppercase tracking-wide text-noir">Order at the Booth</a>
         </nav>
       </div>
     </div>
@@ -128,413 +128,460 @@
 
   <main class="pb-20 sm:pb-0">
     <!-- ===================== MENU HERO (compact band) ===================== -->
-    <section class="relative overflow-hidden">
-      <div class="awning"></div>
-      <div class="bg-gradient-to-b from-[#fbeede] to-cream">
-        <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-5 gap-y-3 px-5 sm:px-8 py-4 sm:py-5">
-          <div class="flex items-center gap-3 rise">
-            <span class="img-slot relative grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-full ring-2 ring-chicky/25">
-              <img src="images/logo.png" alt="Fendi logo" class="h-full w-full object-cover object-center" />
-            </span>
-            <h1 class="font-display text-3xl font-700 leading-none tracking-tight sm:text-4xl">
-              <span class="text-chicky">The</span> Menu
-            </h1>
-          </div>
-          <div class="flex flex-wrap items-center gap-2 font-display text-[13px] font-500 sm:text-sm rise" style="animation-delay:.05s">
-            <span class="inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 shadow-soft"><span class="text-chicky">🕐</span> Open 24h</span>
-            <span class="inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 shadow-soft"><span class="text-chicky">📍</span> Pattaya</span>
-            <span class="hidden items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 shadow-soft sm:inline-flex"><span class="text-chicky">💰</span> Prices in Thai Baht (฿)</span>
-          </div>
+    <section class="relative overflow-hidden bg-noir">
+      <div class="ffh-texture pointer-events-none absolute inset-0 opacity-[0.14]"></div>
+      <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_-20%,rgba(201,162,75,0.14),transparent_60%)]"></div>
+      <div class="relative mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-5 gap-y-3 px-5 sm:px-8 py-6 sm:py-7">
+        <div class="flex items-center gap-3 rise">
+          <span class="relative grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-full bg-noir ring-1 ring-gold/50">
+            <img src="images/luxe/mascot.jpg" alt="Fendi logo" class="h-full w-full object-cover object-center" />
+          </span>
+          <h1 class="font-brand text-3xl font-600 leading-none tracking-tight text-ink-cream sm:text-4xl">
+            <span class="text-gold-light">The</span> Menu
+          </h1>
+        </div>
+        <div class="flex flex-wrap items-center gap-2 font-ui text-[12px] font-600 uppercase tracking-[0.1em] sm:text-[13px] rise" style="animation-delay:.05s">
+          <span class="inline-flex items-center gap-1.5 rounded-full border border-gold/30 bg-charcoal px-3.5 py-1.5 text-ink-cream/80"><span class="text-gold-light">🕐</span> Open 24h</span>
+          <span class="inline-flex items-center gap-1.5 rounded-full border border-gold/30 bg-charcoal px-3.5 py-1.5 text-ink-cream/80"><span class="text-gold-light">📍</span> Pattaya</span>
+          <span class="hidden items-center gap-1.5 rounded-full border border-gold/30 bg-charcoal px-3.5 py-1.5 text-ink-cream/80 sm:inline-flex"><span class="text-gold-light">💰</span> Prices in Thai Baht (฿)</span>
         </div>
       </div>
+      <div class="gold-rule mx-auto max-w-7xl"></div>
     </section>
 
     <!-- ===================== CATEGORY TABS (sticky) ===================== -->
-    <div class="sticky top-[68px] z-40 border-y border-black/5 bg-cream/90 backdrop-blur-md">
+    <div class="sticky top-[76px] z-40 border-b border-gold/15 bg-noir/92 backdrop-blur-md">
       <div class="mx-auto max-w-7xl px-3 sm:px-8">
-        <div class="flex gap-2 overflow-x-auto py-3 font-display text-[15px] font-500 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          <a href="#combos" class="cat-tab is-active inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-5 py-2.5 text-ink/80 transition-all"><span>🍱</span> Combos</a>
-          <a href="#chicken-boxes" class="cat-tab inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-5 py-2.5 text-ink/80 transition-all"><span>🍗</span> Chicken Boxes</a>
-          <a href="#hot-dogs" class="cat-tab inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-5 py-2.5 text-ink/80 transition-all"><span>🌭</span> Hot Dogs</a>
-          <a href="#sauces" class="cat-tab inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-5 py-2.5 text-ink/80 transition-all"><span>🥣</span> Sauces</a>
-          <a href="#drinks" class="cat-tab inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-5 py-2.5 text-ink/80 transition-all"><span>🥤</span> Drinks</a>
+        <div class="flex gap-2 overflow-x-auto py-3 font-ui text-[13px] font-600 uppercase tracking-[0.08em] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <a href="#combos" class="cat-tab is-active inline-flex shrink-0 items-center gap-2 rounded-full px-5 py-2.5 transition-all"><span>🍱</span> Combos</a>
+          <a href="#chicken-boxes" class="cat-tab inline-flex shrink-0 items-center gap-2 rounded-full px-5 py-2.5 transition-all"><span>🍗</span> Chicken Boxes</a>
+          <a href="#hot-dogs" class="cat-tab inline-flex shrink-0 items-center gap-2 rounded-full px-5 py-2.5 transition-all"><span>🌭</span> Hot Dogs</a>
+          <a href="#sauces" class="cat-tab inline-flex shrink-0 items-center gap-2 rounded-full px-5 py-2.5 transition-all"><span>🥣</span> Sauces</a>
+          <a href="#drinks" class="cat-tab inline-flex shrink-0 items-center gap-2 rounded-full px-5 py-2.5 transition-all"><span>🥤</span> Drinks</a>
         </div>
       </div>
     </div>
 
-    <div id="order" class="mx-auto max-w-7xl px-5 sm:px-8 py-8 sm:py-12">
+    <div id="order" class="relative mx-auto max-w-7xl px-5 sm:px-8 py-10 sm:py-14">
 
       <!-- ===================== COMBOS (lead section) ===================== -->
-      <section id="combos" class="scroll-mt-32">
-        <h2 class="font-display text-3xl font-700">Combos</h2>
-        <p class="mt-1 text-[14px] text-ink/55">Best value — a meal in one tap. Prices in Thai Baht (฿).</p>
-        <div class="mt-1.5 h-1 w-12 rounded-full bg-chicky"></div>
+      <section id="combos" class="scroll-mt-36">
+        <div class="h-px w-16 bg-gradient-to-r from-gold to-transparent"></div>
+        <h2 class="mt-4 font-brand text-3xl font-600 tracking-tight text-ink-cream sm:text-4xl">Combos</h2>
+        <p class="mt-2 text-base text-ink-cream/55">Best value — a meal in one tap. Prices in Thai Baht (฿).</p>
 
         <div class="mt-7 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-          <article class="group relative rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5">
-            <span class="img-slot relative block aspect-[4/3] overflow-hidden rounded-2xl">
-              <img src="images/m/bs-hotdog.jpg" alt="Dog Combo" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <article class="group relative flex flex-col overflow-hidden rounded-2xl border border-gold/20 bg-charcoal shadow-luxe transition-all hover:-translate-y-1.5 hover:border-gold/45">
+            <span class="relative block aspect-[4/3] overflow-hidden">
+              <img src="images/luxe/hotdog.jpg" alt="Dog Combo" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <span class="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-charcoal to-transparent"></span>
             </span>
-            <h3 class="mt-3 px-1 font-display text-lg font-600 leading-tight">Dog Combo</h3>
-            <p class="mt-0.5 px-1 text-[13px] leading-snug text-ink/55">Hot dog, fries &amp; a soda</p>
-            <p class="mt-2 px-1 font-display text-lg font-700 text-chicky">129 <span class="text-xs font-500 text-ink/45">฿</span></p>
+            <div class="flex grow flex-col px-4 pb-4 pt-3">
+              <h3 class="font-brand text-lg font-600 leading-tight text-ink-cream">Dog Combo</h3>
+              <p class="mt-0.5 text-[15px] leading-snug text-ink-cream/55">Hot dog, fries &amp; a soda</p>
+              <p class="mt-auto pt-2 font-brand text-xl font-700 text-gold-light">129 <span class="font-ui text-xs font-600 text-gold/55">฿</span></p>
+            </div>
           </article>
 
-          <article class="group relative rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5">
-            <span class="absolute left-2 top-2 z-10 inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-amber-400 to-yellow-500 px-2.5 py-1 font-display text-[11px] font-700 text-ink shadow-soft">★ Popular</span>
-            <span class="img-slot relative block aspect-[4/3] overflow-hidden rounded-2xl">
-              <img src="images/m/cb-combo.jpg" alt="Chicken Combo" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <article class="group relative flex flex-col overflow-hidden rounded-2xl border border-gold/20 bg-charcoal shadow-luxe transition-all hover:-translate-y-1.5 hover:border-gold/45">
+            <span class="absolute left-2.5 top-2.5 z-10 inline-flex items-center gap-1 rounded-full bg-gradient-to-b from-gold-light to-gold px-2.5 py-1 font-ui text-[11px] font-700 uppercase tracking-wide text-noir shadow-luxe">★ Popular</span>
+            <span class="relative block aspect-[4/3] overflow-hidden">
+              <img src="images/luxe/combo.jpg" alt="Chicken Combo" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <span class="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-charcoal to-transparent"></span>
             </span>
-            <h3 class="mt-3 px-1 font-display text-lg font-600 leading-tight">Chicken Combo</h3>
-            <p class="mt-0.5 px-1 text-[13px] leading-snug text-ink/55">Pop chicken, a drink &amp; sauce</p>
-            <p class="mt-2 px-1 font-display text-lg font-700 text-chicky">149 <span class="text-xs font-500 text-ink/45">฿</span></p>
+            <div class="flex grow flex-col px-4 pb-4 pt-3">
+              <h3 class="font-brand text-lg font-600 leading-tight text-ink-cream">Chicken Combo</h3>
+              <p class="mt-0.5 text-[15px] leading-snug text-ink-cream/55">Pop chicken, a drink &amp; sauce</p>
+              <p class="mt-auto pt-2 font-brand text-xl font-700 text-gold-light">149 <span class="font-ui text-xs font-600 text-gold/55">฿</span></p>
+            </div>
           </article>
 
-          <article class="group relative rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5">
-            <span class="img-slot relative block aspect-[4/3] overflow-hidden rounded-2xl">
-              <img src="images/spread.jpg" alt="Fendi's Big Box" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <article class="group relative flex flex-col overflow-hidden rounded-2xl border border-gold/20 bg-charcoal shadow-luxe transition-all hover:-translate-y-1.5 hover:border-gold/45">
+            <span class="relative block aspect-[4/3] overflow-hidden">
+              <img src="images/luxe/bucket.jpg" alt="Fendi's Big Box" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <span class="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-charcoal to-transparent"></span>
             </span>
-            <h3 class="mt-3 px-1 font-display text-lg font-600 leading-tight">Fendi's Big Box</h3>
-            <p class="mt-0.5 px-1 text-[13px] leading-snug text-ink/55">Family box, 2 sodas &amp; 2 sauces</p>
-            <p class="mt-2 px-1 font-display text-lg font-700 text-chicky">349 <span class="text-xs font-500 text-ink/45">฿</span></p>
+            <div class="flex grow flex-col px-4 pb-4 pt-3">
+              <h3 class="font-brand text-lg font-600 leading-tight text-ink-cream">Fendi's Big Box</h3>
+              <p class="mt-0.5 text-[15px] leading-snug text-ink-cream/55">Family box, 2 sodas &amp; 2 sauces</p>
+              <p class="mt-auto pt-2 font-brand text-xl font-700 text-gold-light">349 <span class="font-ui text-xs font-600 text-gold/55">฿</span></p>
+            </div>
           </article>
 
-          <article class="group relative rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5">
-            <span class="img-slot relative block aspect-[4/3] overflow-hidden rounded-2xl">
-              <img src="images/m/bs-combo.jpg" alt="Breakfast + Juice" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <article class="group relative flex flex-col overflow-hidden rounded-2xl border border-gold/20 bg-charcoal shadow-luxe transition-all hover:-translate-y-1.5 hover:border-gold/45">
+            <span class="relative block aspect-[4/3] overflow-hidden">
+              <img src="images/luxe/breakfast.jpg" alt="Breakfast + Juice" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <span class="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-charcoal to-transparent"></span>
             </span>
-            <h3 class="mt-3 px-1 font-display text-lg font-600 leading-tight">Breakfast + Juice</h3>
-            <p class="mt-0.5 px-1 text-[13px] leading-snug text-ink/55">Breakfast sandwich &amp; a fresh juice</p>
-            <p class="mt-2 px-1 font-display text-lg font-700 text-chicky">189 <span class="text-xs font-500 text-ink/45">฿</span></p>
+            <div class="flex grow flex-col px-4 pb-4 pt-3">
+              <h3 class="font-brand text-lg font-600 leading-tight text-ink-cream">Breakfast + Juice</h3>
+              <p class="mt-0.5 text-[15px] leading-snug text-ink-cream/55">Breakfast sandwich &amp; a fresh juice</p>
+              <p class="mt-auto pt-2 font-brand text-xl font-700 text-gold-light">189 <span class="font-ui text-xs font-600 text-gold/55">฿</span></p>
+            </div>
           </article>
 
-          <article class="group relative rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5">
-            <span class="img-slot relative block aspect-[4/3] overflow-hidden rounded-2xl">
-              <img src="images/m/bs-combo.jpg" alt="Late-Night Bundle" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <article class="group relative flex flex-col overflow-hidden rounded-2xl border border-gold/20 bg-charcoal shadow-luxe transition-all hover:-translate-y-1.5 hover:border-gold/45">
+            <span class="relative block aspect-[4/3] overflow-hidden">
+              <img src="images/luxe/spread.jpg" alt="Late-Night Bundle" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <span class="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-charcoal to-transparent"></span>
             </span>
-            <h3 class="mt-3 px-1 font-display text-lg font-600 leading-tight">Late-Night Bundle</h3>
-            <p class="mt-0.5 px-1 text-[13px] leading-snug text-ink/55">Hot dog, Lite chicken &amp; a soda</p>
-            <p class="mt-2 px-1 font-display text-lg font-700 text-chicky">199 <span class="text-xs font-500 text-ink/45">฿</span></p>
+            <div class="flex grow flex-col px-4 pb-4 pt-3">
+              <h3 class="font-brand text-lg font-600 leading-tight text-ink-cream">Late-Night Bundle</h3>
+              <p class="mt-0.5 text-[15px] leading-snug text-ink-cream/55">Hot dog, Lite chicken &amp; a soda</p>
+              <p class="mt-auto pt-2 font-brand text-xl font-700 text-gold-light">199 <span class="font-ui text-xs font-600 text-gold/55">฿</span></p>
+            </div>
           </article>
         </div>
       </section>
 
       <!-- ===================== CHICKEN BOXES ===================== -->
-      <section id="chicken-boxes" class="mt-14 scroll-mt-32">
-        <h2 class="font-display text-3xl font-700">Chicken Boxes</h2>
-        <div class="mt-1.5 h-1 w-12 rounded-full bg-chicky"></div>
+      <section id="chicken-boxes" class="mt-16 scroll-mt-36">
+        <div class="h-px w-16 bg-gradient-to-r from-gold to-transparent"></div>
+        <h2 class="mt-4 font-brand text-3xl font-600 tracking-tight text-ink-cream sm:text-4xl">Chicken Boxes</h2>
 
         <div class="mt-7 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
           <!-- Lead with mid/high items so the eye anchors high -->
-          <article class="group relative rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5">
-            <span class="img-slot relative block aspect-[4/3] overflow-hidden rounded-2xl">
-              <img src="images/m/cb-combo.jpg" alt="Combo Box" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <article class="group relative flex flex-col overflow-hidden rounded-2xl border border-gold/20 bg-charcoal shadow-luxe transition-all hover:-translate-y-1.5 hover:border-gold/45">
+            <span class="relative block aspect-[4/3] overflow-hidden">
+              <img src="images/luxe/combo.jpg" alt="Combo Box" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <span class="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-charcoal to-transparent"></span>
             </span>
-            <h3 class="mt-3 px-1 font-display text-lg font-600 leading-tight">Combo Box</h3>
-            <p class="mt-0.5 px-1 text-[13px] leading-snug text-ink/55">Crispy chicken, fries &amp; drink</p>
-            <p class="mt-2 px-1 font-display text-lg font-700 text-chicky">149 <span class="text-xs font-500 text-ink/45">฿</span></p>
+            <div class="flex grow flex-col px-4 pb-4 pt-3">
+              <h3 class="font-brand text-lg font-600 leading-tight text-ink-cream">Combo Box</h3>
+              <p class="mt-0.5 text-[15px] leading-snug text-ink-cream/55">Crispy chicken, fries &amp; drink</p>
+              <p class="mt-auto pt-2 font-brand text-xl font-700 text-gold-light">149 <span class="font-ui text-xs font-600 text-gold/55">฿</span></p>
+            </div>
           </article>
 
-          <article class="group relative rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5">
-            <span class="absolute left-2 top-2 z-10 inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-amber-400 to-yellow-500 px-2.5 py-1 font-display text-[11px] font-700 text-ink shadow-soft">★ Popular</span>
-            <span class="img-slot relative block aspect-[4/3] overflow-hidden rounded-2xl">
-              <img src="images/m/cb-trio.jpg" alt="Trio Box" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <article class="group relative flex flex-col overflow-hidden rounded-2xl border border-gold/20 bg-charcoal shadow-luxe transition-all hover:-translate-y-1.5 hover:border-gold/45">
+            <span class="absolute left-2.5 top-2.5 z-10 inline-flex items-center gap-1 rounded-full bg-gradient-to-b from-gold-light to-gold px-2.5 py-1 font-ui text-[11px] font-700 uppercase tracking-wide text-noir shadow-luxe">★ Popular</span>
+            <span class="relative block aspect-[4/3] overflow-hidden">
+              <img src="images/luxe/box.jpg" alt="Trio Box" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <span class="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-charcoal to-transparent"></span>
             </span>
-            <h3 class="mt-3 px-1 font-display text-lg font-600 leading-tight">Trio Box</h3>
-            <p class="mt-0.5 px-1 text-[13px] leading-snug text-ink/55">Chicken bites, fries &amp; sauce</p>
-            <p class="mt-1 px-1 text-[12px] leading-snug text-ink/50">Golden, double-crunch fried chicken, still hot.</p>
-            <p class="mt-2 px-1 font-display text-lg font-700 text-chicky">129 <span class="text-xs font-500 text-ink/45">฿</span></p>
+            <div class="flex grow flex-col px-4 pb-4 pt-3">
+              <h3 class="font-brand text-lg font-600 leading-tight text-ink-cream">Trio Box</h3>
+              <p class="mt-0.5 text-[15px] leading-snug text-ink-cream/55">Chicken bites, fries &amp; sauce</p>
+              <p class="mt-1 text-[13px] leading-snug text-ink-cream/45">Golden, double-crunch fried chicken, still hot.</p>
+              <p class="mt-auto pt-2 font-brand text-xl font-700 text-gold-light">129 <span class="font-ui text-xs font-600 text-gold/55">฿</span></p>
+            </div>
           </article>
 
-          <article class="group relative rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5">
-            <span class="img-slot relative block aspect-[4/3] overflow-hidden rounded-2xl">
-              <img src="images/m/cb-family.jpg" alt="Family Box" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <article class="group relative flex flex-col overflow-hidden rounded-2xl border border-gold/20 bg-charcoal shadow-luxe transition-all hover:-translate-y-1.5 hover:border-gold/45">
+            <span class="relative block aspect-[4/3] overflow-hidden">
+              <img src="images/luxe/bucket.jpg" alt="Family Box" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <span class="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-charcoal to-transparent"></span>
             </span>
-            <h3 class="mt-3 px-1 font-display text-lg font-600 leading-tight">Family Box</h3>
-            <p class="mt-0.5 px-1 text-[13px] leading-snug text-ink/55">Large chicken, large fries, 2 sauces</p>
-            <p class="mt-2 px-1 font-display text-lg font-700 text-chicky">299 <span class="text-xs font-500 text-ink/45">฿</span></p>
+            <div class="flex grow flex-col px-4 pb-4 pt-3">
+              <h3 class="font-brand text-lg font-600 leading-tight text-ink-cream">Family Box</h3>
+              <p class="mt-0.5 text-[15px] leading-snug text-ink-cream/55">Large chicken, large fries, 2 sauces</p>
+              <p class="mt-auto pt-2 font-brand text-xl font-700 text-gold-light">299 <span class="font-ui text-xs font-600 text-gold/55">฿</span></p>
+            </div>
           </article>
 
-          <article class="group relative rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5">
-            <span class="img-slot relative block aspect-[4/3] overflow-hidden rounded-2xl">
-              <img src="images/m/cb-pop.jpg" alt="Pop Box" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <article class="group relative flex flex-col overflow-hidden rounded-2xl border border-gold/20 bg-charcoal shadow-luxe transition-all hover:-translate-y-1.5 hover:border-gold/45">
+            <span class="relative block aspect-[4/3] overflow-hidden">
+              <img src="images/luxe/popcorn.jpg" alt="Pop Box" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <span class="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-charcoal to-transparent"></span>
             </span>
-            <h3 class="mt-3 px-1 font-display text-lg font-600 leading-tight">Pop Box</h3>
-            <p class="mt-0.5 px-1 text-[13px] leading-snug text-ink/55">Crispy chicken, fries &amp; sauce</p>
-            <p class="mt-2 px-1 font-display text-lg font-700 text-chicky">119 <span class="text-xs font-500 text-ink/45">฿</span></p>
+            <div class="flex grow flex-col px-4 pb-4 pt-3">
+              <h3 class="font-brand text-lg font-600 leading-tight text-ink-cream">Pop Box</h3>
+              <p class="mt-0.5 text-[15px] leading-snug text-ink-cream/55">Crispy chicken, fries &amp; sauce</p>
+              <p class="mt-auto pt-2 font-brand text-xl font-700 text-gold-light">119 <span class="font-ui text-xs font-600 text-gold/55">฿</span></p>
+            </div>
           </article>
 
-          <article class="group relative rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5">
-            <span class="img-slot relative block aspect-[4/3] overflow-hidden rounded-2xl">
-              <img src="images/m/cb-lite.jpg" alt="Lite Box" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <article class="group relative flex flex-col overflow-hidden rounded-2xl border border-gold/20 bg-charcoal shadow-luxe transition-all hover:-translate-y-1.5 hover:border-gold/45">
+            <span class="relative block aspect-[4/3] overflow-hidden">
+              <img src="images/luxe/box.jpg" alt="Lite Box" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <span class="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-charcoal to-transparent"></span>
             </span>
-            <h3 class="mt-3 px-1 font-display text-lg font-600 leading-tight">Lite Box</h3>
-            <p class="mt-0.5 px-1 text-[13px] leading-snug text-ink/55">Crispy chicken &amp; choice of sauce</p>
-            <p class="mt-2 px-1 font-display text-lg font-700 text-chicky">89 <span class="text-xs font-500 text-ink/45">฿</span></p>
+            <div class="flex grow flex-col px-4 pb-4 pt-3">
+              <h3 class="font-brand text-lg font-600 leading-tight text-ink-cream">Lite Box</h3>
+              <p class="mt-0.5 text-[15px] leading-snug text-ink-cream/55">Crispy chicken &amp; choice of sauce</p>
+              <p class="mt-auto pt-2 font-brand text-xl font-700 text-gold-light">89 <span class="font-ui text-xs font-600 text-gold/55">฿</span></p>
+            </div>
           </article>
 
-          <article class="group relative rounded-3xl bg-white p-3 shadow-card transition-all hover:-translate-y-1.5">
-            <span class="img-slot relative block aspect-[4/3] overflow-hidden rounded-2xl">
-              <img src="images/m/cb-ultimate.jpg" alt="Ultimate Box" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <article class="group relative flex flex-col overflow-hidden rounded-2xl border border-gold/20 bg-charcoal shadow-luxe transition-all hover:-translate-y-1.5 hover:border-gold/45">
+            <span class="relative block aspect-[4/3] overflow-hidden">
+              <img src="images/luxe/bucket.jpg" alt="Ultimate Box" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <span class="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-charcoal to-transparent"></span>
             </span>
-            <h3 class="mt-3 px-1 font-display text-lg font-600 leading-tight">Ultimate Box</h3>
-            <p class="mt-0.5 px-1 text-[13px] leading-snug text-ink/55">Family set, large fries, drinks, 3 sauces</p>
-            <p class="mt-2 px-1 font-display text-lg font-700 text-chicky">359 <span class="text-xs font-500 text-ink/45">฿</span></p>
+            <div class="flex grow flex-col px-4 pb-4 pt-3">
+              <h3 class="font-brand text-lg font-600 leading-tight text-ink-cream">Ultimate Box</h3>
+              <p class="mt-0.5 text-[15px] leading-snug text-ink-cream/55">Family set, large fries, drinks, 3 sauces</p>
+              <p class="mt-auto pt-2 font-brand text-xl font-700 text-gold-light">359 <span class="font-ui text-xs font-600 text-gold/55">฿</span></p>
+            </div>
           </article>
         </div>
       </section>
 
       <!-- ===================== HOT DOGS + DRINKS ===================== -->
-      <div class="mt-14 grid gap-10 lg:grid-cols-2">
+      <div class="mt-16 grid gap-10 lg:grid-cols-2">
         <!-- Hot Dogs -->
-        <section id="hot-dogs" class="scroll-mt-32">
-          <h2 class="font-display text-3xl font-700">Hot Dogs</h2>
-          <div class="mt-1.5 h-1 w-12 rounded-full bg-chicky"></div>
-          <div class="mt-6 divide-y divide-black/5 rounded-3xl bg-white p-3 shadow-card">
+        <section id="hot-dogs" class="scroll-mt-36">
+          <div class="h-px w-16 bg-gradient-to-r from-gold to-transparent"></div>
+          <h2 class="mt-4 font-brand text-3xl font-600 tracking-tight text-ink-cream sm:text-4xl">Hot Dogs</h2>
+          <div class="mt-6 divide-y divide-gold/10 rounded-2xl border border-gold/20 bg-charcoal p-3 shadow-luxe">
             <!-- dog row template -->
             <div class="flex items-center gap-4 p-3">
-              <span class="img-slot relative grid h-20 w-24 shrink-0 place-items-center overflow-hidden rounded-2xl">
-                <img src="images/m/hd-classic.jpg" alt="Classic Dog" class="h-full w-full object-cover" />
+              <span class="relative grid h-20 w-24 shrink-0 place-items-center overflow-hidden rounded-xl ring-1 ring-gold/20">
+                <img src="images/luxe/hotdog.jpg" alt="Classic Dog" class="h-full w-full object-cover" />
               </span>
               <div class="min-w-0 flex-1">
-                <div class="flex items-center gap-2">
-                  <h3 class="font-display text-lg font-600">Classic Dog</h3>
-                  <span class="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-amber-400 to-yellow-500 px-2 py-0.5 font-display text-[10px] font-700 text-ink shadow-soft">★ Popular</span>
+                <div class="flex flex-wrap items-center gap-2">
+                  <h3 class="font-brand text-lg font-600 text-ink-cream">Classic Dog</h3>
+                  <span class="inline-flex items-center gap-1 rounded-full bg-gradient-to-b from-gold-light to-gold px-2 py-0.5 font-ui text-[10px] font-700 uppercase tracking-wide text-noir">★ Popular</span>
                 </div>
-                <p class="text-[14px] leading-snug text-ink/55">Sausage, ketchup, mustard</p>
+                <p class="text-[15px] leading-snug text-ink-cream/55">Sausage, ketchup, mustard</p>
               </div>
-              <p class="shrink-0 font-display text-lg font-700 text-chicky">90 <span class="text-xs font-500 text-ink/45">฿</span></p>
+              <p class="shrink-0 font-brand text-lg font-700 text-gold-light">90 <span class="font-ui text-xs font-600 text-gold/55">฿</span></p>
             </div>
             <div class="flex items-center gap-4 p-3">
-              <span class="img-slot relative grid h-20 w-24 shrink-0 place-items-center overflow-hidden rounded-2xl">
-                <img src="images/m/hd-cheese.jpg" alt="Cheese Dog" class="h-full w-full object-cover" />
+              <span class="relative grid h-20 w-24 shrink-0 place-items-center overflow-hidden rounded-xl ring-1 ring-gold/20">
+                <img src="images/luxe/hotdog.jpg" alt="Cheese Dog" class="h-full w-full object-cover" />
               </span>
               <div class="min-w-0 flex-1">
-                <h3 class="font-display text-lg font-600">Cheese Dog</h3>
-                <p class="text-[14px] leading-snug text-ink/55">Sausage, cheese sauce, ketchup, mustard</p>
+                <h3 class="font-brand text-lg font-600 text-ink-cream">Cheese Dog</h3>
+                <p class="text-[15px] leading-snug text-ink-cream/55">Sausage, cheese sauce, ketchup, mustard</p>
               </div>
-              <p class="shrink-0 font-display text-lg font-700 text-chicky">100 <span class="text-xs font-500 text-ink/45">฿</span></p>
+              <p class="shrink-0 font-brand text-lg font-700 text-gold-light">100 <span class="font-ui text-xs font-600 text-gold/55">฿</span></p>
             </div>
             <div class="flex items-center gap-4 p-3">
-              <span class="img-slot relative grid h-20 w-24 shrink-0 place-items-center overflow-hidden rounded-2xl">
-                <img src="images/m/hd-bacon.jpg" alt="Bacon Dog" class="h-full w-full object-cover" />
+              <span class="relative grid h-20 w-24 shrink-0 place-items-center overflow-hidden rounded-xl ring-1 ring-gold/20">
+                <img src="images/luxe/hotdog.jpg" alt="Bacon Dog" class="h-full w-full object-cover" />
               </span>
               <div class="min-w-0 flex-1">
-                <h3 class="font-display text-lg font-600">Bacon Dog</h3>
-                <p class="text-[14px] leading-snug text-ink/55">Sausage, bacon, ketchup, mustard</p>
+                <h3 class="font-brand text-lg font-600 text-ink-cream">Bacon Dog</h3>
+                <p class="text-[15px] leading-snug text-ink-cream/55">Sausage, bacon, ketchup, mustard</p>
               </div>
-              <p class="shrink-0 font-display text-lg font-700 text-chicky">130 <span class="text-xs font-500 text-ink/45">฿</span></p>
+              <p class="shrink-0 font-brand text-lg font-700 text-gold-light">130 <span class="font-ui text-xs font-600 text-gold/55">฿</span></p>
             </div>
             <div class="flex items-center gap-4 p-3">
-              <span class="img-slot relative grid h-20 w-24 shrink-0 place-items-center overflow-hidden rounded-2xl">
-                <img src="images/m/hd-chili.jpg" alt="Chili Dog" class="h-full w-full object-cover" />
+              <span class="relative grid h-20 w-24 shrink-0 place-items-center overflow-hidden rounded-xl ring-1 ring-gold/20">
+                <img src="images/luxe/hotdog.jpg" alt="Chili Dog" class="h-full w-full object-cover" />
               </span>
               <div class="min-w-0 flex-1">
-                <h3 class="font-display text-lg font-600">Chili Dog</h3>
-                <p class="text-[14px] leading-snug text-ink/55">Sausage, chili sauce, onions</p>
+                <h3 class="font-brand text-lg font-600 text-ink-cream">Chili Dog</h3>
+                <p class="text-[15px] leading-snug text-ink-cream/55">Sausage, chili sauce, onions</p>
               </div>
-              <p class="shrink-0 font-display text-lg font-700 text-chicky">190 <span class="text-xs font-500 text-ink/45">฿</span></p>
+              <p class="shrink-0 font-brand text-lg font-700 text-gold-light">190 <span class="font-ui text-xs font-600 text-gold/55">฿</span></p>
             </div>
           </div>
 
           <!-- Build Your Own Hot Dog -->
-          <a href="#order" class="group mt-5 block overflow-hidden rounded-3xl border-2 border-dashed border-chicky/30 bg-peach/40 p-4 shadow-card transition-all hover:-translate-y-1">
+          <a href="#order" class="group mt-5 block overflow-hidden rounded-2xl border border-dashed border-gold/40 bg-gold/[0.06] p-4 shadow-luxe transition-all hover:-translate-y-1 hover:border-gold/60">
             <div class="flex items-center gap-4">
-              <span class="img-slot relative grid h-20 w-24 shrink-0 place-items-center overflow-hidden rounded-2xl">
-                <img src="images/m/hd-classic.jpg" alt="Build Your Own Hot Dog" class="h-full w-full object-cover" />
+              <span class="relative grid h-20 w-24 shrink-0 place-items-center overflow-hidden rounded-xl ring-1 ring-gold/25">
+                <img src="images/luxe/hotdog.jpg" alt="Build Your Own Hot Dog" class="h-full w-full object-cover" />
               </span>
               <div class="min-w-0 flex-1">
-                <p class="font-display text-[11px] font-700 uppercase tracking-[0.16em] text-chicky">Make it yours</p>
-                <h3 class="font-display text-lg font-700 leading-tight">Build Your Own Hot Dog</h3>
-                <p class="text-[14px] leading-snug text-ink/55">Start with a sausage in a soft bun, then load it up.</p>
+                <p class="font-ui text-[11px] font-700 uppercase tracking-[0.16em] text-gold-light">Make it yours</p>
+                <h3 class="font-brand text-lg font-700 leading-tight text-ink-cream">Build Your Own Hot Dog</h3>
+                <p class="text-[15px] leading-snug text-ink-cream/55">Start with a sausage in a soft bun, then load it up.</p>
               </div>
-              <p class="shrink-0 font-display text-lg font-700 text-chicky">from 99 <span class="text-xs font-500 text-ink/45">฿</span></p>
+              <p class="shrink-0 font-brand text-lg font-700 text-gold-light">from 99 <span class="font-ui text-xs font-600 text-gold/55">฿</span></p>
             </div>
-            <div class="mt-3 flex flex-wrap gap-2 font-display text-[12px] font-500">
-              <span class="rounded-full bg-white px-3 py-1 shadow-soft">Cheese +20 ฿</span>
-              <span class="rounded-full bg-white px-3 py-1 shadow-soft">Bacon +25 ฿</span>
-              <span class="rounded-full bg-white px-3 py-1 shadow-soft">Chili +30 ฿</span>
-              <span class="rounded-full bg-white px-3 py-1 shadow-soft">Onions +15 ฿</span>
-              <span class="rounded-full bg-white px-3 py-1 shadow-soft">Jalapeños +15 ฿</span>
-              <span class="rounded-full bg-white px-3 py-1 shadow-soft">Crispy onions +15 ฿</span>
-              <span class="rounded-full bg-white px-3 py-1 shadow-soft">Double sausage +45 ฿</span>
-              <span class="rounded-full bg-white px-3 py-1 shadow-soft">Extra sauce +10 ฿</span>
+            <div class="mt-3 flex flex-wrap gap-2 font-ui text-[12px] font-600">
+              <span class="rounded-full border border-gold/25 bg-noir px-3 py-1 text-ink-cream/80">Cheese +20 ฿</span>
+              <span class="rounded-full border border-gold/25 bg-noir px-3 py-1 text-ink-cream/80">Bacon +25 ฿</span>
+              <span class="rounded-full border border-gold/25 bg-noir px-3 py-1 text-ink-cream/80">Chili +30 ฿</span>
+              <span class="rounded-full border border-gold/25 bg-noir px-3 py-1 text-ink-cream/80">Onions +15 ฿</span>
+              <span class="rounded-full border border-gold/25 bg-noir px-3 py-1 text-ink-cream/80">Jalapeños +15 ฿</span>
+              <span class="rounded-full border border-gold/25 bg-noir px-3 py-1 text-ink-cream/80">Crispy onions +15 ฿</span>
+              <span class="rounded-full border border-gold/25 bg-noir px-3 py-1 text-ink-cream/80">Double sausage +45 ฿</span>
+              <span class="rounded-full border border-gold/25 bg-noir px-3 py-1 text-ink-cream/80">Extra sauce +10 ฿</span>
             </div>
           </a>
         </section>
 
         <!-- Drinks -->
         <div class="space-y-10">
-          <section id="drinks" class="scroll-mt-32">
-            <h2 class="font-display text-3xl font-700">Drinks</h2>
-            <div class="mt-1.5 h-1 w-12 rounded-full bg-chicky"></div>
+          <section id="drinks" class="scroll-mt-36">
+            <div class="h-px w-16 bg-gradient-to-r from-gold to-transparent"></div>
+            <h2 class="mt-4 font-brand text-3xl font-600 tracking-tight text-ink-cream sm:text-4xl">Drinks</h2>
             <div class="mt-6 grid grid-cols-3 gap-4">
-              <article class="rounded-3xl bg-white p-3 text-center shadow-card transition-all hover:-translate-y-1.5">
-                <span class="relative block aspect-[3/4] overflow-hidden rounded-2xl bg-gradient-to-b from-peach/35 to-cream">
-                  <img src="images/m/dr-water.jpg" alt="Water" class="h-full w-full object-contain p-3" />
+              <article class="overflow-hidden rounded-2xl border border-gold/20 bg-charcoal p-3 text-center shadow-luxe transition-all hover:-translate-y-1.5 hover:border-gold/45">
+                <span class="relative block aspect-[3/4] overflow-hidden rounded-xl bg-noir ring-1 ring-gold/15">
+                  <img src="images/luxe/drink.jpg" alt="Water" class="h-full w-full object-cover" />
                 </span>
-                <h3 class="mt-3 font-display text-base font-600">Water</h3>
-                <p class="font-display text-base font-700 text-chicky">20 <span class="text-xs font-500 text-ink/45">฿</span></p>
+                <h3 class="mt-3 font-brand text-base font-600 text-ink-cream">Water</h3>
+                <p class="font-brand text-base font-700 text-gold-light">20 <span class="font-ui text-xs font-600 text-gold/55">฿</span></p>
               </article>
-              <article class="rounded-3xl bg-white p-3 text-center shadow-card transition-all hover:-translate-y-1.5">
-                <span class="relative block aspect-[3/4] overflow-hidden rounded-2xl bg-gradient-to-b from-peach/35 to-cream">
-                  <img src="images/m/dr-coke.jpg" alt="Soda" class="h-full w-full object-contain p-2.5" />
+              <article class="overflow-hidden rounded-2xl border border-gold/20 bg-charcoal p-3 text-center shadow-luxe transition-all hover:-translate-y-1.5 hover:border-gold/45">
+                <span class="relative block aspect-[3/4] overflow-hidden rounded-xl bg-noir ring-1 ring-gold/15">
+                  <img src="images/luxe/drink.jpg" alt="Soda" class="h-full w-full object-cover" />
                 </span>
-                <h3 class="mt-3 font-display text-base font-600">Soda</h3>
-                <p class="font-display text-base font-700 text-chicky">30 <span class="text-xs font-500 text-ink/45">฿</span></p>
+                <h3 class="mt-3 font-brand text-base font-600 text-ink-cream">Soda</h3>
+                <p class="font-brand text-base font-700 text-gold-light">30 <span class="font-ui text-xs font-600 text-gold/55">฿</span></p>
               </article>
-              <article class="rounded-3xl bg-white p-3 text-center shadow-card transition-all hover:-translate-y-1.5">
-                <span class="relative block aspect-[3/4] overflow-hidden rounded-2xl bg-gradient-to-b from-peach/35 to-cream">
-                  <img src="images/m/dr-sprite.jpg" alt="Juice" class="h-full w-full object-contain p-3" />
+              <article class="overflow-hidden rounded-2xl border border-gold/20 bg-charcoal p-3 text-center shadow-luxe transition-all hover:-translate-y-1.5 hover:border-gold/45">
+                <span class="relative block aspect-[3/4] overflow-hidden rounded-xl bg-noir ring-1 ring-gold/15">
+                  <img src="images/luxe/drink.jpg" alt="Juice" class="h-full w-full object-cover" />
                 </span>
-                <h3 class="mt-3 font-display text-base font-600">Juice</h3>
-                <p class="font-display text-base font-700 text-chicky">45 <span class="text-xs font-500 text-ink/45">฿</span></p>
+                <h3 class="mt-3 font-brand text-base font-600 text-ink-cream">Juice</h3>
+                <p class="font-brand text-base font-700 text-gold-light">45 <span class="font-ui text-xs font-600 text-gold/55">฿</span></p>
               </article>
             </div>
           </section>
         </div>
       </div>
 
-      <!-- ===================== SAUCES + CHICKY STORY ===================== -->
-      <div class="mt-14 grid gap-10 lg:grid-cols-2">
+      <!-- ===================== SAUCES + STORY ===================== -->
+      <div class="mt-16 grid gap-10 lg:grid-cols-2">
         <!-- Sauces -->
-        <section id="sauces" class="scroll-mt-32">
-          <h2 class="font-display text-3xl font-700">Sauces</h2>
-          <div class="mt-1.5 h-1 w-12 rounded-full bg-chicky"></div>
-          <div class="mt-6 grid grid-cols-3 gap-4 rounded-3xl bg-white p-5 shadow-card sm:grid-cols-6 lg:grid-cols-3 xl:grid-cols-6">
-            <div class="text-center">
-              <span class="img-slot relative mx-auto block aspect-square w-16 overflow-hidden rounded-full"><img src="images/m/sc-cheddar.jpg" alt="Cheddar Cheese" class="h-full w-full object-cover" /></span>
-              <p class="mt-2 font-display text-[13px] font-600 leading-tight">Cheddar Cheese</p>
-              <p class="font-display text-sm font-700 text-chicky">+20 <span class="text-[10px] font-500 text-ink/45">฿</span></p>
-            </div>
-            <div class="text-center">
-              <span class="img-slot relative mx-auto block aspect-square w-16 overflow-hidden rounded-full"><img src="images/m/sc-mayo.jpg" alt="White Mayo" class="h-full w-full object-cover" /></span>
-              <p class="mt-2 font-display text-[13px] font-600 leading-tight">White Mayo</p>
-              <p class="font-display text-sm font-700 text-chicky">+15 <span class="text-[10px] font-500 text-ink/45">฿</span></p>
-            </div>
-            <div class="text-center">
-              <span class="img-slot relative mx-auto block aspect-square w-16 overflow-hidden rounded-full"><img src="images/m/sc-bbq.jpg" alt="BBQ Sauce" class="h-full w-full object-cover" /></span>
-              <p class="mt-2 font-display text-[13px] font-600 leading-tight">BBQ Sauce</p>
-              <p class="font-display text-sm font-700 text-chicky">+10 <span class="text-[10px] font-500 text-ink/45">฿</span></p>
-            </div>
-            <div class="text-center">
-              <span class="img-slot relative mx-auto block aspect-square w-16 overflow-hidden rounded-full"><img src="images/m/sc-pepper.jpg" alt="Black Pepper" class="h-full w-full object-cover" /></span>
-              <p class="mt-2 font-display text-[13px] font-600 leading-tight">Black Pepper</p>
-              <p class="font-display text-sm font-700 text-chicky">+10 <span class="text-[10px] font-500 text-ink/45">฿</span></p>
-            </div>
-            <div class="text-center">
-              <span class="img-slot relative mx-auto block aspect-square w-16 overflow-hidden rounded-full"><img src="images/m/sc-spicy.jpg" alt="Spicy Sauce" class="h-full w-full object-cover" /></span>
-              <p class="mt-2 font-display text-[13px] font-600 leading-tight">Spicy Sauce</p>
-              <p class="font-display text-sm font-700 text-chicky">+10 <span class="text-[10px] font-500 text-ink/45">฿</span></p>
-            </div>
-            <div class="text-center">
-              <span class="img-slot relative mx-auto block aspect-square w-16 overflow-hidden rounded-full"><img src="images/m/sc-mayo.jpg" alt="Tartar Sauce" class="h-full w-full object-cover" /></span>
-              <p class="mt-2 font-display text-[13px] font-600 leading-tight">Tartar Sauce</p>
-              <p class="font-display text-sm font-700 text-chicky">+10 <span class="text-[10px] font-500 text-ink/45">฿</span></p>
-            </div>
-            <div class="text-center">
-              <span class="img-slot relative mx-auto block aspect-square w-16 overflow-hidden rounded-full"><img src="images/m/sc-signature.jpg" alt="Signature Sauce" class="h-full w-full object-cover" /></span>
-              <p class="mt-2 font-display text-[13px] font-600 leading-tight">Signature Sauce</p>
-              <p class="font-display text-sm font-700 text-chicky">+15 <span class="text-[10px] font-500 text-ink/45">฿</span></p>
-            </div>
+        <section id="sauces" class="scroll-mt-36">
+          <div class="h-px w-16 bg-gradient-to-r from-gold to-transparent"></div>
+          <h2 class="mt-4 font-brand text-3xl font-600 tracking-tight text-ink-cream sm:text-4xl">Sauces</h2>
+          <div class="mt-6 overflow-hidden rounded-2xl border border-gold/20 bg-charcoal shadow-luxe">
+            <span class="relative block aspect-[16/6] overflow-hidden">
+              <img src="images/luxe/sauces.jpg" alt="Fendi's house-made sauces" class="h-full w-full object-cover" />
+              <span class="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/10 to-transparent"></span>
+              <span class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-gold/15"></span>
+            </span>
+            <ul class="divide-y divide-gold/10 px-5 py-2">
+              <li class="flex items-center justify-between gap-3 py-2.5">
+                <span class="font-brand text-[17px] font-600 text-ink-cream">Cheddar Cheese</span>
+                <span class="font-brand text-base font-700 text-gold-light">+20 <span class="font-ui text-[10px] font-600 text-gold/55">฿</span></span>
+              </li>
+              <li class="flex items-center justify-between gap-3 py-2.5">
+                <span class="font-brand text-[17px] font-600 text-ink-cream">White Mayo</span>
+                <span class="font-brand text-base font-700 text-gold-light">+15 <span class="font-ui text-[10px] font-600 text-gold/55">฿</span></span>
+              </li>
+              <li class="flex items-center justify-between gap-3 py-2.5">
+                <span class="font-brand text-[17px] font-600 text-ink-cream">BBQ Sauce</span>
+                <span class="font-brand text-base font-700 text-gold-light">+10 <span class="font-ui text-[10px] font-600 text-gold/55">฿</span></span>
+              </li>
+              <li class="flex items-center justify-between gap-3 py-2.5">
+                <span class="font-brand text-[17px] font-600 text-ink-cream">Black Pepper</span>
+                <span class="font-brand text-base font-700 text-gold-light">+10 <span class="font-ui text-[10px] font-600 text-gold/55">฿</span></span>
+              </li>
+              <li class="flex items-center justify-between gap-3 py-2.5">
+                <span class="font-brand text-[17px] font-600 text-ink-cream">Spicy Sauce</span>
+                <span class="font-brand text-base font-700 text-gold-light">+10 <span class="font-ui text-[10px] font-600 text-gold/55">฿</span></span>
+              </li>
+              <li class="flex items-center justify-between gap-3 py-2.5">
+                <span class="font-brand text-[17px] font-600 text-ink-cream">Tartar Sauce</span>
+                <span class="font-brand text-base font-700 text-gold-light">+10 <span class="font-ui text-[10px] font-600 text-gold/55">฿</span></span>
+              </li>
+              <li class="flex items-center justify-between gap-3 py-2.5">
+                <span class="font-brand text-[17px] font-600 text-ink-cream">Signature Sauce</span>
+                <span class="font-brand text-base font-700 text-gold-light">+15 <span class="font-ui text-[10px] font-600 text-gold/55">฿</span></span>
+              </li>
+            </ul>
           </div>
         </section>
 
-        <!-- Chicky Story -->
+        <!-- Story -->
         <section>
-          <h2 class="flex items-center gap-2 font-display text-3xl font-700"><span class="text-chicky">❤</span> Our Story</h2>
-          <div class="mt-1.5 h-1 w-12 rounded-full bg-chicky"></div>
-          <div class="mt-6 grid grid-cols-2 gap-5 rounded-3xl border border-chicky/15 bg-white p-6 shadow-card sm:grid-cols-4">
+          <div class="h-px w-16 bg-gradient-to-r from-gold to-transparent"></div>
+          <h2 class="mt-4 flex items-center gap-2 font-brand text-3xl font-600 tracking-tight text-ink-cream sm:text-4xl"><span class="text-gold">♥</span> Our Story</h2>
+          <div class="mt-6 grid grid-cols-2 gap-5 rounded-2xl border border-gold/20 bg-charcoal p-6 shadow-luxe sm:grid-cols-4">
             <div class="text-center">
-              <div class="mx-auto grid h-12 w-12 place-items-center rounded-full bg-peach text-chicky">
+              <div class="mx-auto grid h-12 w-12 place-items-center rounded-full border border-gold/30 bg-noir text-gold-light">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.5 3.5a4.5 4.5 0 0 0-4.4 5.6c.3 1.2-.1 2.4-1 3.3l-.2.2a2.6 2.6 0 1 0 3.7 3.7l.2-.2c.9-.9 2.1-1.3 3.3-1a4.5 4.5 0 1 0-1.6-11.6Z"/><path d="m9.2 14.8-5 5"/><path d="m6 17 1.8 1.8"/></svg>
               </div>
-              <p class="mt-2 font-display text-sm font-700 uppercase tracking-wide">Fresh Chicken</p>
-              <p class="mt-1 text-xs leading-snug text-ink/55">Carefully selected quality chicken.</p>
+              <p class="mt-2 font-ui text-sm font-700 uppercase tracking-wide text-gold-light">Fresh Chicken</p>
+              <p class="mt-1 text-[13px] leading-snug text-ink-cream/55">Carefully selected quality chicken.</p>
             </div>
             <div class="text-center">
-              <div class="mx-auto grid h-12 w-12 place-items-center rounded-full bg-peach text-chicky">
+              <div class="mx-auto grid h-12 w-12 place-items-center rounded-full border border-gold/30 bg-noir text-gold-light">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 5 6v5c0 4 2.9 7.4 7 8.5 4.1-1.1 7-4.5 7-8.5V6Z"/><path d="m9 12 2 2 4-4"/></svg>
               </div>
-              <p class="mt-2 font-display text-sm font-700 uppercase tracking-wide">Quality Controlled</p>
-              <p class="mt-1 text-xs leading-snug text-ink/55">GMP, HACCP &amp; Halal certified facilities.</p>
+              <p class="mt-2 font-ui text-sm font-700 uppercase tracking-wide text-gold-light">Quality Controlled</p>
+              <p class="mt-1 text-[13px] leading-snug text-ink-cream/55">GMP, HACCP &amp; Halal certified facilities.</p>
             </div>
             <div class="text-center">
-              <div class="mx-auto grid h-12 w-12 place-items-center rounded-full bg-peach text-chicky">
+              <div class="mx-auto grid h-12 w-12 place-items-center rounded-full border border-gold/30 bg-noir text-gold-light">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22c4-1.5 6-4.8 6-8.5 0-3-1.8-5.2-3-6.5-.4 1.6-1.4 2.6-2.6 3.2C13 7.4 12.6 5 11 3c-.2 2.2-1.4 3.6-2.8 4.8C6.8 9 6 10.9 6 13.5 6 17.2 8 20.5 12 22Z"/><path d="M12 22c1.9-.7 3-2.3 3-4.2 0-1.7-1-3-2-3.8-.3 1-1 1.7-1.8 2.1.1-1.1-.4-2.3-1.2-3.1-.4 1.6-1.5 2.4-2 3.6-.2.5-.3 1-.3 1.4C6.7 19.7 9 21.3 12 22Z"/></svg>
               </div>
-              <p class="mt-2 font-display text-sm font-700 uppercase tracking-wide">Cooked Fresh</p>
-              <p class="mt-1 text-xs leading-snug text-ink/55">Every order cooked fresh and served hot.</p>
+              <p class="mt-2 font-ui text-sm font-700 uppercase tracking-wide text-gold-light">Cooked Fresh</p>
+              <p class="mt-1 text-[13px] leading-snug text-ink-cream/55">Every order cooked fresh and served hot.</p>
             </div>
             <div class="text-center">
-              <div class="mx-auto grid h-12 w-12 place-items-center rounded-full bg-peach text-chicky">
+              <div class="mx-auto grid h-12 w-12 place-items-center rounded-full border border-gold/30 bg-noir text-gold-light">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.5 4.5 13a4.7 4.7 0 0 1 0-6.6 4.6 4.6 0 0 1 6.5 0l1 1 1-1a4.6 4.6 0 0 1 6.5 0 4.7 4.7 0 0 1 0 6.6Z"/></svg>
               </div>
-              <p class="mt-2 font-display text-sm font-700 uppercase tracking-wide">Since 2006</p>
-              <p class="mt-1 text-xs leading-snug text-ink/55">Proudly serving Thailand with love.</p>
+              <p class="mt-2 font-ui text-sm font-700 uppercase tracking-wide text-gold-light">Since 2006</p>
+              <p class="mt-1 text-[13px] leading-snug text-ink-cream/55">Proudly serving Thailand with love.</p>
             </div>
           </div>
         </section>
       </div>
 
       <!-- Breakfast promo -->
-      <a href="breakfast.html" class="group mt-14 flex flex-col items-center justify-between gap-4 overflow-hidden rounded-3xl bg-chicky p-6 text-white shadow-card transition-all hover:-translate-y-1 sm:flex-row sm:p-8">
-        <div class="flex items-center gap-4">
-          <span class="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-white/15 text-3xl">🍳</span>
+      <a href="breakfast.html" class="group relative mt-16 flex flex-col items-center justify-between gap-4 overflow-hidden rounded-2xl border border-gold/25 bg-charcoal p-6 shadow-luxe transition-all hover:-translate-y-1 hover:border-gold/45 sm:flex-row sm:p-8">
+        <span class="ffh-texture pointer-events-none absolute inset-0 opacity-[0.08]"></span>
+        <div class="relative flex items-center gap-5">
+          <span class="grid h-16 w-16 shrink-0 place-items-center overflow-hidden rounded-2xl ring-1 ring-gold/30">
+            <img src="images/luxe/breakfast.jpg" alt="Breakfast sandwich" class="h-full w-full object-cover" />
+          </span>
           <div>
-            <p class="font-display text-xs font-700 uppercase tracking-[0.16em] text-white/70">New</p>
-            <h3 class="font-display text-2xl font-700">Build Your Own Breakfast Sandwich</h3>
-            <p class="text-white/80">Pick your base, add your meat, choose your cheese — from 159 ฿.</p>
+            <p class="font-ui text-xs font-700 uppercase tracking-[0.16em] text-gold-light">New</p>
+            <h3 class="font-brand text-2xl font-700 text-ink-cream">Build Your Own Breakfast Sandwich</h3>
+            <p class="text-base text-ink-cream/65">Pick your base, add your meat, choose your cheese — from 159 ฿.</p>
           </div>
         </div>
-        <span class="inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-6 py-3 font-display font-500 text-chicky transition-all group-hover:gap-3">Start Building <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        <span class="relative inline-flex shrink-0 items-center gap-2 rounded-full bg-gradient-to-b from-gold-light to-gold px-6 py-3 font-ui text-sm font-700 uppercase tracking-[0.06em] text-noir transition-all group-hover:gap-3">Start Building <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
     </div>
 
     <!-- Sticky mobile order bar -->
-    <div class="fixed inset-x-0 bottom-0 z-50 border-t border-black/10 bg-cream/95 px-4 py-3 backdrop-blur-md shadow-[0_-8px_24px_-12px_rgba(34,19,12,0.25)] sm:hidden">
-      <a href="#contact" class="flex items-center justify-center gap-2 rounded-full bg-chicky px-6 py-3 font-display font-600 text-white shadow-soft transition-all active:translate-y-0.5">
+    <div class="fixed inset-x-0 bottom-0 z-50 border-t border-gold/25 bg-noir/95 px-4 py-3 backdrop-blur-md shadow-[0_-8px_24px_-12px_rgba(0,0,0,0.7)] sm:hidden">
+      <a href="#contact" class="flex items-center justify-center gap-2 rounded-full bg-gradient-to-b from-gold-light to-gold px-6 py-3 font-ui text-sm font-700 uppercase tracking-[0.06em] text-noir shadow-luxe transition-all active:translate-y-0.5">
         <span>🧾</span> Order at the counter
       </a>
     </div>
   </main>
 
-  <!-- ===================== FOOTER (Chicky red) ===================== -->
-  <footer id="contact" class="bg-chicky text-white">
-    <div class="mx-auto grid max-w-7xl gap-8 px-5 sm:px-8 py-12 md:grid-cols-3 md:items-center">
-      <div class="flex items-center gap-3">
-        <span class="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-white/15 text-center font-display text-[11px] font-600 leading-tight">24<br/>HOURS</span>
-        <div>
-          <p class="font-display text-lg font-600">Open 24 Hours</p>
-          <p class="text-sm text-white/80">Every day in Pattaya. All dogs, all people, one love.</p>
-        </div>
-      </div>
+  <!-- ===================== FOOTER ===================== -->
+  <footer id="contact" class="relative overflow-hidden border-t border-gold/25 bg-noir text-ink-cream">
+    <div class="ffh-texture pointer-events-none absolute inset-0 opacity-[0.10]"></div>
+    <div class="relative mx-auto max-w-7xl px-5 py-16 sm:px-8">
+      <div class="flex flex-col items-center gap-6 text-center">
+        <a href="index.html" class="flex items-center gap-3">
+          <span class="relative grid h-12 w-12 place-items-center overflow-hidden rounded-full bg-noir ring-1 ring-gold/50">
+            <img src="images/luxe/mascot.jpg" alt="Fendi logo" class="h-full w-full object-cover object-center" />
+          </span>
+          <span class="text-left leading-none">
+            <span class="block whitespace-nowrap font-brand text-2xl font-600 tracking-tight text-gold-light">Fendi's Food Hut</span>
+            <span class="mt-1 block font-ui text-[9px] font-600 uppercase tracking-[0.22em] text-gold/60">Hotdogs &amp; Fried Chicken</span>
+          </span>
+        </a>
 
-      <div class="flex items-center gap-3">
-        <span class="text-2xl">📍</span>
-        <div>
-          <p class="font-display text-lg font-600">Pattaya, Thailand</p>
-          <p class="text-sm text-white/80">Find us at the Fendi's Food Hut booth — open 24/7!</p>
-        </div>
-      </div>
+        <div class="gold-rule w-full max-w-sm"></div>
 
-      <div class="md:text-right">
-        <p class="font-display text-base font-600">Love our food? Follow Fendi!</p>
-        <div class="mt-3 flex gap-3 md:justify-end">
-          <a href="https://instagram.com/fendi.the.frechie" target="_blank" rel="noopener" aria-label="Instagram" class="grid h-11 w-11 place-items-center rounded-full bg-white/15 transition-all hover:-translate-y-1 hover:bg-white hover:text-chicky">
+        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 font-ui text-sm font-600 text-ink-cream/80">
+          <span>🕐 24 Hours</span><span class="text-gold/40">·</span>
+          <span>📍 Pattaya · Thailand</span><span class="text-gold/40">·</span>
+          <span>🐾 All Dogs, All People, One Love</span>
+        </p>
+
+        <div class="flex items-center gap-3">
+          <a href="https://instagram.com/fendi.the.frechie" target="_blank" rel="noopener" aria-label="Instagram" class="grid h-11 w-11 place-items-center rounded-full border border-gold/30 bg-charcoal text-gold-light transition-all hover:-translate-y-1 hover:bg-gold hover:text-noir">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg>
           </a>
-          <a href="https://tiktok.com/@fendi.the.frechie" target="_blank" rel="noopener" aria-label="TikTok" class="grid h-11 w-11 place-items-center rounded-full bg-white/15 transition-all hover:-translate-y-1 hover:bg-white hover:text-chicky">
+          <a href="https://tiktok.com/@fendi.the.frechie" target="_blank" rel="noopener" aria-label="TikTok" class="grid h-11 w-11 place-items-center rounded-full border border-gold/30 bg-charcoal text-gold-light transition-all hover:-translate-y-1 hover:bg-gold hover:text-noir">
             <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 2c.3 2.4 1.7 4.1 4 4.4v2.7c-1.4.1-2.7-.3-4-1v6.3c0 3.4-2.6 5.9-5.9 5.9A5.7 5.7 0 0 1 5 14.6c.2-3 2.6-5.2 5.9-5v2.9c-.4-.1-.9-.2-1.3-.2-1.5 0-2.6 1.2-2.6 2.6 0 1.5 1.2 2.6 2.7 2.6 1.5 0 2.7-1.1 2.7-2.7V2h2.1z"/></svg>
           </a>
-          <a href="https://youtube.com/@fendi.the.frechie" target="_blank" rel="noopener" aria-label="YouTube" class="grid h-11 w-11 place-items-center rounded-full bg-white/15 transition-all hover:-translate-y-1 hover:bg-white hover:text-chicky">
+          <a href="https://youtube.com/@fendi.the.frechie" target="_blank" rel="noopener" aria-label="YouTube" class="grid h-11 w-11 place-items-center rounded-full border border-gold/30 bg-charcoal text-gold-light transition-all hover:-translate-y-1 hover:bg-gold hover:text-noir">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.1 5 12 5 12 5s-6.1 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.9 19 12 19 12 19s6.1 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3-5.2 3z"/></svg>
           </a>
+          <a href="https://facebook.com/fendi.the.frechie" target="_blank" rel="noopener" aria-label="Facebook" class="grid h-11 w-11 place-items-center rounded-full border border-gold/30 bg-charcoal text-gold-light transition-all hover:-translate-y-1 hover:bg-gold hover:text-noir">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg>
+          </a>
         </div>
+
+        <nav class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 font-ui text-sm font-600 text-ink-cream/70">
+          <a href="index.html" class="transition-colors hover:text-gold-light">Home</a>
+          <a href="menu.html" class="transition-colors hover:text-gold-light">Menu</a>
+          <a href="index.html#food-booth" class="transition-colors hover:text-gold-light">Food Booth</a>
+          <a href="breakfast.html" class="transition-colors hover:text-gold-light">Breakfast</a>
+        </nav>
+
+        <p class="text-sm text-ink-cream/55">© 2026 Fendi's Food Hut · Fendi. All rights reserved.</p>
       </div>
-    </div>
-    <div class="border-t border-white/15">
-      <p class="mx-auto max-w-7xl px-5 sm:px-8 py-5 text-center text-sm text-white/70">© 2026 Fendi's Food Hut · Fendi. All rights reserved.</p>
     </div>
   </footer>
 
