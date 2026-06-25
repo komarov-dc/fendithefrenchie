@@ -164,7 +164,37 @@
       "Build your own": "Собери свой", "Your sandwich, your rules. Start from 159 ฿.": "Твой сэндвич, твои правила. От 159 ฿.",
       "Prices are placeholders — final pricing to be confirmed.": "Цены предварительные — финальные уточняются.",
       "The Original": "Оригинал", "The New York": "Нью-Йорк", "The Nashville": "Нашвилл",
-      "The Texan": "Техасский", "The Heavyweight": "Тяжеловес"
+      "The Texan": "Техасский", "The Heavyweight": "Тяжеловес",
+      // ---- Online ordering: cart + checkout ----
+      "Add": "Добавить", "+ Add": "+ Добавить",
+      "Cart": "Корзина", "Your order": "Ваш заказ", "Your Order": "Ваш заказ",
+      "Your cart is empty": "Корзина пуста",
+      "Add a few favorites to get started.": "Добавьте пару любимых блюд, чтобы начать.",
+      "Browse the menu": "Открыть меню",
+      "Remove": "Удалить", "Subtotal": "Промежуточный итог", "each": "за шт.",
+      "Total": "Итого", "items": "товаров", "item": "товар",
+      "Checkout": "Оформить заказ", "Back to menu": "Назад в меню", "Back to cart": "Назад в корзину",
+      "Checkout details": "Данные для заказа",
+      "Pay at the booth on pickup — no online payment.": "Оплата в будке при получении — без онлайн-оплаты.",
+      "Your name": "Ваше имя", "Phone number": "Номер телефона",
+      "e.g. Robert": "Например, Роберт", "e.g. 08x xxx xxxx": "Например, 08x xxx xxxx",
+      "Pickup": "Получение", "ASAP": "Как можно скорее", "Pick a time": "Выбрать время",
+      "Notes (optional)": "Комментарий (необязательно)",
+      "Anything we should know? Allergies, no onions…": "Что-то важное? Аллергия, без лука…",
+      "Place Order": "Оформить заказ", "Placing your order…": "Оформляем заказ…",
+      "Please enter your name.": "Пожалуйста, укажите имя.",
+      "Please enter your phone number.": "Пожалуйста, укажите номер телефона.",
+      "Please choose a pickup time.": "Пожалуйста, выберите время получения.",
+      "Order placed!": "Заказ оформлен!",
+      "Show this at the booth and pay on pickup.": "Покажите это в будке и оплатите при получении.",
+      "Your order reference": "Номер вашего заказа",
+      "Start a new order": "Сделать новый заказ",
+      "Couldn't reach the booth right now — please order at the counter.": "Не удалось связаться с будкой — пожалуйста, закажите на кассе.",
+      "Online ordering launches soon — show your order at the counter!": "Онлайн-заказы скоро — покажите свой заказ на кассе!",
+      "Try again": "Попробовать снова",
+      "Add some items to your order first.": "Сначала добавьте что-нибудь в заказ.",
+      "Added to cart": "Добавлено в корзину",
+      "required": "обязательно"
     },
 
     th: {
@@ -323,7 +353,37 @@
       "Build your own": "สร้างของคุณเอง", "Your sandwich, your rules. Start from 159 ฿.": "แซนด์วิชของคุณ กฎของคุณ เริ่มต้น 159 บาท",
       "Prices are placeholders — final pricing to be confirmed.": "ราคานี้เป็นราคาชั่วคราว — รอยืนยันราคาสุดท้าย",
       "The Original": "ดิ ออริจินอล", "The New York": "ดิ นิวยอร์ก", "The Nashville": "ดิ แนชวิลล์",
-      "The Texan": "ดิ เท็กซัน", "The Heavyweight": "ดิ เฮฟวี่เวท"
+      "The Texan": "ดิ เท็กซัน", "The Heavyweight": "ดิ เฮฟวี่เวท",
+      // ---- Online ordering: cart + checkout ----
+      "Add": "เพิ่ม", "+ Add": "+ เพิ่ม",
+      "Cart": "ตะกร้า", "Your order": "ออเดอร์ของคุณ", "Your Order": "ออเดอร์ของคุณ",
+      "Your cart is empty": "ตะกร้าของคุณว่างเปล่า",
+      "Add a few favorites to get started.": "เพิ่มเมนูโปรดสักสองสามอย่างเพื่อเริ่มต้น",
+      "Browse the menu": "ดูเมนู",
+      "Remove": "ลบ", "Subtotal": "ยอดรวมย่อย", "each": "ต่อชิ้น",
+      "Total": "รวม", "items": "รายการ", "item": "รายการ",
+      "Checkout": "สั่งซื้อ", "Back to menu": "กลับไปที่เมนู", "Back to cart": "กลับไปที่ตะกร้า",
+      "Checkout details": "รายละเอียดการสั่งซื้อ",
+      "Pay at the booth on pickup — no online payment.": "ชำระเงินที่ร้านตอนรับของ — ไม่มีการชำระออนไลน์",
+      "Your name": "ชื่อของคุณ", "Phone number": "เบอร์โทรศัพท์",
+      "e.g. Robert": "เช่น โรเบิร์ต", "e.g. 08x xxx xxxx": "เช่น 08x xxx xxxx",
+      "Pickup": "รับของ", "ASAP": "เร็วที่สุด", "Pick a time": "เลือกเวลา",
+      "Notes (optional)": "หมายเหตุ (ไม่บังคับ)",
+      "Anything we should know? Allergies, no onions…": "มีอะไรที่เราควรรู้ไหม? แพ้อาหาร ไม่ใส่หอม…",
+      "Place Order": "ยืนยันสั่งซื้อ", "Placing your order…": "กำลังส่งออเดอร์…",
+      "Please enter your name.": "กรุณากรอกชื่อของคุณ",
+      "Please enter your phone number.": "กรุณากรอกเบอร์โทรศัพท์",
+      "Please choose a pickup time.": "กรุณาเลือกเวลารับของ",
+      "Order placed!": "สั่งซื้อสำเร็จ!",
+      "Show this at the booth and pay on pickup.": "แสดงรหัสนี้ที่ร้านและชำระเงินตอนรับของ",
+      "Your order reference": "รหัสออเดอร์ของคุณ",
+      "Start a new order": "เริ่มออเดอร์ใหม่",
+      "Couldn't reach the booth right now — please order at the counter.": "ตอนนี้ติดต่อร้านไม่ได้ — กรุณาสั่งที่เคาน์เตอร์",
+      "Online ordering launches soon — show your order at the counter!": "สั่งออนไลน์เร็วๆ นี้ — แสดงคำสั่งซื้อของคุณที่เคาน์เตอร์!",
+      "Try again": "ลองอีกครั้ง",
+      "Add some items to your order first.": "กรุณาเพิ่มรายการลงในออเดอร์ก่อน",
+      "Added to cart": "เพิ่มลงตะกร้าแล้ว",
+      "required": "จำเป็น"
     }
   };
 
@@ -351,6 +411,8 @@
     while ((n = walker.nextNode())) nodes.push({ node: n, en: n.nodeValue });
   }
 
+  var CURRENT = "en";
+
   function apply(lang) {
     if (!SUPPORTED[lang]) lang = "en";
     if (!nodes) collect();
@@ -363,12 +425,25 @@
         it.node.nodeValue = it.en;
       }
     }
+    CURRENT = lang;
     document.documentElement.lang = lang;
     try { localStorage.setItem("lang", lang); } catch (e) {}
     var sel = document.getElementById("langSel");
     if (sel) sel.value = lang;
+    // Notify dynamic UI (e.g. the cart drawer) so it can re-render its own strings.
+    try { window.dispatchEvent(new CustomEvent("langchange", { detail: { lang: lang } })); } catch (e) {}
   }
   window.setLang = apply;
+
+  // Public translation helper for dynamically-built UI (text nodes the TreeWalker
+  // never sees). Falls back to the English key when no translation exists.
+  window.t = function (key, lang) {
+    var L = lang || CURRENT;
+    if (L === "en") return key;
+    var d = DICT[L] || {};
+    return d.hasOwnProperty(key) && d[key] !== "" ? d[key] : key;
+  };
+  window.currentLang = function () { return CURRENT; };
 
   function ready() {
     collect();
